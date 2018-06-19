@@ -1,0 +1,5 @@
+需要修改点：
+1.存放xml文件夹的根目录（rootDir，如范例的xml文件）
+2.处理XML文件的索引的txt文件（trainFile，如范例的trainval.txt）
+3.最后输出json文件的路径（outjson，如范例的voc_2007_trainval.json）
+4.新检测对象的类别，id从1开始（attrDict["categories"]）
