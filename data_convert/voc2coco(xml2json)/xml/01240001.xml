@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <folder>VOC2007</folder>
+  <filename>01240001.jpg</filename>
+  <source>
+    <database>The GDS Database</database>
+    <annotation>PASCAL VOC2007</annotation>
+    <image>flickr</image>
+    <flickrid>12345678</flickrid>
+  </source>
+  <owner>
+    <flickrid>12345678</flickrid>
+    <name>GDS</name>
+  </owner>
+  <size>
+    <width>450</width>
+    <height>300</height>
+    <depth>3</depth>
+  </size>
+  <segmented/>
+  <object>
+    <name>like</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>64</xmin>
+      <ymin>160</ymin>
+      <xmax>90</xmax>
+      <ymax>196</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>like</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>211</xmin>
+      <ymin>152</ymin>
+      <xmax>239</xmax>
+      <ymax>194</ymax>
+    </bndbox>
+  </object>
+</annotation>
