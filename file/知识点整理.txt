@@ -1,0 +1,1643 @@
+###########################################
+opencv:	c++/python
+	#安装OpenCV 3.1.0
+		1. Install OpenCV dependencies:	
+			sudo apt-get install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+			sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev checkinstall
+		2.wget https://github.com/Itseez/opencv/archive/3.1.0.zip	
+		3.Unzip it and create a build folder:
+			sudo unzip 3.1.0.zip
+			cd opencv-3.1.0
+			mkdir build
+			cd build
+		4.Build it using:
+			cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_SHARED_LIBS=OFF ..
+		make -j2
+		sudo make install
+		备注：
+			提醒两点：
+			1) 执行cmake .时， 若出现ippicv_linux_20151201.tgz的hash码不对，则需手动下载ippicv_linux_20141027.tgz,
+				然后手动替换掉/home/alphacocoa/opencv-3.1.0/3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e目录下的ippicv_linux_20141027.tgz。
+			2） http://www.jianshu.com/p/68ac83436a1b
+		error:
+			1./../opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp:120:54: error: 'NppiGraphcutState' has not been declared
+			typedef NppStatus (*init_func_t)(NppiSize oSize, NppiGraphcutState** ppState, Npp8u* pDeviceMem);
+			解决办法：
+				cuda8.0较新，opencv-2.4.11较早，要编译通过需要修改源码：
+				修改/data/opencv-2.4.11/modules/gpu/src/graphcuts.cpp
+				将 #if !defined (HAVE_CUDA) || defined (CUDA_DISABLER)   
+				改为 #if !defined (HAVE_CUDA) || defined (CUDA_DISABLER) || (CUDART_VERSION >= 8000) 
+				重新编译即可。
+		
+	liunx opencv源码安装：
+		mkdir build
+		cd build
+		cmake ..
+		sudo make
+		sudo make install
+		备注：如果已经安装了opencv,但是python导不出来cv2，解决办法：将cv2的库拷贝到Python的安装路径下。
+	
+	opencv读的是BGR
+	pkg-config --modversion opencv		#版本号：3.1.0
+	pkg-config --cflags --libs opencv	#库的路径以及库名称
+	g++ test.cpp -o test 'pkg-config --cflags --libs opencv'
+	备注：
+		CMake下指定Opencv版本：		关键文件(OpenCVConfig.cmake)
+		Makefile下指定Opencv版本:	关键文件(opencv.pc), 在/usr/local/lib/pkgconfig/ 文件夹下找到opencv.pc
+									或者../opencv2410/build/unix-install/opencv.pc
+	#拷贝图像
+		c++:cv::Mat newImage; 
+			newImage = image.clone();  #完全拷贝，把image中的所有信息拷贝到newImage中
+			image.copyTo(newImage) ; #拷贝image的数据区到newImage中，在拷贝数据前会有一步：newImage.create(this->size , this->type)	 
+		python:	
+			newImage = image.copy() #注意：copy是深度复制，如果不采用copy()，保存saveimge图片会将画的框也保存了。
+	
+	#crop image:
+		cv::Mat crop_img = gray(cv::Range(y1,y2),cv::Range(x1,x2));
+		crop_img = gray[y1:y2,x1:x2] #有可能crop的图像为空
+		备注：img (h=569,w=500,h=3)
+			crop1 = img[-1:100,100:200] #(h=0, 100, 3),crop1 is not None，报错的图像为空
+			crop2 = img[0:100,500:600]	#(h=100, 0, 3),crop2 is not None，报错的图像为空
+			crop3 = img[0:100,200:600]	#(h=100, 300, 3),crop3 is not None 
+			所以判断crop图片为空的方法是：
+				if crop is not None:
+					if crop.shape[0]!=0 and crop.shape[1]!=0:
+						可以报错图片
+	
+	#基本属性：
+		c++:
+			int height = mat.rows;
+			int width  = mat.cols;
+			int channels = mat.channels();
+			if (mat.empty())
+				return false;
+		python:
+			h = img.shape[0]
+			w = img.shape[1]
+			channels = img.ndim
+			h,w,c = color.shape # h,w = gray.shape
+			if img is None:
+				return False;
+			
+	
+	#基本函数：
+		img = cv2.imread("test.jpg", 0) #0-gray,1-color
+		cv2.imwrite("test.bmp", img)
+		cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+		cv::Mat img = imread( "1.jpg" ,CV_LOAD_IMAGE_COLOR );
+		b, g, r = cv2.split(img)
+		cv2.merge([b1,g1,r1])
+		备注：
+			scipy.imread(imagepath[0]) 	#RGB
+			img = cv2.imread("test.jpg") #BGR
+		
+	#1通道转3通道：
+		cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
+		或  (下面方式，耗时少)
+		wb, hb = img.shape
+		ret = np.empty((wb, hb, 3), dtype=np.uint8)
+		ret[:, :, 0] = ret[:, :, 1] = ret[:, :, 2] = img
+		img = ret
+	 	
+	#画图
+		cv2.circle(src, (x, y), 3, (0, 0, 255),2) #3半径
+		cv2.rectangle(img, pt1, pt2, (0, 0, 255), thickness=None, lineType=None, shift=None)
+			#thickness=-1,表示画的是填充的矩形框；默认不写，画的是矩形框的四个边。(0,0,255)红
+		cv2.putText(img1, str(ii),(x,y),cv2.FONT_HERSHEY_COMPLEX,2,(0,0,255),5)
+											#字体/字体大小/颜色/字体粗细
+	#转base64:
+		import base64
+		import cv2
+		img7 = cv2.imread('1.jpg')
+		retval, buf = cv2.imencode('.jpg',img7)
+		sevenpeople_base64 = base64.b64encode(buf)	
+		
+	#url：网络图片
+		if (imagepath[0].startswith("https://") or imagepath[0].startswith("http://") 
+			or imagepath[0].startswith("file://")):  #判断是否为网络图片
+			imagefile = urllib.urlopen(imagepath[0]) #如果本地地址存在，读取也可以成功
+			status = imagefile.code   #如果网络地址存在，返回200；如果地址不存在，返回404.
+	#统计时间：
+		liunx c++：统计时间
+			clock_t t1, t2; // #include<ctime> 
+			t1 = clock();
+			t2 = clock();
+			cout << (double)(t2-t1)*1000/69/CLOCKS_PER_SEC <<"ms"<<endl;
+		python:
+			start = time.time()  #import time
+			print (time.time() - start) #秒
+			或 start = time.clock()
+				print (time.clock() - start)
+		
+	备注：
+		jpg、jpeg格式:	有损压缩格式
+		bmp格式：	无损压缩格式
+
+###################################################
+python: #coding=utf-8
+	#import requests
+		app：
+			from flask import Flask
+			app = Flask(__name__)
+			mm = Model("/opt/zhangjing/ruike/restful_zj_new/")
+			
+			@app.route('/user', methods=['POST'])
+			def info():
+				img_np = imread(imagepath[0])
+				jsondata =	mm.model_predict(img_np,datapath)
+				return jsondata 
+			if __name__ == '__main__':
+				app.run(host="0.0.0.0",port=8080,debug = False)
+		post:
+			data={"data":["fbb.jpg"]}
+			my_json_data = json.dumps(data)
+			r = requests.post('http://0.0.0.0:8080/user', data = my_json_data)
+			print type(r)
+			print r.json()		#打印会出现类似u'Angry'
+			print (r.text)		#'Angry'
+			out = r.json()
+			print (out["faceangle"])
+	#打印浮点数（指定保留小数点位数）
+		print ("His height is %.2f m"%(1.83))
+		round(x,2) 		#保留2位小数
+	
+	#排序
+		#数组按照某行或列排序
+			lst = [1,0,-1,0,2,3,5,4,7]
+			arr = numpy.array(lst)
+			arr1 = arr.reshape((-1:3)) #n行3列
+			data = arr1[arr1[:,1].argsort()] 		#按照第1列对行排序(升序)
+			data = arr1.T(arr1.T[:,1].argsort()).T 	#按照第1行对列进行排序(升序)
+		#list排序	
+			lst.sort()	#升序，list内置sort()方法用来排序
+			sorted(lst) #python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。		
+			备注：list.sort()和sorted()都接受一个参数reverse（True or False）来表示升序或降序排序。
+		#其它排序
+			student_tuples = [('john', 'A', 15),('jane', 'B', 12),('dave', 'B', 10)]
+			sorted(student_tuples, key=lambda student: student[2])   # sort by age
+			[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+
+	#join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。
+		str.join(list) #比如' '.join(lst)
+		备注：list里面元素必须为str，不然会出错。
+	
+	#python自动给数字前面补0的方法：
+		python中有一个zfill方法用来给字符串前面补0，非常有用
+		n = "123"
+		s = n.zfill(5) #"00123"
+	#四舍五入：Decimal(十进制)
+		Decimal('50.5679').quantize(Decimal('0.00')) #'50.57', 结果四舍五入保留了两位小数
+		abs(): 函数返回数字的绝对值
+	
+	#进制、ASCII 
+		print( c, " 的ASCII 码为", ord(c))
+		print( a , " 对应的字符为", chr(a))
+		
+		10进制转16进制: hex(21) 	#0x15
+		16进制转10进制: int('0x15', 16) #21
+	#编码问题：
+		cc = c.encode("raw_unicode_escape") #将汉字等转成\u300b
+		print (c.encode("utf-8"))        #为了在屏幕上显示而已
+		print cc                         #如果是英文对应的是字符串，中文对应的是\u300b
+		cc.decode('unicode_escape')      #将\u300b等转成汉字
+		
+		print len(lex)
+		ll = lex.encode("raw_unicode_escape")
+		print ll
+		print ll.decoder("raw_unicode_escape")
+	# 安装PIL，有错误,img.resize()函数内部出错，但是不会报错，最后重新安装pip install Image,就OK		
+	#python: 类的定义与调用
+		import function as FUN
+		fun = FUN.Function() #Function类名
+		result = fun.inverse(img) #类中的函数
+	
+		class Model():	 
+			def __init__(self, restful_path):		 
+				内容
+			def model_predict(self,img,datapath): 
+				内容
+		备注：import nets(文件夹).detect_face(py文件) as detect_face  
+		添加自己新建的模块，如何加载失败：
+		解决办法：
+		import sys #sys是Python内建标准库
+		sys.path.append('/opt/zhangjing/model') #通知解释器除了在默认路径下查找模块外，还要从指定的路径下查找。指定完模块路径后，就可以导入自己的模块了。
+		import _trietree as trieTree
+	#退出程序的方式：
+		sys.exit() #默认为0，表示正常退出，也可以为1，表示异常退出.也不需要考虑平台等因素的影响，一般是退出Python程序的首选方法.
+	#读写到txt中：
+		with codecs.open("res.txt", 'rb', "utf-8") as ann_file:
+			lines = ann_file.readlines() #读取所有行并返回列表, 而ann_file.readline()读取整行，包括 "\n" 字符。
+			for l in lines:
+				lst = l.strip().split()
+				
+		file.write(str) #将字符串写入文件，没有返回值。
+		file.writelines(sequence) #向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。
+		file.flush()	#刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。		
+		
+	#lst = list(set(lst))  #去除列表中重复的元素
+	#liunx+python 图片上显示汉字问题解决办法：
+		from PIL import Image,ImageDraw,ImageFont
+		font = ImageFont.truetype('simsun.ttc',24)
+		#img = Image.new('RGB',(300,200),(255,255,255)) #图片信息
+		img = Image.open("17.jpg")   # img.crop((0,0,width,9))  width = img.size[0]   height = img.size[1]  img.thumbnail((50, 100))-缩放
+		draw = ImageDraw.Draw(img)   # draw.rectangle((200,200,w,500),outline = "red") 
+		str2 = '你好,世界'
+		str3 = str2.decode("utf-8")
+		draw.text( (x,y), str3,(0,0,0),font=font)
+		或draw.text( (x,y), u'你好,世界!',(0,0,0),font=font)
+		或draw.text( (x,y),unicode('你好','utf-8'),(0,0,0),font=font) 
+		img.save("jpeg.jpg",'JPEG')
+	# shutil.copy(src , dst )					
+	#os模块：operating system (和文件、目录有关，包含普遍的操作系统功能，与具体的平台无关。)
+		https://www.cnblogs.com/kaituorensheng/archive/2013/03/18/2965766.html
+		import os
+		#help(os)   #查看os模块帮助文档，里面详细的模块相关函数和使用方法
+		
+		os.name				——判断现在正在实用的平台，Windows 返回 ‘nt'; Linux 返回’posix'
+		os.getcwd()			——得到当前工作的目录。
+		os.listdir("目录")	——指定所在目录下所有的文件和目录名。以列表的形式全部列举出来，其中没有区分目录和文件。
+							例：当前目录下os.listdir(".")
+		os.remove("1.jpg")	——删除指定文件
+		os.rmdir(path)			——删除指定目录, 该目录必须为空；
+								——删除非空目录，os.system('rm -rf path')或者import shutil shutil.rmtree(dir)
+		os.mkdir(path)			——创建目录
+				注意：这样只能建立一层，要想递归建立可用：os.makedirs(path)
+		
+		os.path.exists(path)  #路径存在则返回True,路径损坏返回False		
+		os.path.isfile("1.txt")	——判断指定对象是否为文件。是返回True,否则False
+		os.path.isdir(path)		——判断指定对象是否为目录。是True,否则False。   
+		os.path.split(path)		——返回路径的目录和文件名。
+				例子：os.path.split("/home/rte/del.sh")	("/home/rte", "del.sh")	此处只是把前后两部分分开而已。就是找最后一个'/'。
+		
+		os.system()	——执行shell命令。例子：os.system("echo $'hello world!' ")  hello world!
+		os.chdir()	——改变目录到指定目录
+		os.path.getsize(path)	——获得文件的大小，如果为目录，返回0
+		os.path.abspath(path)	——获得绝对路径。例：os.path.split(".") "/home/rte"
+		os.path.join(path, name)——连接目录和文件名。例：os.path.join("/home/rte/", "del.sh") "/home/rte/del.sh"
+		os.path.basename(path)——返回文件名,例：os.path.basename("/home/rte/del.sh")	"del.sh"
+		os.path.dirname(path)——返回文件路径, "/home/rte"
+		os.walk(image_dir)	——os.walk(path),遍历path，返回一个对象，他的每个部分都是一个三元组,
+							('目录x'，[目录x下的目录list]，目录x下面的文件)
+				例子：	i
+									内容
+	xml读写：
+		读：http://www.cnblogs.com/kaituorensheng/p/4493306.html 
+			import  xml.dom.minidom
+			#打开xml文档
+			dom = xml.dom.minidom.parse('0824010011.xml') #用于打开一个xml文件，并将这个文件对象dom变量。
+								如何xml中含有中文（乱码）会报错！！！！！！
+			root = dom.documentElement #用于得到dom对象的文档元素，并把获得的对象给root
+			1） xmin = root.getElementsByTagName("xmin")
+				for i in range(len(xmin)):
+					print xmin[i].firstChild.data  #获得标签对之间的数据,如：<xmin>418</xmin>
+			2）获得标签属性值，如：<login username="pytest" passwd='123456'>
+				itemlist = root.getElementsByTagName('login')
+				item = itemlist[0]
+				print item.getAttribute("username")
+				print item.getAttribute("passwd")
+		写：http://www.jb51.net/article/67190.htm
+			例子：
+			<annotation>
+				<object>
+					<bndbox>
+						<xmin>34</xmin>
+					</bndbox>
+				</object>
+			</annotation>
+			
+			impl = xml.dom.minidom.getDOMImplementation() 
+			dom = impl.createDocument(None, 'annotation' , None)    
+			root = dom.documentElement  
+			#读
+			object = root.getElementsByTagName("object")
+			bndbox = root.getElementsByTagName("bndbox")
+			xmin = root.getElementsByTagName("xmin")
+			#写
+			object = dom.createElement( 'object' ) 
+			root.appendChild(object) 
+			bndbox = dom.createElement( 'bndbox' ) 
+			object.appendChild(bndbox) 
+			nameE = dom.createElement( 'xmin' ) 
+			nameT = dom.createTextNode( xmin[0].firstChild.data ) #type unicode, 所以使用时需要int()
+			nameE.appendChild(nameT) 
+			bndbox.appendChild(nameE) 
+		
+			f = open( 'employees2.xml' , 'w') 
+			dom.writexml(f, addindent = ' ' , newl = '\n' ,encoding = 'utf-8' )
+			f.close()  
+			
+	#数字：
+		int(x )         将x转换为一个整数  
+		long(x)        将x转换为一个长整数  
+		float(x )               将x转换到一个浮点数  
+		complex(real [,imag ])  创建一个复数  
+		str(x )                 将对象 x 转换为字符串    
+		tuple(s )               将序列 s 转换为一个元组  
+		list(s )                将序列 s 转换为一个列表  
+		chr(x )                 将一个整数转换为一个字符  
+		unichr(x )              将一个整数转换为Unicode字符  
+		ord(x )                 将一个字符转换为它的整数值  
+		hex(x )                 将一个整数转换为一个十六进制字符串  
+		oct(x )                 将一个整数转换为一个八进制字符串  
+		
+		查看 cmath 查看包中的内容：
+		>>> import cmath
+		>>> dir(cmath)
+			['__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 
+			'acosh', 'asin', 'asinh', 'atan', 'atanh', 'cos', 'cosh', 'e', 'exp', 'inf', 'infj', 
+			'isclose', 'isfinite', 'isinf', 'isnan', 'log', 'log10', 'nan', 'nanj', 'phase', 'pi',
+			'polar', 'rect', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau']
+
+		Python数学函数：
+			abs(x)		返回数字的绝对值，如abs(-10) 返回 10
+			ceil(x) 	返回数字的上入整数，如math.ceil(4.1) 返回 5
+			cmp(x, y)	如果 x < y 返回 -1, 如果 x == y 返回 0, 如果 x > y 返回 1
+			fabs(x)		返回数字的绝对值，如math.fabs(-10) 返回10.0
+			floor(x) 	返回数字的下舍整数，如math.floor(4.9)返回 4
+			round(x [,n])	返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。
+			max(x1, x2,...) 	返回给定参数的最大值，参数可以为序列。
+			min(x1, x2,...) 	返回给定参数的最小值，参数可以为序列。
+			pow(x, y)	x**y 运算后的值。
+			sqrt(x) 	返回数字x的平方根
+		
+		Python随机数函数：	
+			choice(seq)	从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。
+			randrange ([start,] stop [,step]) 	从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1
+			random() 	随机生成下一个实数，它在[0,1)范围内。
+			shuffle(lst) 	将序列的所有元素随机排序
+			uniform(x, y)	随机生成下一个实数，它在[x,y]范围内。
+		
+	#Python JSON：(JavaScript Object Notation)是一种轻量级的数据交换格式，易于人阅读和编写。
+		import json
+		json.dumps 	将 Python 对象编码成 JSON 字符串
+		json.loads	将已编码的 JSON 字符串解码为 Python 对象, 用于解码 JSON 数据。		
+		
+		json 类型转换到 python 的类型对照表：
+			JSON 			Python
+			object 			dict
+			array 			list
+			string 			unicode
+			number (int) 	int, long
+			number (real) 	float
+			true 			True
+			false 			False
+			null 			None
+	
+	#Python IDE（集成开发环境）
+		PyCharm、Sublime Text、Eclipse+Pydev
+		
+	#Python2.x与3​​.x版本区别
+		Python的3​​.0版本，常被称为Python 3000，或简称Py3k。Python 3.0在设计的时候没有考虑向下相容。
+		许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
+		目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。
+		1)print 函数
+			print语句没有了，取而代之的是print()函数。
+		2)Unicode
+			Python 2 有 ASCII str() 类型，unicode() 是单独的，不是 byte 类型。
+			现在， 在 Python 3，我们最终有了 Unicode (utf-8) 字符串，以及一个字节类：byte 和 bytearrays。
+			由于 Python3.X 源码文件默认使用utf-8编码，这就使得以下代码是合法的： 	
+			>>> str = "我爱北京天安门"	
+			>>> str
+				'我爱北京天安门'
+		3)除法运算
+			python 2.x中/除法, 对于整数之间的相除，结果是整数。 
+			python 3.x中/除法，对于整数之间的相除，结果会是浮点数。 
+			对于//除法，这种除法叫做floor除法，会对除法的结果自动进行一个floor操作，在python 2.x和python 3.x中是一致的。
+		4)数据类型
+			py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long 
+	
+	#Python SMTP发送邮件
+			SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，
+		由它来控制信件的中转方式。	
+		import smtplib
+		from email.mime.text import MIMEText
+		from email.header import Header
+
+		smtpObj = smtplib.SMTP( [host [, port [, local_hostname]]] )	
+		SMTP.sendmail(from_addr, to_addrs, msg[, mail_options, rcpt_options])
+		
+		message = MIMEText('Python 邮件发送测试...', 'plain', 'utf-8')  #plain 设置文本格式
+		message = MIMEText(mail_msg, 'html', 'utf-8') 					#html  设置HTML格式的邮件
+		
+		#带附件的邮件
+		from email.mime.multipart import MIMEMultipart
+		
+###################################################
+numpy:
+	#save、load:	
+		如果你想将多个数组保存到一个文件中的话，可以使用numpy.savez函数。savez函数的第一个参数是文件名，
+		其后的参数都是需要保存的数组，也可以使用关键字参数为数组起一个名字，非关键字参数传递的数组会自动起名为arr_0,
+		arr_1, …。savez函数输出的是一个压缩文件(扩展名为npz)，其中每个文件都是一个save函数保存的npy文件，
+		文件名对应于数组名。load函数自动识别npz文件，并且返回一个类似于字典的对象，可以通过数组名作为关键字获取数组的内容：
+		C=np.array([1,0,1,0])
+		np.savez("files.npz",A,B,C_array=C)
+		D=np.load("files.npz")
+		>>D['arr_0']
+		>>D['arr_1']
+		>>D['C_array']
+	
+	#np.newaxis (扩维)
+		print (img.shape) #(720, 1280)
+		img1 = img[np.newaxis]
+		print (img1.shape) #(1, 720, 1280)
+		img2 = img[:,:,np.newaxis]
+		print (img2.shape) #(720, 1280, 1)
+	#img2 = np.reshape(img1, (w,h)) #w、h互换，结果是w行h列
+		
+###################################################
+liunx:
+	查看CUDA cudnn版本：	cat /usr/local/cuda/version.txt		#CUDA Version 8.0.44
+		备注：CUDA必须要与GPU的驱动匹配
+	查看cudnn版本号：	cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 	#CuDNN版本为 5.1.5 
+		备注：CUDA(Compute Unified Device Architecture)，是英伟达公司推出的一种基于新的并行编程模型和指令集架构的通用计算架构，
+					它能利用英伟达GPU的并行计算引擎，比CPU更高效的解决许多复杂计算任务。
+				在 CUDA 的架构下，一个程序分为两个部份：host 端和 device 端。Host 端是指在 CPU 上执行的部份，而 device 端则是在显示芯片上执行的部份。Device 端的程序又称为 “kernel”。通常 host 端程序会将数据准备好后，复制到显卡的内存中，再由显示芯片执行 device 端程序，完成后再由 host 端程序将结果从显卡的内存中取回。
+			NVIDIA cuDNN是用于深度神经网络的GPU加速库。同时还可以在GPU上实现高性能现代并行计算。
+			CuDNN支持的算法：卷积操作、池化、激活等操作。
+			Baseline Caffe与用NVIDIA Titan Z 加速cuDNN的Caffe做比较：caffe(cpu)、caffe(gpu) 11倍、caffe(cuDNN) 13倍。
+			
+	查看ubuntu版本号：	cat /etc/issue
+	
+	sudo apt-get update		#如果你是要更新可用的软件包列表应该用
+	sudo apt-get upgrade	#如果是更新己安装的软件包应该用
+	cmake：
+		查看cmake版本号：cmake --version	
+		apt-get autoremove cmake #卸载
+	pkill -U zhangjing		#关闭zhangjing用户
+	free -h  #查看cpu的运行内存
+	df -h    #查看硬盘的存储内存
+	修改环境变量： 
+		vim /etc/profile
+		export PYTHONPATH=/opt/modules/caffe/python:$PYTHONPATH	 
+		source /etc/profile
+	退出终端： ctrl+c、quit(或q)、exit
+	查看pip版本号：	pip --version
+	# sudo shutdown -h now 立刻关机
+		reboot 				重启
+	# notepad：
+		1）视图->显示符号->显示空格与制表符
+		2）ctrl+a（全选）->编辑->空白字符操作->空格转tab
+	# 监视显存：我们设置为每 10s 显示一次显存的情况：watch -n 10 nvidia-smi
+	# markdown  换行：空格+空格+换行 
+	# pkill -U zhangjing  #关闭zhangjing用户
+	# putty多窗口：
+		screen -S lg(lg名字 随意)
+		ctrl+A+C 增加窗口
+		ctrl+A+N 切换窗口
+		
+	# 查看用户组： cat  /etc/group 	
+	# 添加新用户的命令行操作：sudo adduser  用户名  (备注：100上几个用户名属于同一个组，组名为docker)
+		输入两次密码
+		根据提示输入相关信息最后Y完成    
+		参考文献： https://jingyan.baidu.com/article/a65957f48b98b124e67f9bed.html
+		
+		添加新的用户组：$sudo groupadd  组名
+		把用户添加到你想要添加的已经存在的用户组：$sudo adduser   用户名   组名
+		sudo adduser  zhangjing   docker
+		
+		改成root权限：	sudo vim /etc/sudoers  
+						zhangjing   ALL=(ALL)  ALL 
+		# useradd与adduser的区别
+		useradd与adduser都是创建新的用户
+			在CentOs下useradd与adduser是没有区别的都是在创建用户，在home下自动创建目录，
+		没有设置密码，需要使用passwd命令修改密码。(passwd zhangjing   #输入2次密码，比如111111)
+
+		而在Ubuntu下useradd与adduser有所不同:
+			1、useradd在使用该命令创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，
+		也没有设置密码，那么这个用户是不能登录的，需要使用passwd命令修改密码。
+			2、adduser在使用该命令创建用户是会在/home下自动创建与用户名同名的用户目录，系统shell版本，
+		会在创建时会提示输入密码，更加友好。
+
+		userdel 删除用户，
+		userdel只能删除用户，并不会删除相关的目录文件。userdel -r 可以删除用户及相关目录。
+	#cd：
+		1）返回进入此目录之前所在的目录：cd -
+		2）进入用户主目录
+			cd
+			cd $home
+			cd ~
+		3）返回上级目录
+			cd ..
+			若当前目录为“/“，则执行完后还在“/"；".."为上级目录的意思，“.”为当前目录
+		4）返回上两级目录；cd ../..
+		5）转到系统根目录： cd /
+		例如:cd /home/cc/it.dengchao.org,可以进入到指定目录
+		6）转到当前用户目录下的目录：cd  sys/....
+#####################################################
+c++:
+	#封装dll并调用
+		封装dll: http://www.linuxidc.com/Linux/2012-09/70502.htm
+			g++  -shared  -fPIC  -o test.so test.cpp
+			#使用g++编译，-I 指头文件的路径，-L 指库的路径；
+		
+		c++调用：
+			void *so_handle = dlopen(soname, RTLD_LAZY); // 载入.so文件   
+			if (so_handle)
+			{
+				myadd_t *fn = (myadd_t*)dlsym(so_handle, "myadd"); // 载入函数   
+				fn(57, 3); // 载入函数 
+				dlclose(so_handle); // 关闭so句柄   
+			}
+		python调用：
+			from ctypes import *
+			dll = cdll.LoadLibrary('test.so');
+			t = dll.myadd(1,2)
+			
+	#C++开源日志库Glog的使用:#include <glog/logging.h> 
+		Glog地址：https://github.com/google/glog
+	# int->string:
+			int aa = 30;
+			stringstream ss;
+			ss<<aa; 
+			string s1 = ss.str();
+		或
+			char buffer[256];
+			sprintf( buffer, "feat_num=%d\n", m_nFeatNum);	
+	# 读、写：
+		ofstream file; //写
+			file.open(sTemp.c_str(),ios::out);
+			//ofstream file("1.txt",ios::ate);   //打开文件，设置写入方式为覆盖写入
+			if(!file)
+			{
+				file<<"写入txt文件示例.\n"; 
+				file<<"成功写入.\n";
+				file.close();
+			}
+		ifstream file; //读
+			file.open(sTemp.c_str(),ios::in);
+			char buffer[256];
+			string str;
+			while(!file.eof())
+			{
+				file.getline(buffer,256,'\n');//getline(char *,int,char) 表示该行字符达到256个或遇到换行就结束
+				sTemp = buffer;	
+			}
+			file.close();
+	# 判断文件是否存在：
+		if(access(sPathModel.c_str(),0)==-1) //表示文件不存在, #include <unistd.h> ; _access()  #include <io.h>
+		{
+			cout<<"The file does not exist!:"<<sPathModel<<endl;
+			return -1;
+		}
+####################################################
+other:
+	# OpenFace:目的是检测人脸角度以及是否睁眼、闭眼, 
+		github:	https://github.com/TadasBaltrusaitis/OpenFace
+				https://github.com/TadasBaltrusaitis/OpenFace/wiki/Unix-Installation
+	Dlib库：一个使用现代C++技术编写的跨平台的通用库，比如人脸68个点检测
+	caffe+matlab:
+		启动matlab ：/usr/local/MATLAB/R2014a/bin/matlab
+		cd /caffe-root/examples/UMD_Fiducials/	
+		run demo.m
+	
+	角度转弧度: π/180×角度
+	弧度变角度: 180/π×弧度	 #math.pi
+	
+	# Faster RCNN: https://github.com/rbgirshick/py-faster-rcnn 
+	# 王峰【源码】Python的开源人脸识别库:离线识别率高达99.38%.
+	# 关于深度神经网络压缩: https://zhuanlan.zhihu.com/p/27747628
+						https://github.com/DeepScale/SqueezeNet 
+						https://github.com/Zehaos/MobileNet
+						https://github.com/farmingyard/ShuffleNet
+	# uuID:解决文件命名会重复的文件
+	# yolo： https://github.com/pjreddie/darknet 
+		# make clean, make -j16, 就把darknet环境编辑好了.
+		如果不适用gpu、cuda，可修改makefile文件。
+	# 各种数据下载集合:	https://zhuanlan.zhihu.com/p/25138563 	
+	# 人手数据集： http://www.robots.ox.ac.uk/%7Evgg/data/hands/index.html （the Hand Dataset from University of Oxford.） 
+		万岁手探测挑战：http://cvrr.ucsd.edu/vivachallenge/index.php/hands/hand-detection/
+		http://liris.cnrs.fr/voir/wiki/doku.php?id=datasets
+	# CIFAR-10 分类数据集的：10类(飞机，汽车，鸟，猫，鹿，狗，青蛙，马，船以及卡车), 32x32RGB的图像
+	# 特征工程: 
+		地址：https://www.leiphone.com/news/201801/T9JlyTOAMxFZvWly.html
+		在面对实际问题时，需要我们自己收集数据。在数字化革命时代，推动世界运转的是数据。
+		机器学习、深度学习等算法在一段时间内以数据为原料收集知识，并提供智能见解。但算法本身非常朴素且不能在原始数据上直接得出结果。
+		因此一个重要的任务就是需要从数据中设计出工程上有意义的特征，即能被这些算法理解和使用的特征。
+		1）连续型数值数据的特征工程处理方法：
+			数值型数据上的特征工程：（对原始数据的处理方法）
+				原始度量、数值、记数、二值化、数据舍入、相关性、分区间处理数据(量化，连续转离散)、等宽分区间、
+				自适应分区间
+			
+	# 结构化的和非结构化的数据：	
+	
+	# Hinton: capsule论文
+		解释：http://tech.ifeng.com/a/20171028/44733572_0.shtml
+		论文：https://arxiv.org/pdf/1710.09829.pdf
+		Hinton坚信，不同的神经元完全可以关注不同的实体或者属性，比如在一开始就有不同的神经元关注不同的类别（而不是到最后才
+		有归一化分类）。具体来说，有的神经元关注位置、有的关注尺寸、有的关注方向。
+		Hinton提出把关注同一个类别或者同一个属性的神经元打包集合在一起，好像胶囊一样。在神经网络工作时，这些胶囊间的通路
+		形成稀疏激活的树状结构（整个树中只有部分路径上的胶囊被激活），从而形成了他的Capsule理论。
+		capNet符合人们“一次认知多个属性”的直观感受。带来的问题：不同的胶囊应该如何训练、又如何让网络自己决定胶囊间的激活关系。
+		Hinton这篇论文解决的重点问题就是不同胶囊间连接权重（路由）的学习。
+
+	# 现在除了各种小修小改（残差网络，Adam 优化器，ReLU，Batchnorm，Dropout，GRU，和稍微创意点的 GAN），
+	神经网络训练主流算法又回到了 30 年前（那个时候 CNN，LSTM 已经有了）的反向传播了。
+	目前来看，很多对 NN 的贡献（特别是核心的贡献），都在于 NN 的梯度流上，比如
+	sigmoid 会饱和，造成梯度消失。于是有了 ReLU。
+	ReLU 负半轴是死区，造成梯度变 0。于是有了 LeakyReLU，PReLU。
+	强调梯度和权值分布的稳定性，由此有了 ELU，以及较新的 SELU。
+	太深了，梯度传不下去，于是有了 highway。
+	干脆连 highway 的参数都不要，直接变残差，于是有了 ResNet。
+	强行稳定参数的均值和方差，于是有了 BatchNorm。
+	在梯度流中增加噪声，于是有了 Dropout。
+	RNN 梯度不稳定，于是加几个通路和门控，于是有了 LSTM。
+	LSTM 简化一下，有了 GRU。
+	GAN 的 JS 散度有问题，会导致梯度消失或无效，于是有了 WGAN。
+	WGAN 对梯度的 clip 有问题，于是有了 WGAN-GP。
+	
+	# 精确率:	是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。
+				那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，
+				另一种就是把负类预测为正类(FP)，p = TP/(TP+FP)
+	 召回率:	是针对我们原来的样本而言的，它表示的是样本中的正例有多少被预测正确了。
+				那也有两种可能，一种是把原来的正类预测成正类(TP)，
+				另一种就是把原来的正类预测为负类(FN)。R = TP/(TP+FN)
+	
+	#卷积神经网络
+		在视觉神经系统中，一个神经元的感受野是指视网膜上的特定区域，只有这个区域内的刺激才能够激活该神经元。
+		卷积神经网络有三个结构上的特性：局部连接、权重共享以及空间或时间上的次采样。
+		这些特性使得卷积神经网络具有一定程度上的平移、缩放和扭曲不变性。
+		卷积层的作用是提取一个局部区域的特征，每一个滤波器相当于一个特征提取器。
+			卷积层虽然可以显著减少连接的个数，但是每一个特征映射的神经元个数并没有显著减少。
+		这样，如果后面接一个分类器，分类器的输入维数依然很高，很容易出现过拟合。
+		为了解决这个问题，在卷积神经网络一般会在卷积层之后再加上一个池化（Pooling）操作，
+		也就是子采样（Subsampling） ，构成一个子采样层。子采样层可以来大大降低特征的维数，避免过拟合。
+		子采样的作用还在于可以使得下一层的神经元对一些小的形态改变保持不变性，并拥有更大的感受野。 
+	
+	LeNet-5[LeCun et al., 1998]。基于LeNet-5的手写数字识别系统在90年代被美国很多银行使用，用来识别支票上面的手写数字。
+	
+	#过拟合：
+		避免过拟合的方法有很多：early stopping、数据集扩增（Data augmentation）、正则化（Regularization）
+		包括L1、L2（L2 regularization也叫weight decay权重衰减），dropout。
+		L1、L2正则化是通过修改代价函数来实现的，
+		而Dropout则是通过修改神经网络本身来实现的，它是在训练网络时用的一种技巧（trike）。
+		可以简单地这样解释，运用了dropout的训练过程，相当于训练了很多个只有半数隐层单元的神经网络（后面简称为“半数网络”），
+		每一个这样的半数网络，都可以给出一个分类结果，这些结果有的是正确的，有的是错误的。随着训练的进行，
+		大部分半数网络都可以给出正确的分类结果，那么少数的错误分类结果就不会对最终结果造成大的影响。
+		http://blog.sina.com.cn/s/blog_a89e19440102x1el.html 
+	
+####################################################
+tensorflow:
+	中文手册：http://www.tensorfly.cn/tfdoc/how_tos/variables.html
+	安装tensorflow:
+		gpu版本：
+			pip install tensorflow-gpu==1.0.0 
+			或sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
+		cpu：
+			pip install tensorflow==1.0.0	
+	卸载：	pip uninstall tensorflow-gpu==0.12.0  	#gpu
+			pip uninstall tensorflow==0.12.0  		#cpu
+	查看版本号：import tensorflow
+				tensorflow.__version__
+	tensorflow gpu/cpu测试：
+			import tensorflow: 出现下面的情况，为gpu版本的tensorflow
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.8.0 locally
+				
+	# 设置gpu:
+		import os
+		os.environ["CUDA_VISIBLE_DEVICES"] = "1" #gpu1
+		config = tf.ConfigProto()
+		config.gpu_options.allow_growth = True		#设置最小的GPU使用量
+		或config.gpu_options.per_process_gpu_memory_fraction = 0.3 	#占用GPU90%的显存
+		sess1 = tf.Session(graph=g1, config=config)
+	# Keras切换backend ： theano --> tensorflow
+		修改~/.keras/keras.json 文件中的 theano 字段为tensorflow即可
+		官方文档：https://keras.io/backend/
+	# 模型：
+		checkpoint文件会记录保存信息，通过它可以定位最新保存的模型；
+		.meta文件保存了当前图结构
+		.index文件保存了当前参数名
+		.data文件保存了当前参数值
+		备注：
+			tf.train.import_meta_graph函数给出model.ckpt-n.meta的路径后会加载图结构，并返回saver对象
+			tf.train.Saver函数会返回加载默认图的saver对象
+			saver.restore函数给出model.ckpt-n的路径后会自动寻找参数名-值文件进行加载
+	# 显示参数名称：
+		variable_averages = tf.train.ExponentialMovingAverage( InputImage)  
+		variables_to_restore = variable_averages.variables_to_restore()  
+		for name in variables_to_restore:  
+			print("param name:	", name)  
+		#saver = tf.train.Saver(variables_to_restore)  
+	# Caffe模型转tensorflow模型并使用模型进行预测
+		http://blog.csdn.net/hereiskxm/article/details/66969127
+	# keras安装：
+		源码安装：
+			git clone https://github.com/keras-team/keras.git
+			cd keras
+			sudo python setup.py install
+		pip安装：pip install keras
+		
+	# 主要工程：
+		https://github.com/tensorflow/models 
+		https://github.com/tensorflow/models/tree/master/im2txt	 看图说话
+		https://github.com/affinelayer/pix2pix-tensorflow  对抗网络的产物，根据输入学习得到输出
+		tensorflow笔记： http://blog.csdn.net/u012436149/article/details/53696970
+		http://lib.csdn.net/article/machinetranslation/61899   tensorflow（很不错的）的可视化工具Tensorboard。
+	
+	# 前向传播：
+		images = np.array(img_crop_lst_faceid).astype(np.float32) #	(batchsize=1, h=160, w=160, channels=3)	 
+		emb = sess1.run(images)  #caffe的输入也要求为数组
+		
+		theano：输入list, (channels=1,h=112,w=112)		#68个landmark
+		tensorflow: 输入numpy array, (batchsize=1, h=160, w=160, channels=3)	#faceNet
+		caffe: 输入numpy array， (batchsize=1, channels=1, h=48, w=48)  	#emotion
+		
+	#在不同类别、相同类别数目基础上加载模型（增量训练），需要添加下面这段代码：
+		if self.phase == 'train':
+			self.sess.run(tf.initialize_all_variables())
+			
+			nClassNum = 0
+			for v in tf.global_variables():
+				if v.name == "embedding_attention_decoder/attention_decoder/AttnOutputProjection/biases/Adadelta:0":
+					print (v.get_shape())
+					tuple_data = v.get_shape()
+					if len(tuple_data) > 0:
+						nClassNum = tuple_data[0]
+						print ("nClassNum = %d" % (nClassNum))
+						
+			if (target_vocab_size != nClassNum):
+				#在不同类别数目基础上加载模型，需将下面代码放开
+				variables_to_restore = []
+				for v in tf.global_variables():
+					if not(v.name.startswith("embedding_attention_decoder/attention_decoder/AttnOutputProjection") or (v.name.startswith("embedding_attention_decoder/embedding"))):
+						variables_to_restore.append(v)		  
+				self.saver_all = tf.train.Saver(variables_to_restore)
+				print ("target_vocab_size != nClassNum")
+			else:
+				print ("target_vocab_size == nClassNum")
+				self.saver_all = tf.train.Saver(tf.all_variables())
+		else:
+			self.saver_all = tf.train.Saver(tf.all_variables())
+	# MNIST: softmax回归（softmax regression）模型,softmax模型可以用来给不同的对象分配概率。
+		每一张图片包含28像素X28像素。把这个数组展开成一个向量，长度是 28x28 = 784。
+		展平图片的数字数组会丢失图片的二维结构信息.。这显然是不理想的，最优秀的计算机视觉方法会挖掘并利用这些结构信息.
+		标签数据是"one-hot vectors"。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。
+		比如，标签0将表示成([1,0,0,0,0,0,0,0,0,0,0])。
+		#定义输入数据：
+			x = tf.placeholder("float", [None, 784]) #x不是一个特定的值，而是一个占位符placeholder。
+													 #这里的None表示此张量的第一个维度可以是任何长度的。
+			y_ = tf.placeholder("float", [None,10])
+			# TensorFlow能够自动捕捉因数据维度不一致导致的错误。
+		
+		#定义权重：
+			W = tf.Variable(tf.zeros([784,10]))	#可以用于计算输入值，也可以在计算中被修改的张量。
+			b = tf.Variable(tf.zeros([10]))
+		#定义我们的模型：
+			y = tf.nn.softmax(tf.matmul(x,W) + b) 
+		#定义loss：
+			定义一个指标来评估这个模型是好的还是坏的，这个指标称为成本（cost）或损失（loss），然后尽量最小化这个指标。
+			1) 成本函数是“交叉熵”（cross-entropy）:交叉熵是用来衡量我们的预测用于描述真相的低效性。
+			cost = y_*tf.log(y)  #y是预测的概率分布， y_是实际的概率分布
+		#定义优化方法：	
+			因为TensorFlow拥有一张描述你各个计算单元的图，它可以自动地使用反向传播算法(backpropagation algorithm)来有效地确定你的变量
+			是如何影响你想要最小化的那个成本值的。然后，TensorFlow会用你选择的优化算法来不断地修改变量以降低成本。
+			train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy) #TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动。
+		
+		init = tf.initialize_all_variables() #在运行计算之前，需要添加一个操作来初始化我们创建的变量（如：W = tf.Variable(tf.zeros([784,10]))）
+			# 变量需要通过session初始化后，才能在session中使用。
+			 模型中的权重在初始化时应该加入少量的噪声来打破对称性以及避免0梯度。由于我们使用的是ReLU神经元，因此比较好的做法是用一个较小的正数来初始化偏置项，
+			 以避免神经元节点输出恒为0的问题（dead neurons）。
+		#现在我们可以在一个Session里面启动我们的模型，并且初始化变量：
+			sess = tf.Session()
+			sess.run(init)
+		#开始训练模型，这里我们让模型循环训练1000次！
+			for i in range(1000):
+				batch_xs(图片), batch_ys(标签) = mnist.train.next_batch(100)
+				sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+				# 注意，在计算图中，你可以用feed_dict来替代任何张量，并不仅限于替换占位符。
+		#评估模型：
+			correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+				# tf.argmax 能给出某个tensor对象在某一维上的其数据最大值所在的索引值。
+				# 用 tf.equal 来检测我们的预测是否真实标签匹配(索引位置一样表示匹配)，结果为布尔值。
+			accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float")) # 我们计算的交叉熵是指整个minibatch的。
+				# tf.cast：将布尔类型转成float;  
+				# tf.reduce_mean(x)表示计算全局平均值, tf.reduce_mean(x, axis=0)表示计算y轴平均值;
+			print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080})
+		
+		# tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME') #tensorflow (None,h,w,c)
+		  tf.nn.max_pool(x, ksize=[1, 2, 2, 1],strides=[1, 2, 2, 1], padding='SAME')	
+		  W_conv1 = tf.Variable( tf.truncated_normal([5, 5, 1, 32], stddev=0.1) )
+		  b_conv1 = tf.Variable( tf.constant(0.1, [32]) )
+	# 基本概念：
+			使用图 (graph) 来表示计算任务.
+			在被称之为 会话 (Session) 的上下文 (context) 中执行图.
+			使用 tensor 表示数据.
+			通过 变量 (Variable) 维护状态. 
+			使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.
+		1）图中的节点被称之为 op (operation 的缩写). 一个 op 获得 0 个或多个 Tensor, 执行计算, 产生 0 个或多个 Tensor. 
+		   每个 Tensor 是一个类型化的多维数组. 例如,这四个维度分别是 [batch, height, width, channels].
+		2）TensorFlow 程序通常被组织成一个构建阶段和一个执行阶段. 
+			在构建阶段, op 的执行步骤 被描述成一个图. 
+			在执行阶段, 使用会话执行执行图中的 op.
+		3）TensorFlow Python 库有一个默认图 (default graph), op 构造器可以为其增加节点.
+			如何管理多个图.？？？
+		4）构造阶段完成后, 才能启动图. 启动图的第一步是创建一个 Session 对象, 如果无任何创建参数, 会话构造器将启动默认图.
+			# 启动默认图. 	sess = tf.Session()
+			# result = sess.run(product) # 调用 sess 的 'run()' 方法来执行矩阵乘法 op, 传入 'product' 作为该方法的参数. 
+			# 任务完成, 关闭会话.	sess.close()
+				Session对象在使用完后需要关闭以释放资源.除了显式调用close外,也可以使用"with"代码块来自动完成关闭动作.
+		5) 在实现上, TensorFlow 将图形定义转换成分布式执行的操作, 以充分利用可用的计算资源(如 CPU 或 GPU). 一般你不需要
+			显式指定使用CPU还是GPU,TensorFlow能自动检测.如果检测到 GPU,TensorFlow会尽可能地利用找到的第一个GPU来执行操作.
+			
+			如果机器上有超过一个可用的GPU, 除第一个外的其它GPU默认是不参与计算的.为了让TensorFlow使用这些GPU,你必须将
+			op明确指派给它们执行. with...Device 语句用来指派特定的 CPU 或 GPU 执行操作:
+				with tf.Session() as sess:
+					with tf.device("/gpu:1"): #指派特定的 GPU1 执行操作
+						matrix1 = tf.constant([[3., 3.]])
+						matrix2 = tf.constant([[2.],[2.]])
+						product = tf.matmul(matrix1, matrix2)
+		6) 交互式使用
+			使用一个会话 Session 来 启动图, 并调用 Session.run() 方法执行操作. 可以使用InteractiveSession代替Session 类, 
+			使用 Tensor.eval() 和 Operation.run() 方法代替 Session.run(). 这样可以避免使用一个变量来持有会话.
+		7）Tensor 
+			使用 tensor 数据结构来代表所有的数据，可以把 TensorFlow tensor 看作是一个 n 维的数组或列表.
+			一个 tensor 包含一个静态类型 rank, 和 一个 shape. 
+		8）变量
+			变量维护图执行过程中的状态信息.
+		9）Fetch 
+			print result = sess.run([mul, intermed]) #取回多个 tensor(两个常量的乘积、和)
+				需要获取的多个 tensor 值，在 op 的一次运行中一起获得（而不是逐个去获取 tensor）。
+		10）Feed 
+			TensorFlow 还提供了 feed 机制, 该机制 可以临时替代图中的任意操作中的 tensor 可以对图中任何操作提交补丁, 直接插入一个 tensor.
+			feed 使用一个 tensor 值临时替换一个操作的输出结果. 你可以提供 feed 数据作为 run() 调用的参数. feed 只在调用它的方法内有效, 
+			方法结束, feed 就会消失. 最常见的用例是将某些特殊的操作指定为 "feed" 操作, 标记的方法是使用 tf.placeholder() 为这些操作创建占位符. 
+			input1 = tf.placeholder(tf.types.float32)
+			input2 = tf.placeholder(tf.types.float32)
+			output = tf.mul(input1, input2)
+
+			with tf.Session() as sess:
+				print sess.run([output], feed_dict={input1:[7.], input2:[2.]})
+
+			# 输出:
+			# [array([ 14.], dtype=float32)]
+	# gpu、cpu
+		一般你不需要显式指定使用CPU还是GPU,TensorFlow能自动检测.如果检测到 GPU,TensorFlow会尽可能地利用找到的第一个GPU来
+		执行操作.如果机器上有超过一个可用的GPU, 除第一个外的其它GPU默认是不参与计算的.为了让TensorFlow使用这些GPU,你必须将
+		op明确指派给它们执行.
+		
+		1)记录设备指派情况：
+			sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+			log_device_placement=True,来获取你的 operations 和 Tensor 被指派到哪个设备上运行。
+		2）手工指派设备：
+			# 新建一个graph.
+			with tf.device('/cpu:0'):
+				a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a') #/cpu:0
+				b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b') #/cpu:0
+			c = tf.matmul(a, b) #/gpu:0
+			# 新建session with log_device_placement并设置为True.
+			sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+			
+			备注：如果你指定的设备不存在, 你会收到 InvalidArgumentError 错误提示:
+				为了避免出现你指定的设备不存在这种情况,你可以在创建的session里把参数allow_soft_placement设置为True, 
+				这样 tensorFlow 会自动选择一个存在并且支持的设备来运行 operation.
+		3）使用多个 GPU:
+			# 新建一个 graph.
+			c = []
+			for d in ['/gpu:2', '/gpu:3']:
+			  with tf.device(d):
+				a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')	#'/gpu:0', '/gpu:1'
+				b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2])	#'/gpu:0', '/gpu:1'
+				c.append(tf.matmul(a, b))	#'/gpu:0', '/gpu:1'
+			with tf.device('/cpu:0'):	
+				sum = tf.add_n(c)	#'/cpu:0'
+			# 新建session with log_device_placement并设置为True.
+			sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+			# 运行这个op.
+			print sess.run(sum)
+	# 状态可视化 : TensorBoard
+		1）
+		Tensorboard可以记录与展示以下数据形式：
+			标量Scalars、图片Images、音频Audio、计算图Graph、数据分布Distribution、直方图Histograms、嵌入向量Embeddings
+		2）
+		image_shaped_input = tf.reshape(x, [-1, 28, 28, 1])
+		tf.summary.image('input', image_shaped_input, 10)
+		tf.summary.scalar('loss', loss)
+		tf.summary.scalar('accuracy', accuracy)
+		tf.summary.histogram('activations', activations)
+		
+		#将所有的summaries合并，并且将它们写到之前定义的log_dir路径
+		summary_op = tf.merge_all_summaries() #所有的即时数据都要在图表构建阶段合并至一个操作（op）中。
+		summary_writer = tf.train.SummaryWriter(log_dir,graph_def=sess.graph_def) #写到指定的磁盘路径中
+		summary, acc = sess.run([merged, accuracy], feed_dict=输入数据)
+		summary_writer.add_summary(summary, i) #其他每一步时都记录下训练集的summary信息并写到日志中。
+		summary_writer.close()
+		
+		3）执行程序，tensorboard生成可视化：
+			tensorboard --logdir='/logs' 
+			将http://127.0.1.1:6006在浏览器中打开。注意，需要将容器的端口号映射到主机上，不然无法访问。
+	# 变量：tf.Variable 类
+		# Create two variables.
+			weights = tf.Variable(tf.random_normal([784, 200], stddev=0.35),
+                      name="weights")#调用tf.Variable()添加一些操作(Op, operation)到graph
+			biases = tf.Variable(tf.zeros([200]), name="biases") #变量的shape通常是固定的
+		# 初始化
+			使用tf.initialize_all_variables()添加一个操作对变量做初始化。记得在完全构建好模型并加载之后再运行那个操作。
+			# Add an op to initialize the variables.
+			init_op = tf.initialize_all_variables()
+			with tf.Session() as sess:
+				# Run the init operation.
+				sess.run(init_op)
+				
+		# 由另一个变量初始化
+			w2 = tf.Variable(weights.initialized_value(), name="w2")
+	# 保存和加载：tf.train.Saver
+		# 检查点文件
+			变量存储在二进制文件里，主要包含从变量名到tensor值的映射关系。Variable.name
+		
+		用tf.train.Saver()创建一个Saver来管理模型中的所有变量。
+		saver = tf.train.Saver() 
+		with tf.Session() as sess:
+			save_path = saver.save(sess, "/tmp/model.ckpt") # 保存变量
+			saver.restore(sess, "/tmp/model.ckpt")	# 恢复变量
+		#注意
+			当你从文件中恢复变量时，不需要事先对它们做初始化。
+			如果你不给tf.train.Saver()传入任何参数，那么saver将处理graph中的所有变量。
+			#让saver处理graph中的部分变量
+			variables_to_restore = []
+			for v in tf.global_variables():
+				if not(v.name.startswith("embedding_attention_decoder/attention_decoder/AttnOutputProjection") 
+					or (v.name.startswith("embedding_attention_decoder/embedding"))):
+					variables_to_restore.append(v)		  
+			saver = tf.train.Saver(variables_to_restore)
+			
+	#简单例子：（Python程序生成了一些三维数据, 然后用一个平面拟合它.）
+		import tensorflow as tf
+		import numpy as np
+
+		# 使用 NumPy 生成假数据(phony data), 总共 100 个点.
+		x_data = np.float32(np.random.rand(2, 100)) # 随机输入
+		y_data = np.dot([0.100, 0.200], x_data) + 0.300
+
+		# 构造一个线性模型
+		b = tf.Variable(tf.zeros([1]))  
+		W = tf.Variable(tf.random_uniform([1, 2], -1.0, 1.0))
+		y = tf.matmul(W, x_data) + b
+
+		# 最小化方差
+		loss = tf.reduce_mean(tf.square(y - y_data))
+		optimizer = tf.train.GradientDescentOptimizer(0.5)
+		train = optimizer.minimize(loss)
+
+		# 初始化变量
+		init = tf.initialize_all_variables()
+
+		# 启动图 (graph)
+		sess = tf.Session()
+		sess.run(init)   ########
+
+		# 拟合平面
+		for step in xrange(0, 201):
+			sess.run(train)	##########
+			if step % 20 == 0:
+				print step, sess.run(W), sess.run(b)  ####
+
+		# 得到最佳拟合结果 W: [[0.100  0.200]], b: [0.300]
+####################################################
+theano:
+	2017年Yoshua Bengio的一封邮件宣布停止对 Theano 的更新，并即将在一年后正式退出历史舞台。
+	2007 年推出的 Theano 都是深度学习开发与研究的行业标准，也是开源界「所有轮子」都值得参考和学习的对象。
+	安装：pip install theano==0.9.0
+	卸载：pip uninstall theano
+	查看版本号：import theano
+				theano.__version__
+	设置gpu\cpu：
+		方法1：vim /root/.theanorc
+				[global]
+				model=FAST_RUN	(该模式运行速度快)
+				device=cuda1 (或者gpu或cpu)
+				floatX=float32
+				[blas]
+				ldflags=-L/usr/lib/libblas.so
+
+		方法2：
+			THEANO_FLAGS=mode=FAST_RUN,device=cuda,floatX=float32 python test_new.py
+		备注：theano0.9以上版本，使用gpu新后端，device=gpu或cpu或cuda(新后端)
+			#test_theano_gpu.py测试gpu/cpu，https://www.cnblogs.com/shouhuxianjian/p/4590224.html
+			THEANO_FLAGS=mode=FAST_RUN,device=cuda,floatX=float32 python test_theano_gpu.py		
+				<GpuArrayType<None>(float32, (False,))>	使用cpu
+			THEANO_FLAGS=mode=FAST_RUN,device=cpu,floatX=float32 python test_theano_gpu.py
+				<TensorType(float32, vector)>	使用cpu
+			THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python test_theano_gpu.py
+				<CudaNdarrayType(float32, vector)>	使用gpu
+				
+	tensorflow和theano同时要使用GPU，如何设置？
+		如果.theanorc中device设置为gpu，那么tensorflow将无法使用GPU；
+		如果.theanorc中device设置为cuda，那么theano在第二次调用中将无法使用GPU；
+		因此，如果tensorflow和theano同时要使用GPU，.theanorc中device必须设置为cuda，而且指明哪一个cuda。如上面的device=cuda1。
+		与此同时，tensorflow不需要特别指定GPU。
+	备注：
+		import os
+		os.environ["CUDA_VISIBLE_DEVICES"] = "0" 或 "1"
+		import theano 	#cuda1
+		会报错：
+			GpuArrayException: cuDeviceGet: CUDA_ERROR_INVALID_DEVICE: invalid device ordinal: 1
+		
+		import os
+		os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
+		import theano 	#gpu1
+		会报错：(theano gpu加载失败，转成cpu)
+			ERROR (theano.sandbox.cuda): ERROR: Not using GPU. Initialisation of device 1 failed: 
+		Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5105)
+		结论：os.environ["CUDA_VISIBLE_DEVICES"] = "0" 或 "1" 如果放到导入theano之前，会出错或者是theano转成cpu。
+
+		
+	pygpu安装：
+		git clone https://github.com/Theano/libgpuarray.git
+		cd libgpuarray
+		mkdir Build
+		cd Build
+		cmake .. -DCMAKE_BUILD_TYPE=Release
+		make 
+		make install
+		cd ..
+		python setup.py build 
+		python setup.py install	
+		sudo ldconfig
+		备注：有测试过pygpu==0.6.5与theano==0.9.0 或者pygpu==0.7.5与theano==1.0.0 OK.
+			pygpu版本如果为0.65，那么theano必须为0.9。如果为1.0，不兼容。无法成功import theano。
+			pygpu版本如果为0.75，那么theano必须为1.0。如果为0.9，不兼容。无法正常初始化pygpu。
+	
+	例子：DeepAlgnmentNetwork： theano==0.9.0
+		error:immporting theano: AttributeError: 'module' object has no attribute 'find_graphviz'
+		解决方案：sudo pip uninstall -y pydot 或者 pip install pydot-ng		
+		安装lasagne：https://github.com/Lasagne/Lasagne  (深度框架)
+			pip install https://github.com/Lasagne/Lasagne/archive/master.zip
+		pip install theano==0.9.0
+		安装pygpu
+	备注：前向传播
+			inputImg_batchsize为list,inputImg_batchsize[0]大小(channels=1,h=112,w=112)
+			output_array = theano.function(inputImg_batchsize)[0] #输入为list
+				#output_array为矩阵，faceNum = output_array.shape[0]，output_array.shape[1]为2，(x,y)坐标。
+	# cuda1, list=1024，(c=1,h=112,w=112)
+		GpuArrayException: cuMemAlloc: CUDA_ERROR_OUT_OF_MEMORY: out of memory	
+		
+	#美国跨国技术公司IBM今天宣布，将在蒙特利尔开设一家实验室，以加强与由Yoshua Bengio教授领衔的蒙特利尔算法学习研究所（MILA）的合作。
+		Theano 在 1.0 版本发布之后，未来将终止开发，但仍会以最小成本维护一年。也就是说Theano在未来还可以用，但MILA团队将不再更新版本了。
+		
+	基本用法：
+	theano.tensor常用数据类型:
+		有double、int、uchar、float等,float是因为GPU一般是float32类型.
+		数值：iscalar(int32)、fscalar(float32)、wscalar(int16）、bscalar(int8)、lscalar(int64)
+				a = T.scalar() #print (a.dtype) #float32
+		一维向量：ivector(int 类型的向量)、fvector(float类型的向量)、
+		二维矩阵：fmatrix(float类型矩阵)、imatrix（int类型的矩阵）
+		三维float类型矩阵：ftensor3  
+		四维float类型矩阵：ftensor4 #tensor5、tensor6、tensor7
+		例子：theano.tensor.tensor3(name=None, dtype=config.floatX) #数据类型最好一致，不然会出错
+	theano.tensor常用函数:
+		x=theano.tensor.iscalar('x',dtype='int32')#声明一个int类型的变量x  
+		y=theano.tensor.pow(x,3)	#定义y=x^3  
+		y1= 1 / (1 + theano.tensor.exp(-x))
+		f=theano.function([x],y)	#定义函数的自变量为x（输入），因变量为y（输出） 
+		print (f(2))	#8	
+		dx=theano.grad(y,x)#偏导数函数 
+	共享变量：
+		共享变量是多线程编程中的一个名词，故名思议就是各线程，公共拥有的变量，这个是为了多线程高效计算、
+		访问而使用的变量。
+		w= theano.shared(1)		#定义一个共享变量w，其初始值为1  
+		print (x.get_value())	#取值
+		x.set_value(2)			#设置数组
+	theano.tensor的层及函数：import theano.tensor as T 
+		T.nnet：conv2d、softmax、
+		T: T.mean、log、pow、exp、dot、argmax、tanh、grad、
+		T.signal.downsample.max_pool_2d：池化操作
+	保存、加载模型：#import pickle
+		#save model
+		with open("model.pickle", "wb") as file:
+			model = [w.get_value(), b.get_value()] #或写成字典的形式
+			pickle.dump(model,file)
+			print (model[0][:10]) #打印w的前10个数值
+		#load model
+		with open("model.pickle", "rb") as file:
+			model = pickle.load(file)
+			w.set_value( model[0] )
+			b.set_value( model[1] )
+			print ( w.get_value()[:10] ) #打印w的前10个数值
+			
+	lasagne:https://github.com/Lasagne/Lasagne	(theano自己的深度框架)
+			http://lasagne.readthedocs.io/en/latest/index.html (手册) 
+		pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt (卸载)
+		pip install https://github.com/Lasagne/Lasagne/archive/master.zip (安装)
+		备注：batch_norm()函数存储的参数是beta、gamma、mean、inv_std共四个参数。
+			# normalize
+			normalized = (input - mean) * (gamma * inv_std) + beta
+		
+		#层：
+		lasagne.layers:
+			#DenseLayer、DropoutLayer、InputLayer、Conv2DLayer、MaxPool2DLayer、
+			get_all_params、get_output、set_all_param_values、get_all_param_values
+		lasagne.updates
+		lasagne.init
+		lasagne.nonlinearities
+		lasagne.objectives
+		lasagne.regularization
+		lasagne.random
+		lasagne.utils
+
+		lasagne.layers.DenseLayer(DropoutLayer、InputLayer、Conv2DLayer、MaxPool2DLayer、
+								get_all_params、get_output、set_all_param_values、get_all_param_values)
+		lasagne.nonlinearities.rectify(softmax、tanh、relu)  #激活函数
+		W=lasagne.init.GlorotUniform() #权值初始化
+		loss = lasagne.objectives.categorical_crossentropy(prediction, target_var)
+	
+	手写字识别例子：
+		可以参考lasagne 源码给的mnist.py例子，主要代码如下：
+		import numpy as np
+		import theano
+		import theano.tensor as T
+		import lasagne
+		import sys，os
+		
+		def load_dataset():
+			if sys.version_info[0] == 2:	# Python 2
+				from urllib import urlretrieve
+			else:							# Python 3
+				from urllib.request import urlretrieve
+
+			def download(filename, source='http://yann.lecun.com/exdb/mnist/'):
+				print("Downloading %s" % filename)
+				urlretrieve(source + filename, filename)
+
+			import gzip
+			def load_mnist_images(filename): #下载图片
+				if not os.path.exists(filename):
+					download(filename)
+			
+				with gzip.open(filename, 'rb') as f:
+					data = np.frombuffer(f.read(), np.uint8, offset=16)
+				data = data.reshape(-1, 1, 28, 28)	#(None, channels, rows, columns)
+			return data / np.float32(256)
+			
+			def load_mnist_labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080(filename):	#下载标签
+				if not os.path.exists(filename):
+					download(filename)
+				with gzip.open(filename, 'rb') as f:
+					data = np.frombuffer(f.read(), np.uint8, offset=8)
+				return data
+			
+			#下载数据		
+			X_train = load_mnist_images('train-images-idx3-ubyte.gz') 
+			y_train = load_mnist_labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080('train-labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080-idx1-ubyte.gz')
+			X_test = load_mnist_images('t10k-images-idx3-ubyte.gz')
+			y_test = load_mnist_labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080('t10k-labels_1080_ratio_new_ratio_new_ratio_ratio_new_1080-idx1-ubyte.gz')
+			
+			#最后10000个用于预测
+			X_train, X_val = X_train[:-10000], X_train[-10000:]
+			y_train, y_val = y_train[:-10000], y_train[-10000:]
+			return X_train, y_train, X_val, y_val, X_test, y_test
+		
+		#构建网络模型
+		def build_cnn(input_var=None): 
+			network = lasagne.layers.InputLayer(shape=(None, 1, 28, 28),input_var=input_var)
+			network = lasagne.layers.Conv2DLayer(network, num_filters=32, filter_size=(5, 5),
+					nonlinearity=lasagne.nonlinearities.rectify,W=lasagne.init.GlorotUniform())
+			network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2))
+			network = lasagne.layers.Conv2DLayer(network, num_filters=32, filter_size=(5, 5),
+					nonlinearity=lasagne.nonlinearities.rectify)
+			network = lasagne.layers.MaxPool2DLayer(network, pool_size=(2, 2))
+			network = lasagne.layers.DenseLayer(lasagne.layers.dropout(network, p=.5),
+						num_units=256,nonlinearity=lasagne.nonlinearities.rectify)
+			network = lasagne.layers.DenseLayer(lasagne.layers.dropout(network, p=.5),
+						num_units=10,nonlinearity=lasagne.nonlinearities.softmax)
+			return network
+		
+		def main(num_epochs=500):
+			#加载数据
+			X_train, y_train, X_val, y_val, X_test, y_test = load_dataset()
+			
+			# 定义 Theano variables for inputs and targets
+			input_var = T.tensor4('inputs')
+			target_var = T.ivector('targets')
+			
+			network = build_cnn(input_var) #构建网络模型
+			
+			prediction = lasagne.layers.get_output(network) #网络返回结果
+			#定义交叉商
+			loss = lasagne.objectives.categorical_crossentropy(prediction, target_var)
+			loss = loss.mean() # batch_size个数据的均值
+			
+			#要学习的网络参数
+			params = lasagne.layers.get_all_params(network, trainable=True)
+			#网络学习过程中梯度下降的方式
+			updates = lasagne.updates.nesterov_momentum(loss, params, learning_rate=0.01, momentum=0.9)
+			
+			#预测，deterministic=True是进行一次前向传播，禁用dropout
+			test_prediction = lasagne.layers.get_output(network, deterministic=True)
+			test_loss = lasagne.objectives.categorical_crossentropy(test_prediction,target_var)
+			test_loss = test_loss.mean()
+			test_acc = T.mean(T.eq(T.argmax(test_prediction, axis=1), target_var),dtype=theano.config.floatX) #axis=1 行
+			
+			#主要函数
+			train_fn = theano.function([input_var, target_var], loss, updates=updates)
+			val_fn = theano.function([input_var, target_var], [test_loss, test_acc])
+			
+			#开始训练
+			for epoch in range(num_epochs):
+				train_err = 0
+				train_batches = 0	#iterate_minibatches()函数要自己写
+				for batch in iterate_minibatches(X_train, y_train, 500, shuffle=True):
+					inputs, targets = batch
+					train_err += train_fn(inputs, targets)
+					train_batches += 1
+			
+			#测试
+			test_err = 0
+			test_acc = 0
+			test_batches = 0
+			for batch in iterate_minibatches(X_test, y_test, 500, shuffle=False):
+				inputs, targets = batch
+				err, acc = val_fn(inputs, targets)
+				test_err += err
+				test_acc += acc
+				test_batches += 1
+				
+			#保存模型参数
+			np.savez('model.npz', *lasagne.layers.get_all_param_values(network))
+			#加载模型参数
+			with np.load('model.npz') as f:
+				param_values = [f['arr_%d' % i] for i in range(len(f.files))]
+			lasagne.layers.set_all_param_values(network, param_values)
+			
+			备注：
+				参数存储：
+					net = {}
+					net['input'] = lasagne.layers.InputLayer(shape=(None,nChannels=1,h=112,w=112), input_var=self.data)		 
+					print("Input shape: {0}".format(net['input'].output_shape)) #(None, 1, 112, 112)
+					net['s1_conv1_1'] = batch_norm(Conv2DLayer(net['input'], 64, 3, pad='same', W=GlorotUniform('relu')))						
+						#(None, 64, 112, 112)
+							0 (64, 1, 3, 3) #'s1_conv1_1'，1是上一层的卷积核个数
+							1 (64,) #以下4个是存储batch_norm中的beta、gamma、mean、std
+							2 (64,)	
+							3 (64,)
+							4 (64,)
+					# batch_norm  normalize
+					normalized = (input - mean) * (gamma * inv_std) + beta
+				numpy(save、load):	
+					如果你想将多个数组保存到一个文件中的话，可以使用numpy.savez函数。
+					savez函数的第一个参数是文件名，其后的参数都是需要保存的数组，
+					也可以使用关键字参数为数组起一个名字，非关键字参数传递的数组会自动起名为arr_0,
+					arr_1, …。savez函数输出的是一个压缩文件(扩展名为npz)，其中每个文件都是一个
+					save函数保存的npy文件，文件名对应于数组名。load函数自动识别npz文件，并且返回一个
+					类似于字典的对象，可以通过数组名作为关键字获取数组的内容：
+					C=np.array([1,0,1,0])
+					np.savez("files.npz",A,B,C_array=C)
+					D=np.load("files.npz")
+					>>D['arr_0']
+					>>D['arr_1']
+					>>D['C_array']
+#####################################################
+PyTorch：
+	2017年，Facebook 发布开源框架 PyTorch；
+	
+#####################################################
+MXNet：亚马逊深度学习开源框架的 MXNet
+#####################################################
+docker:
+	docker的优缺点：一个新的容器技术
+		Container，容器，虚拟机的运行实例
+	
+	export CUDA_VISIBLE_DEVICES=1  #在容器内指定使用gpu为1，如果再想使用所有gpu,就需要重启容器。
+		
+	docker --version		#版本号 	docker -v # 查看docker版本信息
+	docker info
+	docker version
+	docker images			#展示镜像
+	docker ps				#展示容器
+	docker ps -a			#会展示出所有正在运行的和已经停止的容器
+	docker rmi 镜像ID			#删除镜像
+	docker rmi REPOSITORY:TAG 	#如果有2个镜像ID一样，删除镜像
+	docker rm 容器ID		#删除容器
+	docker stop dede_gpu	#关闭容器
+	docker start dede_gpu	#启动容器
+	docker restart			#重启容器
+	docker hub				#上重新拉个镜像
+	docker exec -it 容器ID bash		#进入容器
+	docker cp keraslearning:/notebook .
+		#从容器keraslearning中复制/notebook目录到当前目录
+	docker cp test keraslearning:/notebook
+		#从当前目录复制test子目录到容器keraslearning中/notebook目录下
+	
+	nvidia-docker run -idt -v /home:/opt --name face_flask1 ssd_caffe
+		备注：在容器外发post请求，图片路径："/opt/ligang/restful/testimage/1.jpg"
+	docker run -idt -v /dataTwo:/opt --name attention_ocr_zj --restart=always -e PASSWORD=a1b2c3  tensorflow/tensorflow:latest-gpu	
+	docker run -idt -p 9529:8080 -v /home:/opt --name face_flask face_flask_gpu_image(镜像) 
+		#192.168.15.100:9529，0.0.0.0:8080(容器端口号)，本机/home路径挂载到/opt
+	nvidia-docker run -idt -p 9529:8080 -v /home:/opt --name face_flask face_flask_gpu_image	#gpu版本容器
+	docker commit 26045d5598a3	tensorflow/test	 #将容器创建成镜像
+					容器ID		  镜像名字 
+	docker save 9045 > tomcat8-apr.tar 或 sudo docker save -o attention_ocr.tar tensorflow/test(镜像) 
+		#选择要打包的镜像，执行打包命令，会在当前目录下生成导出文件xxx.tar，然后将此文件下载到本地
+				镜像ID
+	docker load -i attention_ocr_gpu.tar
+
+	docker commit caffe_tf_cpu_ys 	ocr_image
+	sudo docker save -o TextBoxes_attention_ocr.tar ocr_image
+	
+	docker load -i quay.io-calico-node-1.tar	#从tar中导入打包的镜像
+	
+	docker给运行中的容器添加映射端口，但是重启容器该端口号就失效。
+		docker强制映射:http://blog.csdn.net/a751101884/article/details/53374940
+		方法1：
+			# 获得容器IP，将container_name 换成实际环境中的容器名
+			docker inspect `container_name` | grep IPAddress 
+			# iptable转发端口
+			将容器的8000端口映射到Docker主机的8001端口
+			iptables -t nat -A	DOCKER -p tcp --dport 1122 -j DNAT --to-destination 172.17.0.25:8080   
+			# iptables -t nat -nvL :先查看100主机的那些端口被使用
+			#在浏览器里面使用http://192.168.15.100:1111 访问网页；
+			备注： 如何在浏览器无法访问的话，请使用telnet 172.17.0.25 6006查看端口号是否打开，
+					以及ping 192.168.15.100 1111 看网络是否通着。
+	
+	# 虚悬镜像：
+		镜像列表中，有一个特殊的镜像，这个镜像没有仓库名，没有标签，均为 <none> ：
+		<none> <none> 00285df0df87 5 days ago 342 MB
+		官方发布了新版本后，新旧镜像同名，从而出现仓库名、标签均为 <none> 的镜像。
+		docker build 也会导致这种现象。
+		虚悬镜像没有用处，可以删除：$ docker rmi $(docker images -q -f dangling=true)
+		
+	# 中间层镜像
+		$ docker images -a  #显示包括中间层镜像和顶级镜像。
+		只要删除那些依赖它们的镜像后，这些依赖的中间层镜像也会被连带删除。
+		
+	docker logs		#从某个容器中获取log日志
+	docker inspect	#检测关于某个容器的详细信息
+	docker events	#从某个容器中获取所有的事件
+	docker port		#获取某个容器的全部的开放端口
+	docker top		#展示某个容器中运行的全部的进程
+	docker stats	#展示某个容器中的资源的使用情况的统计信息
+	docker diff		#展示容器中文件的变化情况
+	docker -v 		# 查看docker版本信息
+	
+
+	#dockerfile快速创建自定义的Docker镜像 
+		#docker典型结构
+			DockerFile分为四部分组成：基础镜像信、维护者信息、镜像操作指令和容器启动时执行指令。
+			FROM 基础镜像名 								#第一行必须指令基于的基础镜像
+			MAINTAINER docker_user  docker_user@mail.com	#维护者信息
+			RUN apt-get update && apt-get install -y ngnix 	#镜像的操作指令
+			CMD /usr/sbin/ngnix								#容器启动时执行指令
+		#指令介绍 
+			From指令：DockerFile第一条必须为From指令。如果同一个DockerFile创建多个镜像时，
+						可使用多个From指令（每个镜像一次）
+			RUN指令：每条run指令在当前基础镜像执行，并且提交新镜像。当命令比较长时，
+						可以使用“/”换行。
+			CMD指令：每个容器只能执行一条CMD命令，多个CMD命令时，只最后一条被执行。
+			EXPOSE指令：告诉Docker服务端容器暴露的端口号，供互联系统使用。在启动Docker时，
+						可以通过-P,主机会自动分配一个端口号转发到指定的端口。使用-P，
+						则可以具体指定哪个本地端口映射过来。EXPOSE 端口号(如8080) 
+			ENV指令：指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。
+			ADD、COPY指令：ADD src dst，复制内容到容器中，
+							功能和使用方式类似，只是COPY指令不会做自动解压工作。
+			VOLUME指令：VOLUME [“/data”]，创建一个可以从本地主机或其他容器挂载的挂载点，
+						一般用来存放数据库和需要保持的数据等。
+			WORKDIR指令：格式为 WORKDIR /path/to/workdir 。为后续的 RUN 、 CMD 、 ENTRYPOINT 		
+							指令配置工作目录。可以使用多个WORKDIR指令，后续命令如果参数是相对路径，
+							则会基于之前命令指定的路径。
+		#创建镜像 
+			docker build -t 镜像名称 .  #命令读取指定路径下（包括子目录）所有的Dockefile，并且把目录下所有内容发送到服务端，由服务端创建镜像。
+	
+	#nvidia-docker: 
+			nvidia-docker是一个可以使用GPU的docker，nvidia-docker是在docker上做了一层封装，通过nvidia-docker-plugin，
+		然后调用到docker上，其最终实现的还是在docker的启动命令上携带一些必要的参数。因此在安装nvidia-docker之前，
+		还是需要安装docker(基于cpu的应用)的。
+			nvidia-docker-plugin是一个docker plugin，被用来帮助我们轻松部署container到GPU混合的环境下。类似一个守护进程，
+		发现宿主机驱动文件以及GPU 设备，并且将这些挂载到来自docker守护进程的请求中。以此来支持docker GPU的使用。
+		
+		nvidia-docker安装的步骤：
+		1) 安装docker （由于nvidia docker是基于docker基础之上运行的）
+		2) nvidia显卡驱动 （要想使用GPU，必须要安装显卡驱动，这样nvidia docker才能正常运行。CUDA要与显卡驱动匹配）
+		3) 安装nvidia docker
+	
+	#Ubuntu环境下安装docker、nvidia-docker: 
+		安装docker：
+			参考文献：https://blog.csdn.net/san1156/article/details/76038287 
+			先安装docker，再安装nvidia-docker。
+
+			1) 更新系统资源列表
+				sudo apt-get update  
+			2) 安装docker
+				sudo apt-get -y install docker.io  
+			3) 安装nvidia驱动 （官网上https://www.geforce.cn/drivers下载相应的驱动）
+				sudo sh NVIDIA-Linux-x86_64-375.66.run 
+				
+				备注：
+					a. 拷贝驱动安装程序：
+						sudo scp yushan@192.168.200.213:/data/Packages/NVIDIA-Linux-x86_64-375.66.run ./
+					b. 给驱动run文件赋予执行权限：
+						sudo chmod +x NVIDIA-Linux-x86_64-375.66.run
+					c. 安装驱动
+						sudo sh NVIDIA-Linux-x86_64-375.66.run 
+			4) 安装cuda8.0 （下载与nvidia驱动匹配的包）
+				sudo dpkg -i cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb
+				sudo apt-get update
+				sudo apt-get install cuda
+				
+				#设置设置环境变量
+				打开系统文件vim ./bashrc，在最后加入以下两句
+				export PATH=/usr/local/cuda-8.0/bin:$PATH
+				export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+
+				执行source ./bashrc
+			5) 安装cudnn5.1
+				a. 拷贝cudnn安装包：
+					sudo scp yushan@192.168.200.213:/data/Packages/cudnn-8.0-linux-x64-v5.1.tgz ./
+				b. 解压缩并复制到路径下
+					sudo tar xvf cudnn-8.0-linux-x64-v5.1-tgz
+					sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+					sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+				c. 建立新的软连接
+					cd /usr/local/cuda/lib64
+					sudo rm -rf libcudnn.so.5 libcudnn.so  #删除原来的cudnn5的软连接：
+
+					#建立新的cudnn5的软连接：
+						sudo ln -s libcudnn.so.5.1.10 libcudnn.so.5.1
+						sudo ln -s libcudnn.so.5.1 libcudnn.so
+			6) 安装nvidia-docker
+				a. 拷贝nvidia-docker安装包：
+					sudo scp yushan@192.168.200.213:/data/Packages/nvidia-docker_1.0.1_amd64.tar ./
+				b. 解压并拷贝：
+					tar -xvf nvidia-docker_1.0.1_amd64.tar
+					cp  nvidia-docker/*  /usr/bin  (将解压在 nvidia-docker中的nvidia-docker和nvidia-docker-plugin复制到 /usr/bin下面)
+				c. 安装：
+					sudo -b nohup nvidia-docker-plugin > /tmp/nvidia-docker.log
+				d. 测试：
+					sudo nvidia-docker run --rm nvidia/cuda nvidia-smi
+
+				测试成功的结果如下： 
+				docker images
+				REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+				nvidia/cuda         latest              22bde803e760        2 weeks ago         1.226 GB
+				 
+				如果报如下错误：
+				docker: Error response from daemon: create nvidia_driver_352.79: create nvidia_driver_352.79: Error looking up volume plugin nvidia-docker: plugin not found.
+				See 'docker run --help'.
+				解决办法：
+				nvidia-docker volume setup
+				docker volume ls
+				DRIVER              VOLUME NAME
+				local               nvidia_driver_352.79
+				 
+				再次运行nvidia-docker run --rm nvidia/cuda nvidia-smi
+			
+			7) 挂载磁盘
+				a. 查看硬盘分区：fdisk -l
+				b. 新建磁盘分区：
+					比如/dev/sda有3.7T的空间
+					fdisk  /dev/sda
+					然后根据索引建立分区，基本都是选默认值。其中n表示新建分区，w表示保存结果
+					最后新建一个/dev/sda1的分区
+				c. 格式化分区：mkfs.ext4 /dev/sda1
+				d. 新建挂载点并挂载
+					mkdir /data
+					mount /dev/sda1 /data
+					然后使用 df -k 查看挂载的磁盘信息，确认是否挂载成功
+				e. 设置开机自动挂载
+					vim /etc/fstab
+					在最后一行添加：
+					/dev/sda1      /data            ext4  defaults 0 2
+					(分区)           （挂载点） 
+				f. reboot			
+			
+	#centos 7(redHat)环境下安装docker、nvidia-docker: 
+		安装docker:
+			1) 下载安装包
+				Go to https://download.docker.com/linux/centos/7/x86_64/stable/Packages/ and 
+				download the .rpm file for the Docker version you want to install.
+			2) 安装
+				yum install docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+				yum install docker-ce-17.03.0.ce-1.el7.centos.x86_64.rpm
+			3) 启动docker服务
+				systemctl start docker
+			4) 测试docker是否安装成功
+				sudo docker run hello-world  (有时会下载不下来导致出错)
+			5) 设置开机启动
+				systemctl enable docker
+			6) 查看状态
+				systemctl status docker
+		
+		安装 nvidia-docker: 	https://github.com/NVIDIA/nvidia-docker 
+			1) 下载安装包
+			https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker-1.0.1-1.x86_64.rpm
+			2) 安装
+				rpm -i /path/to/nvidia-docker*.rpm
+			3) 启动nvidia-docker服务
+				systemctl start nvidia-docker
+
+			4) 测试nvidia-docker是否安装成功
+				nvidia-docker run --rm nvidia/cuda nvidia-smi（提示，无法访问地址）
+				也可以在nvidia-docker 创建的容器中使用nvidia-smi来测试。
+			5) 开机启动
+				systemctl enable nvidia-docker
+			6) 查看状态
+				systemctl status nvidia-docker
+				
+			7) 卸载 nvidia-docker
+				docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
+				sudo yum remove nvidia-docker
+
+		备注：安装完docker和nvidia-docker后，重启电脑（命令：reboot）
+	
+	#error:
+		1.docker start caffe_gpu_zj
+			Error response from daemon: linux runtime spec devices: error gathering 
+			device information while adding custom device "/dev/nvidia-uvm-tools": 
+			lstat /dev/nvidia-uvm-tools: no such file or directory
+			Error: failed to start containers: caffe_gpu_zj
+			解决办法：重新安装docker
+		2. Error response from daemon: linux runtime spec devices: error gathering device 
+			information while adding custom device "/dev/nvidia1": no such  file or directory
+			问题描述：本身2块gpu,取掉一块后，重启容器，就报上面的错误。
+			解决办法：
+		3. docker: Error response from daemon: create nvidia_driver_352.79: create nvidia_driver_352.79: 
+				Error looking up volume plugin nvidia-docker: plugin not found.
+			解决办法：
+				nvidia-docker volume setup
+				docker volume ls
+		4. docker start 容器有问题，重启后，docker ps报下面错误。
+			error:Cannot connect to the Docker daemon at unix:///var/run/docker.sock. 
+					Is the docker daemon running?
+			解决办法：systemctl start docker
+			彻底解决：增加服务开机启动：  systemctl enable docker
+		5. nvidia-docker run -idt -p 9529:8080 -v /home:/opt --name detecron_gpu1 detecron_gpu
+			error:docker: Error response from daemon: create nvidia_driver_387.26: create nvidia_driver_387.26: 
+				Error looking up volume plugin nvidia-docker: legacy plugin: plugin not found.
+			解决办法：systemctl start nvidia-docker 
+			彻底解决：增加服务开机启动：  systemctl enable nvidia-docker
+
+		6. 问题描述：使用2个gpu训练模型
+			error == cudaSuccess. 77 vs 0. Error at: /caffe2/core/context_gpu.h:307: an illegal memory access wa
+			原因：2个gpu之间不能通信
+			查看方式: from caffe2.python import workspace
+						print(workspace.GetCudaPeerAccessPattern())
+						[True False]
+						[False Ture]
+					2个gpu之间能通信结果是：[True True]
+									  [True Ture]
+			解决办法： 2gpu硬件之间加个Reduce卡进行通信，GPU多卡计算的通信优化算法—Ring Allreduce（分布式计算）。
+			
+			
+	#nvidia gpu对应的驱动：https://www.nvidia.cn/Download/Find.aspx?lang=cn 
+	
+	#docker容器技术与传统虚拟机技术的特性比较：
+					容器				虚拟机
+	启动速度：		秒级				分钟级
+	性能：		   接近原生				较弱
+	内存代价：		很小				较多
+	硬盘使用：		一般为MB			一般为GB
+	运行密度：	单机支持上千个容器		一般几十个
+	隔离性：		完全隔离			完全隔离
+	迁移性：		优秀				一般
+	
+	
+	#Tesla P100-PCIE	gpu内存：16G 	NVIDIA-SMI 375.66(显卡驱动) 	docker版本号：Docker version 1.13.1, build 092cba3
+	#GeForce GTX 1080	gpu内存：8G		NVIDIA-SMI 367.57(显卡驱动) 	docker版本号：Docker version 17.03.1-ce, build c6d412e
+	
+	#Docker从1.13版本之后采用时间线的方式作为版本号，分为社区版CE和企业版EE。
+	社区版按照stable和edge两种方式发布，每个季度更新stable版本，如17.06，17.09；
+	每个月份更新edge版本，如17.09，17.10。
+	Docker 1.13 在 2017 年 1 月 18 日发布了。从 2016 年 7 月 29 日发布 1.12 以来。
+
+代码备注：
+	shutil.copyfile(orig_image_dir+file,save_image_dir+file)  #复制文件
+	files = [x for x in os.listdir(orig_image_dir) if os.path.isfile(orig_image_dir+os.sep+x) and x.endswith('.xml')]
+	basename = os.path.splitext(file)[0]
+	frame = cv2.imread(orig_image_dir + file)
+	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+	cv2.imwrite(save_image_dir+file, frame)
+	ann_data = json.load(f)
+	images = ann_data["images"]
+	
+	def nms_between_classes(self,boxes, threshold): #类间nms
+        if boxes.size==0:
+            return np.empty((0,3))
+        x1 = boxes[:,0]
+        y1 = boxes[:,1]
+        x2 = boxes[:,2]
+        y2 = boxes[:,3]
+        s = boxes[:,4]
+        area = (x2-x1+1) * (y2-y1+1)
+        I = np.argsort(s)
+        pick = np.zeros_like(s, dtype=np.int16)
+        counter = 0
+        while I.size>0:
+            i = I[-1]
+            pick[counter] = i
+            counter += 1
+            idx = I[0:-1]
+            xx1 = np.maximum(x1[i], x1[idx])
+            yy1 = np.maximum(y1[i], y1[idx])
+            xx2 = np.minimum(x2[i], x2[idx])
+            yy2 = np.minimum(y2[i], y2[idx])
+            w = np.maximum(0.0, xx2-xx1+1)
+            h = np.maximum(0.0, yy2-yy1+1)
+            inter = w * h        
+            o = inter / (area[i] + area[idx] - inter)
+            I = I[np.where(o<=threshold)]
+        pick = pick[0:counter]  #返回nms后的索引
+        return pick
+    
+	
+	

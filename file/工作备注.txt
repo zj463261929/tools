@@ -1,0 +1,3205 @@
+WinSCP、putty
+重要网站：
+https://github.com/tensorflow/models 
+http://www.robots.ox.ac.uk/~vgg/ 
+keras中文文档：http://keras-cn.readthedocs.io/en/latest/other/objectives/
+李宏毅的《一天搞懂深度学习》教程
+Synthetic Data for Text Localisation in Natural Images:  http://blog.csdn.net/u010167269/article/details/52389676
+https://github.com/torrvision/crfasrnn  图像分割(背景与目标分离)    https://github.com/edgarriba/DeepRosetta 深度模型转换
+http://deeplearning.net/software/theano/library/tensor/basic.html#theano.tensor.TensorConstant   theano
+http://blog.csdn.net/sunbaigui/article/details/39938097 网络结构中图像大小计算
+http://www.robots.ox.ac.uk/%7Evgg/data/scenetext/  合成数据集
+http://mc.eistar.net/~xbai/Chinese.html  白翔
+汉字数据集： http://mclab.eic.hust.edu.cn/icdar2017chinese/   http://www.iapr-tc11.org/mediawiki/index.php?title=MSRA_Text_Detection_500_Database_(MSRA-TD500)  
+http://www.cnblogs.com/20150705-yilushangyouni-Jacksu/articles/4630220.html 大牛们
+https://github.com/tensorflow/models/tree/master/im2txt  看图说话
+https://github.com/affinelayer/pix2pix-tensorflow  对抗网络的产物，根据输入学习得到输出
+https://github.com/foolwood/benchmark_results  目标跟踪大全
+https://github.com/baidu-research/warp-ctc/blob/master/README.zh_cn.md  CTC loss
+https://github.com/jacoxu/encoder_decoder  
+网络优化算法：https://zhuanlan.zhihu.com/p/27449596  http://blog.csdn.net/luo123n/article/details/48239963
+rcnn：https://zhuanlan.zhihu.com/p/23006190 (很不错的博客)  http://blog.csdn.net/WoPawn/article/details/52133338 
+tensorflow :http://www.jianshu.com/p/e112012a4b2d
+HED 边缘检测方法
+斯坦福新深度学习系统 NoScope：视频对象检测快1000倍:  http://dawn.cs.stanford.edu/2017/06/22/noscope/    
+https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652000462&idx=1&sn=426accddfc29f2b56089fd7d4dd75e6d&chksm=f121243fc656ad29951745a70ef0890fa748321c9a0deb7c1e9113ac16f86bfc3ac76d01367f&mpshare=1&scene=1&srcid=0707AmFCd6pjBMHKArwbcqx8&pass_ticket=mOkXKUBOaiCz1zBmZwnw06jm4vybgxe%2Bl8a27qbC2M5x30CeFcQmHVFFLprUHUYx#rd
+caffe :  https://wenku.baidu.com/view/ad6849cc31126edb6e1a105b.html###   https://wenku.baidu.com/view/035745a55acfa1c7aa00ccf6.html
+torch: http://pytorch.org/docs/master/  
+斯坦福深度学习课程第七弹：RNN，GRU与LSTM  http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial(深度学习教程)
+batch normalization: https://buptldy.github.io/2016/08/18/2016-08-18-Batch_Normalization/   
+深知神经网络中必须知道的技巧/诀窍（by Shen Shen Wei）: http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html 
+训练的神经网络不工作？一文带你跨过这37个坑 : Slav Ivanov 在 Medium 上发表了一篇题为《37 Reasons why your Neural Network is not working》的文章
+	https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650729285&idx=1&sn=8f78edc716bbd2198cd7b14f62a93298&chksm=871b2f3bb06ca62d60632da0faebbee63068405a5841934ebec300dc4bbace4b5e6f79daaeed&mpshare=1&scene=1&srcid=0725ML82UHAL4IrMB95R63VV&pass_ticket=mhhJzKN%2B1OYK%2BXW4QXsiFBRc7iSdlJZtumhiEbQLXeuBFU38r0Wxw4NAdPuEdpip#rd
+基于CNN的Seq2Seq模型-Convolutional Sequence to Sequence Learning：https://baijiahao.baidu.com/s?id=1567784916529100&wfr=spider&for=pc  
+各种对象检测论文总结(Object Detection ) ： http://blog.csdn.net/junmuzi/article/details/53418782 
+
+can push FCRN algorithm to git? http://charleshm.github.io/2016/03/Model-Performance/  
+
+专业名词：nvidia-smi   ps aux   kill -9 号
+Fully-Convolutional Network (FCN) 全卷积网络
+非极大值抑制算法（Non-maximum suppression, NMS）
+You Look Only Once (YOLO)
+MNIST数据集 是一个手写体标准库
+卷积递归神经网络  Convolutional Recurrent Neural Network 
+Region Proposal Network, RPN  候选区域网络
+https://zhuanlan.zhihu.com/xiaoleimlnote  好的网络
+shape[-1]：w   shape：(h,w)
+ 
+pkg-config --modversion opencv
+吴恩达课件： https://mooc.study.163.com/smartSpec/detail/1001319001.htm  
+cv2 API： http://blog.csdn.net/hyb0106/article/details/21489827
+		https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html 
+
+博客：
+http://blog.csdn.net/u010167269/article/details/52337213  ocr
+http://blog.csdn.net/xiahouzuoxin/article/details/47789361  DL 很不错***
+http://www.pythoner.com/238.html
+http://blog.csdn.net/nnnnnnnnnnnny/article/details/54577123   （CS231n课程笔记翻译系列之目录汇总   很不错）
+tensorflow笔记： http://blog.csdn.net/u012436149/article/details/53696970
+Tensorboard: http://lib.csdn.net/article/machinetranslation/61899    http://geek.csdn.net/news/detail/197155 
+GAN: http://blog.csdn.net/u011534057/article/details/52839161  
+     http://www.sohu.com/a/139545215_133098  
+	 https://zhuanlan.zhihu.com/p/24767059
+	 https://baijiahao.baidu.com/s?id=1568663805038898&wfr=spider&for=pc  
+	 http://www.jianshu.com/p/80bd4d4c2992
+	 http://blog.csdn.net/c2a2o2/article/details/73195871 
+	 https://www.leiphone.com/news/201702/nM2BgBUj1uMHdqnn.html (各种GAN 及代码)
+	 https://www.leiphone.com/news/201703/F3LOWfjPMz1JlSDU.html (text-to-image)
+	 不过前面那些实验忽略了现实世界中物体的关键性质：相比虚拟场景下对图片单一的识别，在现实世界中，相机可以从不同的距离和角度拍下物体来进行识别。
+	 从移动观察者的角度来看，目前现实世界中的对抗样本不会对物体检测造成干扰。
+	 https://github.com/zj463261929/pix2pix-tensorflow 
+	 https://github.com/paarthneekhara/text-to-image 
+HED edge: https://zhuanlan.zhihu.com/p/20872103?refer=dlclass 
+Github上关注最多的53个深度学习项目: http://blog.csdn.net/u010983881/article/details/52192008 
+推荐2017年20篇论文：http://www.sohu.com/a/157462530_642762 
+基于resNet+denseNet改进的两路网络，dpn:https://github.com/cypw/DPNs  
+ 
+已看的：
+http://www.jianshu.com/p/606a33ba04ff CNN概念
+ 
+最近要看的：
+https://www.zybuluo.com/hanbingtao/note/448086 神经网络 http://blog.csdn.net/myarrow/article/details/51878004 (不错)
+http://blog.csdn.net/tanhongguang1/article/details/46056663 cnn实例 
+http://blog.csdn.net/niuwei22007/article/details/49207187 keras 实例 http://www.jianshu.com/p/3ba69493f020
+http://blog.csdn.net/shenxiaolu1984/article/details/52215983 生成对抗网络GAN
+http://www.jianshu.com/p/64172378a178 
+https://github.com/KaimingHe/deep-residual-networks  resNet
+http://blog.csdn.net/luo123n/article/details/48239963  优化算法
+http://cn.arxiv.org/pdf/1704.04503v1   Improving Object DetectionWith One Line of Code
+http://blog.csdn.net/shuzfan/article/details/66971130   Finding Tiny Face  https://www.zybuluo.com/Jsmile/note/628981 (翻译的)
+http://www.di.ens.fr/willow/research/surreal/   Learning from Synthetic Humans 生成人体
+http://lib.csdn.net/article/machinetranslation/61899   tensorflow（很不错的）的可视化工具Tensorboard。
+2017年ImageNet (ILSVRC2017)的比赛结果:  https://mp.weixin.qq.com/s/iWaHZEAvPO0pw_u7DVGBqg 
+CVPR 2017 有什么值得关注的亮点:  https://www.zhihu.com/question/57523080/answer/153243553 
+lstm: 梯度问题， https://www.zhihu.com/question/34878706
+
+字符检测：
+http://blog.csdn.net/u013293750/article/details/73188934  CRNN(文本识别)+CTPN(文本检测)   
+crnn作者给了一个参考项目: https://github.com/AKSHAYUBHAT/DeepVideoAnalytics    https://github.com/AKSHAYUBHAT/DeepVideoAnalytics/tree/master/notebooks/OCR
+http://blog.csdn.net/u010167269/article/details/52389676 FCRN
+TextBoxes: A Fast Text Detector with a Single Deep Neural Network  文本检测效果不错    http://www.dongcoder.com/detail-436974.html
+https://github.com/MhLiao/TextBoxes 代码下载 http://www.cnblogs.com/lillylin/p/6204099.html  textboxes
+http://blog.csdn.net/peaceinmind/article/details/51387367 https://handong1587.github.io/deep_learning/2015/10/09/ocr.html  好多方法总结
+https://github.com/bgshih/crnn  http://www.cnblogs.com/lillylin/p/6596731.html 识别
+http://blog.csdn.net/u014595019/article/details/51884529   word2vec 词向量（单词向量化，将某个单词用特定的向量来表示）  （一系列）
+https://www.zhihu.com/question/59697263  (基于RNN的seq2seq(goole)与基于CNN的seq2seq (facebook)区别)
+http://www.cncorpus.org/   中文词频   word2vec官网提供的语料库：http://mattmahoney.net/dc/text8.zip
+http://thuocl.thunlp.org/  THUOCL：清华大学开放中文词库  http://thulac.thunlp.org/demo  http://bosonnlp.com/demo 
+http://mclab.eic.hust.edu.cn/CTDR/RCTW/index.html  http://www.cnblogs.com/lillylin/p/6596731.html 
+Reading Text in the Wild with Convolutional Neural Networks   识别vGG 2015 http://blog.csdn.net/u010167269/article/details/52337213  http://www.robots.ox.ac.uk/~vgg/research/text/#sec-demo
+汉字数据集：http://mclab.eic.hust.edu.cn/icdar2017chinese/    http://www.iapr-tc11.org/mediawiki/index.php?title=MSRA_Text_Detection_500_Database_(MSRA-TD500) http://www.sogou.com/labs/resource/t.php
+https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html
+https://handong1587.github.io/deep_learning/2015/10/09/ocr.html
+http://rrc.cvc.uab.es/ 
+基于R-FCN的物体检测： http://www.jianshu.com/p/db1b74770e52  http://www.wfuyu.com/technology/25855.html
+http://blog.csdn.net/yimingsilence/article/details/53995721 : Detection物体检测及分类方法总结（RFCN/SSD/RCNN/FastRCNN/FasterRCNN/SPPNet/DPM/OverFeat/YOLO） 
+
+字典树:trietree  http://stevehanov.ca/blog/index.php?id=114  https://zhuanlan.zhihu.com/p/20101194 
+http://www.cnblogs.com/rollenholt/archive/2012/04/24/2468932.html  http://www.cnblogs.com/rush/archive/2012/12/30/2839996.html （常见应用于大量字符串的保存，统计，查找等操作，由于字符串的公共前缀没有重复保存，所以操作起来比较方便，效率很高，搜索引擎的文本词频统计就是它的经典应用之一。）
+Trie;又称单词查找树;是一种树形结构;用于保存大量的字符串。它的优点是：利用字符串的公共前缀来节约存储空间。
+python 结巴分词(jieba)学习 
+https://mooc.study.163.com/learn/deeplearning_ai-2001281002?tid=2001392029#/learn/content?type=detail&id=2001701007&cid=2001694007  
+caffe-orc主流ocr算法：CNN+BLSTM+CTC架构实现！  http://www.sohu.com/a/200949262_642762 
+
+经典网络结构：http://ziyubiti.github.io/2016/11/27/cnnnet/
+
+备注：实时为1s处理24张图片、一般imageNet数据集训练好的模型需要将所有图像处理100倍。
+	bacthsize越大，学习步长也越大。
+ImageNet： Large Scale Visual Recognition Competition
+			https://www.cnblogs.com/zjutzz/p/6083201.html 
+车辆检测数据集：
+	北京理工大学BIT-Vehicle Dataset数据集
+		http://iitlab.bit.edu.cn/mcislab/vehicledb/index.htm  
+		六大类:公交车、面包车、面包车、轿车、SUV、卡车
+		（Bus, Microbus, Minivan, Sedan, SUV, and Truck）目标很大、背景被简单的
+		下载地址：https://pan.baidu.com/s/1pKCr72V 密码：29cf
+
+github：（用户名）zj463261929@163.com zj19870603
+服务器ip:192.168.15.23, 名称：zhangjing，密码:111111
+服务器ip:192.168.200.213, 名称：zhangjing，密码:111111
+服务器ip:192.168.200.214, 名称：zhangjing，密码:111111  ubuntu 123456
+服务器ip:192.168.15.100, 名称：zhangjing，密码:111111
+公司论坛：http://192.168.3.6 http://192.168.200.226
+		http://gdsportal.e-u.cn:8180/render.userLayoutRootNode.uP
+		http://gdsportal.e-u.cn:8180/render.userLayoutRootNode.uP 
+		http://mail.e-u.cn:8880/jira/secure/Dashboard.jspa  日志连接
+csdn: 邮箱、Jay·7504137 zj463261929@163.com zj18149026620
+		
+cmd:	mstsc.exe	(弹出远程桌面连接窗口)
+100上文字检测、识别：（容器）caffe_tf_cpu_ys
+					（路径）/home/yushan/TextBoxes/examples/TextBoxes
+					/home/zhangjing/TextBoxes_attention_ocr.tar 、镜像为ocr
+日志：
+	0528：
+		Average Precision (AP):
+		AP % AP at IoU=.50:.05:.95 (primary challenge metric)
+		APIoU=.50 % AP at IoU=.50 (PASCAL VOC metric)
+		APIoU=.75 % AP at IoU=.75 (strict metric)
+		AP Across Scales: APsmall % AP for small objects: area < 32^2
+		APmedium % AP for medium objects: 32^2 < area < 96^2
+		APlarge % AP for large objects: area > 96^2
+		Average Recall (AR):
+		ARmax=1 % AR given 1 detection per image
+		ARmax=10 % AR given 10 detections per image
+		ARmax=100 % AR given 100 detections per image
+		AR Across Scales:
+		ARsmall % AR for small objects: area < 32^2
+		ARmedium % AR for medium objects: 32^2 < area < 96^2
+		ARlarge % AR for large objects: area > 96^2
+	
+	213:398ms  100:365ms
+	CPU、GPU、CUDA，CuDNN 简介https://blog.csdn.net/fangjin_kl/article/details/53906874 
+	
+	detectron_gpu
+	
+	http://www.360doc.com/content/17/0817/14/10408243_679885486.shtml (很不错的博主)
+	0+17909+0+号码 打外线
+2018-07-05:
+	6. 港中文最新论文研究表明目前的深度神经网络即使在人工标注的标准数据库中训练（例如 ImageNet）			 	  
+		，性能也会出现剧烈波动。这种情况在使用少批量数据更新神经网络的参数时更为严重。
+		研究发现这是由于 BN（Batch Normalization）导致的。BN 是 Google 在 2015 年提出的归一化方法。至今已有 5000+次引用，在学术界和工业界均被广泛使用。港中文团队提出的 SN（Switchable Normalization）解决了 BN 的不足。
+		https://github.com/switchablenorms   
+		https://github.com/switchablenorms/Switchable-Normalization 
+		
+		Google 的 BN，Facebook 的 GN 和港中文提出的 SN 训练模型的准确率对比： 
+			当batchsize减小时，BN 模型的识别率急剧下降。例如batchsize等于 16 时，BN 模型相比 SN 模型识别率下降了 11%。
+			当batchsize等于 8 时，BN 模型的图像识别率跌至 50% 以下。
+		
+		#BN 导致性能下降？
+			BN（批归一化）是一种归一化方法。归一化一般指把数据的分布变成一个均值为 0 和方差为 1 的分布。要达到此目的，BN 在进行归一化操作时需要估计训练数据的均值和方差。由于训练数据量很大（ImageNet有上百万数据），估计这些统计量需要大量的运算。
+			因此，这两个统计量一般是利用一小批数据来估计的。然而，当批量较小时，例如上图的32，这些统计量估计不准确，
+			导致识别率开始明显下降。正如需要估计全校的平均分，只统计一个班级是不准确的。因此，BN 会导致性能损失。		
+		#为什么需要小批量学习？
+			原因1：首先，在深度神经网络的训练过程中，往往需要更新数亿级别的参数，而在很多实际应用中需要训练的图片大小又很大
+					（例如 1000x1000 以上），使得能够放到 GPU 中的图片数量很少（通常小于 2）。网络训练时的样本数量减少（小批量），
+					使训练变得困难。总体来说，批量越小，训练过程越不稳定。Facebook 提出的组归一化（GN）正是为了解决上述问题。
+			原因2：一般使用大量 GPUs 进行训练。训练方法可以分为两大类：同步训练与异步训练。同步训练代表网络参数的更新需要在多个 GPU 	
+					当中同步；异步训练是一种去中心化的方法。它比同步训练的好处在于，网络参数的更新可以在每个 GPU 当中单独进行，不需要同步。然而，由于网络占用大量内存，单独一块 GPU 只能放下少量训练样本，妨碍了参数在一块 GPU 中更新，使得异步训练无法进行。
+		#港中文的解决方案
+			SN 允许为神经网络中不同的归一化层自动学习不同的归一化操作。与强化学习不同，SN 使用可微分学习，使得选择归一化操作能够和优化网络参数同时进行，保证优化效率的同时还保持高性能。
+			SN = w1*实例归一化 IN（Instance Norm 在 16 年提出）+w2*层归一化 LN（Layer Norm 由 Geoffrey Hinton 等在 16 年提出) +
+				w3*组归一化 GN ( group Norm, Facebook 何恺明)
+			
+			批量越小，训练越不稳定，训练得到的模型识别率越低。何恺明团队通过大量的实验验证了 GN 的有效性：例如在 ImageNet 当中，GN 
+		在小批量条件下获得的识别率远远高于 BN 的识别率。但是，在正常批量条件下，GN 的识别率并不如 BN。
+		
+			几乎所有主流神经网络结构都使用了BN，例如微软亚洲研究院提出的残差神经网络（ResNet，CVPR 2016 best paper）和
+		由康奈尔大学提出的 DenseNet（CVPR 2017 best paper）。
+		
+	
+	5. T2F：Text to Face generation using Deep Learning，作者为 Animesh Karnewar。所述即所见，使用深度学习，文本一键生成人脸。
+			https://github.com/akanimax/T2F
+			提出了 Face2Text：收集一个带注释的图像描述语料库，用于生成丰富的面部描述。Face2Text 数据集的 v1.0 版本。包含 400 个随机从 LFW（自然环境下已标记的人脸数据）选择的图像的自然语言描述。这些描述被清理干净，去除了那些对图片中人物的不相关的说明。
+		幸运的是，有大量的从文本中合成图像的研究可供参考。下面是我参考的一些资料。
+			https://arxiv.org/abs/1605.05396「Generative Adversarial Text to Image Synthesis」
+			https://arxiv.org/abs/1612.03242「StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks」
+			https://arxiv.org/abs/1710.10916「StackGAN++: Realistic Image Synthesis with Stacked Generative Adversarial Networks」
+	4. CUDA(Compute Unified Device Architecture)，是英伟达公司推出的一种基于新的并行编程模型和指令集架构的通用计算架构，
+		它能利用英伟达GPU的并行计算引擎，比CPU更高效的解决许多复杂计算任务。
+	3. 并行计算(Parallel Computing)是指同时使用多种计算资源解决计算问题的过程，是提高计算机系统计算速度和处理能力的一种有效手段。
+       它的基本思想是用多个处理器来共同求解同一问题，即将被求解的问题分解成若干个部分，各部分均由一个独立的处理机来并行计算。
+       并行计算可分为时间上的并行和空间上的并行。
+		
+		但GPU无法单独工作，必须由CPU进行控制调用才能工作。CPU可单独作用，处理复杂的逻辑运算和不同的数据类型，但当需要大量的处理类型统一的数据时，
+		则可调用GPU进行并行计算。
+		GPU全称为Graphics Processing Unit，中文为图形处理器.但有一点需要强调，虽然GPU是为了图像处理而生的，但是我们通过前面的介绍可以发现，它在结构上并没有专门为图像服务的部件，只是对CPU的结构进行了优化与调整，所以现在GPU不仅可以在图像处理领域大显身手，它还被用来科学计算、密码破解、数值分析，海量数据处理（排序，Map-Reduce等），金融分析等需要大规模并行计算的领域。
+	2. ResNet与ResNeXt:		https://blog.csdn.net/shwan_ma/article/details/78203020 
+	
+	1.激光夜视摄像机:采用光斑均匀强化技术；光斑自动聚焦技术；激光镜头电动调焦以及和摄像机镜头同步变焦技术，
+      根据摄像机镜头的远近，自动调节至合适的照射角度，同步照亮图像画面，无红暴隐蔽夜视技术,电源启动缓冲，过压，过流，
+      过热保护，摄像机、光线或时间控制启动夜视功能等等。
+	  激光夜视摄像机技术不同于热红外成像技术和微光夜视技术，热红外成像技术只能看到人和物体的热轮廓，看不清物体的真实面目。
+	  微光夜视技术需要一定的月光、星光和环境光才能看到物体，如果没有光就什么也看不到。
+	  与红外灯照明和微光夜视相比，激光夜视摄像仪是目前唯一能在夜间不用可见光也能像白天一样从监视器上直接观察人和物的夜视摄像产品。
+	  激光夜视仪的特点:
+　　	   彩色转黑白：采用超低照度红外摄像机设计，配合激光红外照明系统，实现白天彩色晚上黑白的全天候实时监控。 	   
+           激光光斑可调：采用特殊激光电动镜头，可实时对激光光斑的照度角度和光强进行调整，实现了无盲区夜视。
+		   监视距离远：可从300-3000米。照度低，可在没有包括星光的任何照明的黑暗环境下使用。
+		    由于激光摄像机激光光源是人眼不可见光，有着一定隐蔽性优势及夜视监控距离技术优势.
+			可在1公里内识别人，3公里内发现人，真实还原现场情况。
+			
+	  激光夜视技术讲激光发射功率与照明角度的平方成正比，与照明距离的平方成正比，与镜头F数(焦距与口径之比)的平方成正比，
+	  与CCD的最低照度成正比，这就说明我们根据作用距离需要，合理地优化配置照明角度、CCD照明度和镜头F数，可以得到最具性价比的夜视仪。
+　　  另外，作用距离与大气衰减、目标反射率关系密切，与大气衰减承指数关系，与反射率呈反比。根据实验经验，大多数的建筑物、铁塔等对激光反射      
+     强烈，便于观察;而树木、山石、草地等反射率差，图像对比度差，影响作用距离。晴朗天气下，作用距离远，而有雾雨雪天气下，作用距离受限，特别是   后向散射光对成像影响较大。【激光夜视】
+2018-06-01:
+	6. detectron_gpu: 在容器中设置export CUDA_VISIBLE_DEVICES=1，表示只使用gpu1.  
+	5. 夜视摄像头：http://baijiahao.baidu.com/s?id=1578234411169741205&wfr=spider&for=pc 
+			白光摄像机（成彩色图）、红外摄像机、低照度摄像头（成彩色图）
+	4. CIFAR-10/CIFAR-100数据集解析:	https://www.cnblogs.com/cloud-ken/p/8456878.html 
+									|车辆1| 自行车，公共汽车，摩托车，皮卡车，火车|
+	3. PIL：Python Imaging Library，已经是Python平台事实上的图像处理标准库了。
+			PIL功能非常强大，但API却非常简单易用。
+		由于PIL仅支持到Python 2.7，加上年久失修，于是一群志愿者在PIL的基础上创建了兼容的版本，
+		名字叫Pillow，支持最新Python 3.x，又加入了许多新特性，因此，我们可以直接安装使用Pillow。
+		 pip install pillow
+
+	1.人数据：站立、蹲下、弯腰、手拿东西、戴帽子、树遮挡人、人遮挡人（正面、背面、侧面、倾斜的）
+			备注：现有数据集中人的大小主要集中在30*30到40*40.
+	2. https://github.com/whai362/PSENet 文字
+		http://rrc.cvc.uab.es/?ch=8&com=evaluation&view=method_samples&task=1&m=34631 
+		https://www.youtube.com/watch?v=F7TTYlFr2QM 
+2018-05-02：
+	5. 华为云：
+			IP:119.3.23.152 
+			用户名：root  密码：tjtt999hw!
+	4. winscp连接华为云：https://jingyan.baidu.com/article/4b07be3c9d529248b280f349.html  119.3.23.152 
+		弹性IP地址：在 EC2 启动实例时，自动地为每个实例分配一个私有 IP 地址和一个公共IP地址。
+			点击完刚刚的【控制台】选项后，我们在其出面的界面中点击【服务列表】里面的【弹性服务器】
+			如果使用弹性IP地址，因为弹性IP地址是与用户的账号绑定的，只要用户不改变账号或主动释放，
+			弹性IP地址是不会发生变化的，当正在运行的实例出现故障时，用户只需要将弹性IP地址重新到新的实例上，
+			而不需要修改DNS解析器中的IP地址和DNS名称的映射关系，这大大提高了系统的容错能力，保证了服务的不间断性。
+		EC2:Elastic Compute Cloud(弹性计算云) 是一项Web服务,提供规模可调的云服务器托管服务。
+		磁盘映射：
+	3. ImageNet数据集1000类，其中车划分成51类，具体划分标准？
+	
+	2. bounding box regression:那么来看tw=log(w/wa)的道理。
+		这个我感觉主要因为计算机在数值计算上精度不够，才采用指数来运算的，
+		就好像我们采用softmax一样。
+		利用了指数函数把无限小的数据映射为0，把0映射为1的特性，避免了计算机的精度粒度，
+		在处理过小数据时，不够用的问题。
+		比较特殊的是w,h的regression targets使用了log space. 师兄指点说这是为了降低w,h产生的loss的数量级, 让它在loss里占的比重小些, 不至于因为w,h的loss太大而让x,y产生的loss无用. 因为若是x,y没预测准确, w,h再准确也没有用. 
+		 
+	1. tools/train_net.py : main() 
+		-> lib/utils/train.py: utils.train.train_model() 
+			{
+				create_model()
+				{
+					1)判断是否增量训练
+					2) lib/modeling/model_build.py: model_builder.create(cfg.MODEL.TYPE,train=True) #model？
+					{
+						当yml中MODEL的TYPE设置为retinanet时build_generic_retinanet_model()
+						{
+							add_conv_body_func(model) 
+							{
+								lib/modeling/FPN.py: FPN.add_fpn_ResNet101_conv5_body()
+							}
+							lib/modeling/retinanet_heads.py: add_fpn_retinanet_outputs(model, blobs_in, dim_in, spatial_scales)
+							{
+								参数：
+								blobs=('res5_2_sum', 'res4_22_sum', 'res3_3_sum', 'res2_2_sum'),
+								dims=(2048, 1024, 512, 256),
+								spatial_scales=(1. / 32., 1. / 16., 1. / 8., 1. / 4.)
+								？？？
+							}
+						}
+					}
+					3)optimize_memory(model) #保存gpu记忆
+				}
+			}
+
+			initialize_from_weights_file ???  net.py
+			save_model_to_weights_file  ???
+
+2018-04-01:
+	14. PTZ：在安防监控应用中是 Pan/Tilt/Zoom 的简写，代表云台全方位（上下、左右）移动及镜头变倍、变焦控制。
+	13. 人工智能想要获得成功，离不开三个要素：计算力、数据和算法。 
+	从这三个维度出发，中国用户量大、数据丰富，在数据上有优势，这是中国一大亮点。
+	但是仅有数据，没有计算力和算法还远远不够。“目前，大的格局是这样，从计算力来讲，美国公司还是占优势，像英伟达的GPU，
+	他们刚出的芯片很厉害，但中国目前还没有。从算法来看，比如深度学习也是谷歌的TensorFlow、微软的CNTK，这也是西方的工具。
+	12. 避免过拟合的方法有很多：early stopping、数据集扩增（Data augmentation）、正则化（Regularization）
+		包括L1、L2（L2 regularization也叫weight decay权重衰减），dropout。
+		L1、L2正则化是通过修改代价函数来实现的，
+		而Dropout则是通过修改神经网络本身来实现的，它是在训练网络时用的一种技巧（trike）。
+		可以简单地这样解释，运用了dropout的训练过程，相当于训练了很多个只有半数隐层单元的神经网络（后面简称为“半数网络”），
+		每一个这样的半数网络，都可以给出一个分类结果，这些结果有的是正确的，有的是错误的。随着训练的进行，
+		大部分半数网络都可以给出正确的分类结果，那么少数的错误分类结果就不会对最终结果造成大的影响。
+		http://blog.sina.com.cn/s/blog_a89e19440102x1el.html 
+			
+	11. 实时人脸检测：Real-Time Rotation-Invariant Face Detection with Progressive Calibration Networks
+		https://github.com/Jack-CV/PCN
+		
+	10. 清华大学-腾讯联合实验室 中文检测识别： https://ctwdataset.github.io/ 
+	9. caffe2、caffe:	https://blog.csdn.net/zziahgf/article/details/79855494 
+	8. 结论：采用作者使用coco、voc等大数据集训练的可预测的模型作为预训练模型，
+		效果会比只有卷积层参数的预训练模型好，并且不同的预训练模型会导致benchmark的mAP不同。
+	7. yolov3: 
+		加载模型：examples/detector.c (train_detector) -> 
+					src/network.c (load_network) ->
+					src/parser.c (load_weights、load_weights_upto)
+					
+	6. 数据标注
+		有了自己的图像数据以后就要对图像进行标注了，常用的软件是labelimg。下载后可以直接运行，无需安装，
+		选择打开文件夹后就可以批量导入图片了。打开后Ctrl+R选择默认存储路径（设置默认存储路径后，
+		生成的标记文件实xml文件，切直接下一张就自动保存了，如果不设置，生成的标记文件实lif格式的文件，
+		且需要手动保存），w开始画标签，d表示下一张图片，a表示上一张图片。
+		
+	5. 几个尺寸说明
+		1）batch_size：批大小。在深度学习中，一般采用SGD训练，即每次训练在训练集中取batch_size个样本训练； 
+		2）iteration：1个iteration等于使用batchsize个样本训练一次； 
+		3）epoch：1个epoch等于使用训练集中的全部样本训练一次；
+
+	4. SSD+VGG16： 先调conv4参数，再调conv5参数（mAP=0.73）；同时调conv4、conv5（mAP=0.72）
+	3. coco数据集：json格式，可统计mAPs(面积<32*32)、mAPm(面积在32*32与96*96之间)、mAPl(面积大于96*96).
+		voc数据集：xml格式，
+	2. retinaNet： 老版本有点问题，numclass没有传入，还采用默认的80类；新版本解决了这个问题，但是计算mAP还需要使用老版本。
+					如果使用老版本训练，训练集的mAP值不到50%.
+					输入512，resNet101、batchsize=2, mAP=0.74
+					输入768, resNet101、batchsize=1, mAP=0.75
+	
+	1.天王项目现场环境连接方式： 
+		1.安装UNP 
+		2.配置UNP（IP：124.89.116.178 用户名 admin 密码 admin） 
+		3.使用命令在电脑增加route规则：route add 172.16.1.0 mask 255.255.255.0 10.10.10.1 
+		4.使用http://10.10.10.1登录现场服务管理云台（账户： loadmin/*Uniview123） 
+		5.使用球机需要和天和综合电子部门贺睿进行提前沟通
+	
+2018-03-01:
+	3. 	nvidia-docker run -idt -v /data:/opt --name test_zj caffe_ssd
+	nvidia-docker run -idt -v /data:/opt --name darknet_zj ocr
+	2. 	https://zhuanlan.zhihu.com/p/24780433 (看)
+		http://www.sohu.com/a/133690455_642762 
+		目标检测中衡量识别精度的指标是mAP（mean average precision）。多个类别物体检测中，每一个类别都可以根据recall和precision绘制一条曲线，
+			AP就是该曲线下的面积，mAP是多个类别AP的平均值.
+		https://www.cnblogs.com/skyfsm/p/6790245.html （CNN特点）
+	
+	1.腾讯数平精准推荐 | OCR技术之检测篇:
+		1) 基于Rotation-RPN的文本检测方法:受到RRPN Rotation Proposals的启发，基于Faster-RCNN物体检测模型，
+									研发了一种用于任意方向文本的端到端文本检测方法.
+									主要包括三部分：基础卷积网络、Rotation-RPN网络、Rotation-ROI-Pooling;
+									设计了面向旋转候选框的非极大值抑制（Inclined-NMS,Inclined Non Maximum Suppression）算法，
+									Inclined-NMS算法;
+									设定了不同尺寸的Proposal，融合不同尺度卷积特征并进行多尺度的池化过程，用于检测不同尺度的文本；
+					
+2018-02-25:
+7. 迁移学习：http://www.infoq.com/cn/news/2016/12/Two-Caffe-practical-migration
+			http://blog.csdn.net/sinat_27554409/article/details/72848267
+	NanoNets：数据不足时如何深度学习： http://www.infoq.com/cn/articles/how-to-learn-when-the-data-is-insufficient
+6. 图像语义分割：https://www.leiphone.com/news/201801/vV9tk5kK95g0spUG.html 
+	1). 什么是图像分割？
+		图像分割就是预测图像中每一个像素所属的类别或者物体。图像分割有两个子问题，
+		一个是只预测类别层面的分割，对每个像素标出一个位置。
+		第二个是区分不同物体的个体。
+	2).应用场景：比如自动驾驶，3D 地图重建，美化图片，人脸建模等等。
+	3). 最常用的数据集：
+		主要介绍三个：Pascal VOC；CityScapes；MSCOCO。
+		Pascal VOC：
+			提供20个类别，包括，人，车等。有 6929 张标注图片，提供了类别层面的标注和个体层面的标注，
+			也就是说既可以做语义分割，只区分是不是车；也可以做个体分割，区分有几辆车，把不同的车标记出来。
+		CityScapes: 城市风光
+			主要面向道路驾驶场景，它有 30 个精细的类别，它也可以提供语义层面分割和个体层面分割。
+		MS COCO：
+			这是目前为止有语义分割的最大数据集，提供的类别有 80 类，有超过 33 万张图片。
+	4). 深度学习算法：
+		Fully Convolutional Networks (以下简称为 FCN)：是把所有的全连接层换成卷积层，
+			原来只能输出一个类别分类的网络可以在特征图的每一个像素输出一个分类结果。
+			利用上采样层把特征图恢复到原图的大小。
+		Mask-RCNN：https://www.zhihu.com/question/57403701 标数据工具：labelme
+			ROI Align 的基本原理和实现细节：http://blog.leanote.com/post/afanti.deng@gmail.com/b5f4f526490b 
+			第一个特点它是多分支输出的。它同时输出物体的类别，bounding box和Mask。
+			第二个特点是它使用了Binary Mask。之前神经网络都是使用多类Mask，而它只需要判断物体在哪个地方。
+			最后是RoiAlign层，能比较精确地把物体的位置对应到特征图的位置上。
+				（就是对 feature map 的插值，直接的ROIPooling的那种量化操作会使得得到的mask与实际物体位置有一个微小偏移。）
+			第四：基础网络的增强，ResNeXt-101+FPN的组合可以说是现在特征学习的王牌了；
+			
+			文章还指出在物体检测中，Mask-RCNN 比一般的 state-of-the-art 方法（用Fatser-RCNN+ResNet-101+FPN实现）
+			在 bounding-box 的 AP 上高3.6个点，1.1来自ROIAlign，0.9来自多任务训练，1.6来自更好的基础网络（ResNeXt-101）
+	
+			Mask RCNN 是基于Kaiming 之前的工作 FPN (Feature Pyramid Network) 很形象地说就是用FPN产生的检测结果, 
+			后面加了一个分割的网络. 
+			
+			文章中用到了 Top-Down + Bottom-Up 最近很流行的多层网络,因为最开始Faster-RCNN只是在最后一层上面检测, 
+			很容易丢掉小目标物体, 并且对细节遮挡也很不敏感. 最近的趋势就是结合多层特征做分类回归。
+			
+			Top-Down + Bottom-Up 结构：比HyperNet更进一步, 干脆不简单地拼合多层特征了, 再做一层"反卷积(把图片增大的卷积, 和卷积没本质区别)" 
+									把高层特征带到低层次去, 这样低层次既有细节又有语义. 这样的做法进一步提高了coco上的性能 大约5个点吧. 
+
+			
+			Fully Convolutional Instance-aware Semantic Segmentation (FCIS)	：基于单像素softmax的多项式交叉熵变		
+5. 各种网络结构：https://www.leiphone.com/news/201802/31oWxcSnayBIUJhE.html 
+	https://www.leiphone.com/news/201802/ShIcVlO8bOKBTpgP.html 
+	ResNeXt-101 
+	
+	
+	谷歌发布人类动作识别数据集AVA，提供扩展视频序列中每个人的多个动作标签。
+		AVA(atomicvisualactions, 原子的视觉行为)包括YouTube公开视频的URL，使用包含80个原子动作（atomicaction）集进行标注（如「走路」、「踢（某物」
+			、「握手」），所有动作都有时空定位，从而产生57.6k视频片段、96k标注人类动作和210k动作标签。
+		你可以点击https://research.google.com/ava/查看AVA数据集并下载标注。
+		论文地址：https://arxiv.org/abs/1705.08421。
+4. DiracNets :  https://www.leiphone.com/news/201802/P8jdbmz78gfbkfI1.html 
+	残差网络： (ResNet,何凯明2015年)经典的跳层连接（skip-connection），
+			在每层特征图中添加上一层的特征信息，可使网络更深，加快反馈与收敛。
+			但是无法证明把每一层特征图硬连接到下一层都是有用的。（加深网络）
+	Inception：（GoogLe,2014年） （加宽网络）
+	DiracNets： 试图去掉固定的跳层连接，试图用参数化的方法代替跳层连接，
+			而不是像传统 ResNet，不得不硬连接加上一个跳层连接（无论有用或没用）。
+			源码：https://github.com/szagoruyko/diracnets  （pytorch版本）
+			在同等深度的情况下，DiracNets 普遍需要更多的参数才能达到和 ResNet 相当的准确率；
+			而如果不考虑参数数量，DiracNets 需要较少的深度，就能达到 ResNet 需要很深的深度才能达到的准确率。
+3. sudo docker save -o caffe_ssd.tar caffe_ssd
+	docker load -i caffe_ssd.tar
+	nvidia-docker run -idt -v /data:/opt --name caffe_gpu_zj caffe_ssd
+
+2.	添加新用户的命令行操作：sudo adduser  用户名  (备注：100上几个用户名属于同一个组，组名为docker)
+		输入两次密码
+		根据提示输入相关信息最后Y完成    
+	参考文献： https://jingyan.baidu.com/article/a65957f48b98b124e67f9bed.html
+	
+	添加新的用户组：$sudo groupadd  组名
+	把用户添加到你想要添加的已经存在的用户组：$sudo adduser   用户名   组名
+	sudo adduser  zhangjing   docker
+	
+	改成root权限：	sudo vim /etc/sudoers  
+					zhangjing   ALL=(ALL)  ALL 
+	
+
+	查看用户：	cat /etc/passwd
+	查看用户组：cat /etc/group
+1. 
+	sudo shutdown -h now 立刻关机
+	sudo shutdown -h 10  #10分钟后关机
+	reboot 				重启
+	查看ubuntu版本号：	cat /etc/issue
+		(100): Ubuntu 14.04.5 LTS \n \l 
+		(213): Ubuntu 16.04.3 LTS \n \l
+				
+2018-01-18：
+8. Mask-RCNN：http://blog.csdn.net/linolzhang/article/details/71774168
+
+7. nvidia-docker run -idt -v /home:/opt --name caffe_gpu_zj caffe_ssd  (100) 
+6. 	nvidia-docker run -idt -v /data:/opt --name face_flask1 ruike
+	sudo docker save -o ruike_20180201.tar ruike20180201	
+	docker commit face_flask1	ruike20180201	
+	error:
+		Error response from daemon: write /var/lib/docker/tmp/docker-export-363402732/1a73abc59e15d6350db82954e2ce548eff0678d40d716d03d6258bb5f6a0ec8b/layer.tar: no space left on device
+5. 小乌龟：http://blog.csdn.net/jdsjlzx/article/details/51098588
+4. ssd训练举手、点赞等：
+	容器：nvidia-docker run -idt  -v /data:/opt --name caffe_gpu_ys1 caffe_ssd
+	存在问题：
+		1）python: can't open file '/opt/zhangjing/ruike/caffe/scripts/create_annoset.py': [Errno 2] No such file or directory
+			解决办法：找到文件create_annoset.py，放到上面的位置。
+		2)  File "/opt/zhangjing/ruike/caffe/scripts/create_annoset.py", line 165, in <module>
+			process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
+			File "/usr/lib/python2.7/subprocess.py", line 710, in __init__
+			
+			修改后代码：process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE，shell=True)
+			出现问题：/opt/zhangjing/ruike/caffe/build/tools/convert_annoset: not found
+			原因是：caffe/tools/convert_annoset.cpp是ssd的文件，普通的caffe版本是没有该文件的。
+		3) 编辑caffe gpu出问题：
+			多了个layers/accuracy_layer.cu文件。
+			Makefile.config文件中的# CPU_ONLY := 1放开就是使用cpu。
+			使用gpu运行，需要修改的地方：a. 环境需要是gpu；b. solver.prototxt、train.sh。
+		4) 输入图像大小512*512，batchsize=4，占内存为5.4G。	batchsize=8会报内存不足。	不能交叉验证，会挂掉的。
+			coco数据集目标小，最小设置20*20，用了7层；VOC数据集目标大，最小设置30*30，用了6层；前些层预测小目标，后些层预测目标。
+
+	
+1.# 智慧课堂：
+	#讯飞皆成公司：http://www.jevictek.com/www/home/post-hmdxam2l5jpot-2aogqk3q
+		智慧课堂的教学流程为“3+10”模式，即由3个阶段和10个环节组成。
+		1.课前环节（学情分析、预习测评、教学设计)
+		2.课中环节(课题导入、探究学习、实时测评、总结提升）
+		3.课后环节（课后作业、微课辅导、反思评价）
+	#欧帝科技智慧课堂教育软件（手册）：https://wenku.baidu.com/view/0c03f43bad51f01dc381f14d.html
+	
+	
+2. 手数据集：
+	# VGG: hand detect code (matlab)
+		code: http://www.robots.ox.ac.uk/~vgg/software/hands/index.html
+		数据集：http://www.robots.ox.ac.uk/~vgg/data/hands/index.html 
+				（13050 hand instances are annotated. 标签是.mat文件）生活场景中的人手(检测数据集)
+				
+	# VIVA： vision for intelligent vehicles and applications （智能车辆及其应用展望 ）
+		数据集：(Hand Detection、Hand Tracking、Hand Gestures)
+				http://cvrr.ucsd.edu/vivachallenge/index.php/hands/
+				（目的：Left-right (L-R) hand classification, driver-passenger (D-P) hand classification,
+						number of hands on the wheel）
+	# HandNet dataset: 10个人手的深度图、6D pose is available for the center of the hand as well as the five fingertips 
+		http://www.cs.technion.ac.il/~twerd/HandNet/	
+		备注：标签为.mat, 里面存储着深度图像的数据信息、位姿、坐标等信息，没有原始图像信息。
+	
+	# NYU Hand Pose Dataset： 
+		The NYU Hand pose dataset contains 8252 test-set and 72757 training-set frames of captured RGBD data with ground-truth hand-pose information.
+		https://cims.nyu.edu/~tompson/NYU_Hand_Pose_Dataset.htm#overview
+	
+	# 约克大学公开11k Hands数据集：使用手部图像的大数据集进行性别识别和生物特征识别 （google 我没法下载）
+		http://blog.csdn.net/Ksf3kg7dU95rn0XL/article/details/78599193
+		g_imgs_training_d.txt：用于训练的图像文件名（背侧）
+		g_imgs_training_p.txt：训练的图像文件名（手掌侧）
+		手部图像：https://drive.google.com/open?id=0BwO0RMrZJCiocGlvdnJxb0lTaHM （抠好的手部图像，1600*1200(h),但是没有区分手掌侧、背侧，识别数据集）
+				识别数据集。
+						
+3. NAS(Neural Architecture Search Framework)：神经结构搜索框架 
+	
+2017-11-01：
+1. 表情识别的现有模型：
+		原型实验是基于这个项目：https://github.com/JostineHo/mememoji
+								https://github.com/JostineHo/mememoji_api 
+								https://github.com/JostineHo/real-time_emotion_analyzer
+2. 人脸识别：http://blog.csdn.net/zchang81/article/details/76251001  https://github.com/ageitgey/face_recognition#face-recognition
+	MTCNN人脸检测：参考博客：http://blog.csdn.net/shuzfan/article/details/52668935   https://github.com/Seanlinx/mtcnn
+		原版： https://github.com/kpzhang93/MTCNN_face_detection_alignment
+		caffe:https://github.com/CongWeilin/mtcnn-caffe/tree/master/prepare_data 
+		https://github.com/DaFuCoding/MTCNN_Caffe 
+		https://github.com/oarriaga/face_classification   fer2013数据集
+	openFace: 基于深度学习网络的面部识别 （好多重要工程：http://www.360doc.com/content/16/1208/20/99071_613105062.shtml）
+	MTCNN（Multi-task convolutional neural networks）:该MTCNN算法出自深圳先进技术研究院，乔宇老师组，是2016的ECCV。
+		该MTCNN由3个网络结构组成（P-Net,R-Net,O-Net）；http://blog.csdn.net/qq_14845119/article/details/52680940。
+			Proposal Network (P-Net)：该网络结构主要获得了人脸区域的候选窗口和边界框的回归向量。并用该边界框做回归，
+										对候选窗口进行校准，然后通过非极大值抑制（NMS）来合并高度重叠的候选框。
+			Refine Network (R-Net)：该网络结构还是通过边界框回归和NMS来去掉那些false-positive区域。只是由于该网络结构和P-Net网络结构有差异，
+										多了一个全连接层，所以会取得更好的抑制false-positive的作用。
+			Output Network (O-Net)：该层比R-Net层又多了一层卷积层，所以处理的结果会更加精细。作用和R-Net层作用一样。但是该层对人脸区域进行了更多的监督，
+										同时还会输出5个地标（landmark）。
+			备注：输入图像为RGB, opencv读的是BGR.
+			
+3. SSD备注：
+		1）如果在solver.prototxt中不使用参数（test_iter: 365  test_interval: 1）,那么训练过程就不进行测试，训练过程的测试也只是测试模型，不会改变loss的。
+		2）create_data.sh 生成lmdb数据，不需要在生成数据前归一化数据大小，代码会自动根据train.prototxt写的宽高来归一化的。
+		3）如果不调某些层的参数，就让这些层的lr_mult设置为0；
+		4）weight_decay：（权值衰减）的使用既不是为了提高你所说的收敛精确度也不是为了提高收敛速度，其最终目的是防止过拟合。在损失函数中，weight decay是放在正则项（regularization）前面的一个系数，
+						正则项一般指示模型的复杂度，所以weight decay的作用是调节模型复杂度对损失函数的影响，若weight decay很大，则复杂的模型损失函数的值也就大。
+
+	SSD+VGG16：voc2012数据
+		1） (base_lr=0.01、0.001) 出现问题：Iteration 10, loss = -nan （使用预训练模型也会出现该问题）
+			解决方法：
+				a. 在solver在solver.prototxt中设置梯度裁剪：clip_gradients = 35 [default = -1];//若该参数大于零，把梯度限制在-clip_gradients到clip_gradients之间
+				b. base_lr=0.0001 解决掉问题。
+4. 训练代码突然退出程序（不报任何错误、epoch条件也没满足、通过跟踪代码错误定位到theano.function()）：
+		原因： 	1）某个数据有问题；
+				2）theano.function()某个参数控制这个使代码早停，比如loss不变了。
+5.  复制图像：
+    cv::Mat temp;
+    cv::Mat newImage;
+    newImage = temp.clone();
+	
+	如果你是要更新可用的软件包列表应该用：sudo apt-get update
+	如果是更新己安装的软件包应该用：sudo apt-get upgrade
+	cmake --version  
+	apt-get autoremove cmake #卸载
+	
+	角度转弧度: π/180×角度
+	弧度变角度: 180/π×弧度  
+	math.pi
+
+6. deepDetect: https://github.com/beniz/deepdetect 
+		基于c++ 11的深度学习接口和服务器，与python绑定并支持caffe.
+		例子：https://deepdetect.com/overview/examples/#googlenet-for-image-classification:9ecc00cd7c4c5bc9e8febc4fe00186bf
+		镜像：https://hub.docker.com/r/beniz/deepdetect_cpu/
+		
+	注意：
+		1) cpu版本容器（因为默认路径是/opt/deepdetect/build/main, 镜像里面就有源码）： docker run -d -p 8080:8080 -v /home:/root --name deepdetect_cpu_zj beniz/deepdetect_gpu
+			gpu： nvidia-docker run -d -p 4567:8080 -v /home:/root --name deepdetect_gpu_zj beniz/deepdetect_gpu
+		2) 安装curl: http://blog.csdn.net/makenothing/article/details/39250491
+		3) 创建一个分类服务：curl -X PUT "http://localhost:8080/services/imageserv" -d "{\"mllib\":\"caffe\",\"description\":\"image classification service\",\"type\":\"supervised\",\"parameters\":{\"input\":{\"connector\":\"image\"},\"mllib\":{\"nclasses\":1000}},\"model\":{\"repository\":\"/opt/models/ggnet/\"}}"
+				结果：{"status":{"code":403,"msg":"Forbidden"}
+				原因：服务已经启动
+				解决办法：
+						删除服务：curl -X DELETE "http://localhost:8080/services/imageserv?clear=full"
+						再重新创建服务,就ok. 
+		4) 发个post请求：curl -X POST "http://localhost:8080/predict" -d "{\"service\":\"imageserv\",\"parameters\":{\"input\":{\"width\":224,\"height\":224},\"output\":{\"best\":3},\"mllib\":{\"gpu\":false}},\"data\":[\"http://i.ytimg.com/vi/0vxOhd4qlnA/maxresdefault.jpg\"]}"
+						
+						curl -X POST "http://localhost:8080/predict" -d "{\"service\":\"imageserv\",\"parameters\":{\"input\":{\"width\":224,\"height\":224},\"output\":{\"best\":3},\"mllib\":{\"gpu\":false}},\"data\":[\"/opt/deepdetect/test_image/cat.jpg\"]}"
+						curl -X POST "http://localhost:8080/predict" -d "{"service":"imageserv","parameters":{"input":{"width":224,"height":224},"output":{"best":3},"mllib":{"gpu":false}},"data":["/opt/deepdetect/test_image/cat.jpg"]}"
+				error: {"status":{"code":400,"msg":"BadRequest","dd_code":1006,"dd_msg":"Service Bad Request Error"}}
+				原因：参数有问题
+				
+		5) 从当前目录复制test_image子目录到容器deepdetect_cpu_zj中的/opt/deepdetect目录下: docker cp test_image deepdetect_cpu_zj:/opt/deepdetect
+		6) httpjsonapi{hja->service_predict()} -> jsonapi{ 根据输入caffe，调add_service()在service.h->apply_visitor(vi,mls)在utils/variant.hpp->visit(); service_predict->(predict也在service.h) }->
+			commandlineapi{ CaffeModel cmodel(model_ad) }
+			输入、输出： APIData out
+			
+			预测函数流程：
+				httpjsonapi.cc: fillup_response(response,_hja->service_predict(body),access_log,code,tstart,accept_encoding) 备注：body指post的参数"{\"service\":\"imageserv\",\"parameters\":{\"input\":{\"width\":224,\"height\":224},\"output\":{\"best\":3},\"mllib\":{\"gpu\":false}},\"data\":[\"http://i.ytimg.com/vi/0vxOhd4qlnA/maxresdefault.jpg\"]}"
+				-> jsonapi.cc: service_predict(const std::string &jstr)中this->predict(ad_data,sname,out)
+				-> service.h: predict(const APIData &ad, const std::string &sname, APIData &out)中调用visitor_predict() 
+				-> mlservice.h: predict_job(const APIData &ad, APIData &out) 
+				-> caffelib.cc: predict(const APIData &ad,APIData &out)
+		7）输入图片数据：
+				imginputfileconn.h::read_mem()->支持数据流(base64可以将图片转base64流，base64流只是一个字符串)https://zhidao.baidu.com/question/544377824.html 
+				Base64是网络上最常见的用于传输8Bit字节码的编码方式之一，Base64就是一种基于64个可打印字符来表示二进制数据的方法。 
+				JsonAPI::service_predict(const std::string &jstr)
+				{
+					rapidjson::Document d;
+					d.Parse(jstr.c_str()); 将发的post请求的参数进行解析，sname=d["service"].GetString();
+					ad_data = APIData(d) # this->predict(ad_data,sname,out);
+					备注：caffeinputconns.h：{ transform(const APIData &ad) 调用transform(const APIData &ad)} 
+							-->imginputfileconn.h: transform(const APIData &ad){get_data(ad)} #得到图片路径
+							——>inputconnectorstrategy.h：get_data(const APIData &ad){图片路径_uris = ad.get("data").get<std::vector<std::string>>(); std::vector<std::string> _uris;}
+				}
+				
+				imginputfileconn.h: transform(const APIData &ad){get_data(ad)} #得到图片路径
+									int read_file(const std::string &fname) #根据路径、使用opencv读图片
+									该文件得到：std::vector<cv::Mat> _images;
+												std::vector<cv::Mat> _test_images;
+												std::vector<int> _test_labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080;
+									transform(const APIData &ad){ DataEl<DDImg> dimg; dimg.read_element(u) 根据路径读图片 }
+												DataEI：inputconnectorstrategy.h 中的read_element(const std::string &uri)读图片数据
+												DDImg: imginputfileconn.h 
+												
+				备注：	caffelib.cc::inputc.transform(cad);调用的是imginputfileconn.h中的transform().
+						-> caffeinputconns.h::transform() 
+						-> imginputfileconn.h::transform()->read_file()
+						
+						TInputConnectorStrategy inputc(this->_inputc); inputc指的是caffeinputconns.h。
+						在 caffeinputconns.h中加std::vector<cv::Mat> vmImages;并实现也在该头文件中，目的是为了保存图片数据。
+						TInputConnectorStrategy 在mllibstrategy.h。
+
+		8）模型加载：
+				jsonapi.cpp: CaffeModel cmodel(ad_model); #定义并加载模型
+					
+				备注： PUT时会调用jsonapi.cpp: CaffeModel cmodel(ad_model);
+						fileops::list_directory(repo,true,false,lfiles); #获得模型下面所有文件的路径，/root/zhangjing/deepdetect/models/ggnet//googlenet_solver.prototxt
+
+		9）	https://deepdetect.com/img/cat.jpg
+			curl -X PUT "http://localhost:8080/services/imageserv" -d 
+			"{	\"mllib\":\"caffe\",
+				\"description\":\"image classification service\",
+				\"type\":\"supervised\",
+				\"parameters\":
+						{	\"input\":{\"connector\":\"image\"},
+							\"mllib\":{\"nclasses\":1000}
+						},
+				\"model\":{\"repository\":\"/opt/models/ggnet/\"}
+			}"
+			
+			curl -X PUT "http://192.168.15.100:9528/services/mtcnnemotion1" -d '{"mllib":"caffe","description":"image classification service","type":"supervised","parameters":{"input":{"connector":"image"},"mllib":{"nclasses":6,"gpu":true,"gpuid":0}},"mtcnn":{"enable":true},"emotion":{"enable":true},"attention":{"enable":true},"model":{"repository":"/home/zhangjing/deepdetect/models/model/"}}'
+
+			 
+			加mtcnn：在CaffeModel.cpp的构造函数中加"mtcnn"参数判断，
+					mlservice.h 中也加"mtcnn"参数判断， 目的是为了将mtcnn网络模型与别的网络模型分开。 
+					在jsonapi.cc中预测之前判断图片个数，只针对一张图片进行处理。如果输入是多张图片，post时会报{"status":{"code":700,"msg":"more pictures_648_1080_ratio_new_new_ratio_ratio_ratio_new_1080"}
+				curl -X PUT "http://localhost:8080/services/imageserv" -d 
+				"{	\"mllib\":\"caffe\",
+					\"description\":\"image classification service\",
+					\"type\":\"supervised\",
+					\"parameters\":
+							{	\"input\":{\"connector\":\"image\"},
+								\"mllib\":{\"nclasses\":1000}
+							},
+					\"model\":{\"repository\":\"/opt/models/ggnet/\",
+								\"mtcnn\":true}
+				}"
+			
+			curl -X POST "http://localhost:8080/predict" -d 
+			"{	\"service\":\"imageserv\",
+				\"parameters\":{\"input\":{\"width\":224,\"height\":224,\"bw\":true}, #"bw":true,为灰度图，false为彩色图。
+								\"output\":{\"best\":3},
+								\"mllib\":{\"gpu\":false}},
+				\"mtcnn\":{\"enable":true,\"minsize\":40,\"factor\":0.709,\"threshold\":[0.6,0.7,0.7]                              
+							}#该参数放到"parameters"中会报错。
+				\"data\":[\"http://i.ytimg.com/vi/0vxOhd4qlnA/maxresdefault.jpg\"]
+			}"   #"data"参数是个list
+		
+			curl -X PUT "http://localhost:8080/services/imageserv" -d "{\"mllib\":\"caffe\",\"description\":\"image classification service\",\"type\":\"supervised\",\"parameters\":{\"input\":{\"connector\":\"image\"},\"mllib\":{\"nclasses\":1000}},\"model\":{\"repository\":\"/root/zhangjing/deepdetect/models/ggnet/\"}}"
+		改	curl -X PUT "http://localhost:8080/services/imageserv" -d "{\"mllib\":\"caffe\",\"description\":\"image classification service\",\"type\":\"supervised\",\"parameters\":{\"input\":{\"connector\":\"image\"},\"mllib\":{\"nclasses\":2}},\"mtcnn\":true,\"model\":{\"repository\":\"/root/zhangjing/deepdetect/models/MTmodel/\"}}"
+			curl -X PUT "http://localhost:8080/services/imageserv" -d '{"mllib":"caffe","description":"image classification service","type":"supervised","parameters":{"input":{"connector":"image"},"mllib":{"nclasses":2}},"mtcnn":true,"model":{"repository":"/root/zhangjing/deepdetect/models/MTmodel/"}}'
+			curl -X POST "http://localhost:8080/predict" -d "{\"service\":\"imageserv\",\"parameters\":{\"input\":{\"width\":224,\"height\":224},\"output\":{\"best\":3},\"mllib\":{\"gpu\":true}},\"data\":[\"/root/zhangjing/deepdetect/test_image/cat.jpg\"]}"
+		改	curl -X POST "http://localhost:8080/predict" -d "{\"service\":\"imageserv\",\"parameters\":{\"input\":{\"width\":224,\"height\":224},\"output\":{\"best\":3},\"mllib\":{\"gpu\":true}},\"mtcnn\":{\"enable\":true,\"minSize\":60,\"factor\":0.7,\"threshold\":[0.61,0.71,0.71]},\"data\":[\"/root/zhangjing/deepdetect/test_image/1.jpg\"]}"
+				备注：不加转义符，会报{"status":{"code":400,"msg":"BadRequest","dd_code":1005,"dd_msg":"Service Input Error"}}
+				
+		10) std::string::npos参数：
+						npos 是一个常数，用来表示不存在的位置，取值由实现决定，一般是-1，这样做，就不会存在移植的问题了。 
+					再来说说find函数：
+						find函数的返回值是整数，假如字符串存在包含关系，其返回值必定不等于npos，但如果字符串不存在包含关系，那么返回值就一定是npos。
+						if (a.find(b) != string::npos) 
+						{cout << "Yes!" << endl;} 
+						else 
+						{cout << "No!" << endl;}
+		11) #include <sys/stat.h> 
+				int stat(const char *restrict pathname,struct stat *restrict buf); #stat函数可以返回一个结构，里面包括文件的全部属性,返回值:若成功则返回0,失败则返回-1
+				int fstat(int fields,struct stat *buf);
+				int lstat(const char *restrict pathname,struct stat *restrict buf);
+
+			struct stat { 
+				 dev_t st_dev; // 文件所在设备ID 
+				 ino_t st_ino; // 结点(inode)编号  
+				 mode_t st_mode; // 保护模式 
+				 nlink_t st_nlink; // 硬链接个数  
+				 uid_t st_uid; // 所有者用户ID  
+				 gid_t st_gid; // 所有者组ID  
+				 dev_t st_rdev; // 设备ID(如果是特殊文件) 
+				 off_t ** st_size;** // 总体尺寸，以字节为单位 
+				 blksize_t st_blksize; // 文件系统 I/O 块大小
+				 blkcnt_t st_blocks; // 已分配 512B 块个数
+				 time_t st_atime; // 上次访问时间 
+				 time_t st_mtime; // 上次更新时间 
+				 time_t st_ctime; // 上次状态更改时间 
+				 }；
+			
+			应用：	 
+			struct stat bstat;
+			if (stat(fname.c_str(),&bstat)==0)//fname文件名
+			{
+				return bstat.st_mtim.tv_sec; //最后一次修改时间，秒（10位的数字）
+			}
+			那个创建时间，是表示这个文件存在于本机上的时间；
+			而修改时间则不是，那是此文档最近一次进行修改并保存的时间（如果是下载的或别的电脑上复制的，
+								就会修改时间比创建时间还早）；
+			备注：deepdetect中获得".caffemodel"时，每次只获得路径下面最新的那个模型。
+		12) 之前的8080端口号报错
+			原因： 端口号被占用
+			解决办法： 
+					方法1：关闭容器docker stop deepdetect_gpu_zj，再重启容器docker start deepdetect_gpu_zj，就ok;
+					方法2：使用别的端口号重启服务,./dede -host 0.0.0.0 -port 8888 使用8888端口号.  （可以在外部访问）
+		13) cout 在屏幕上打印不出来，必须使用LOG(INFO)，会打印在启服务的那个界面。
+			
+			注意：
+			caffelib.cc中
+				\"mtcnn\":{\"enable":true,\"minsize\":40,\"factor\":0.709,\"threshold\":[0.6,0.7,0.7]}
+					ad.getobj("mtcnn").get("enable").get<bool>() #_uris = ad.get("data").get<std::vector<std::string>>(); //int、double、bool、string
+					ad.getobj("mtcnn").has("enable")
+			caffemodel.cc中
+					ad.get("enable").get<bool>() 原因：  this->init_mllib(ad.getobj("parameters").getobj("mllib"));
+					如果参数"enable"
+
+		14）curl -X PUT "http://localhost:8080/services/imageserv" -d 
+				"{	\"mllib\":\"caffe\",
+					\"description\":\"image classification service\",
+					\"type\":\"supervised\",
+					\"parameters\":
+							{	\"input\":{\"connector\":\"image\"},
+								\"mllib\":{\"nclasses\":1000,\"mtcnn\":true, \"gpu\":true}  #this->init_mllib(ad.getobj("parameters").getobj("mllib"));
+							},
+					\"model\":{\"repository\":{\"/opt/models/ggnet/\",}
+				}"
+			解释：mtcnn、gpu参数必须放到上面那个位置，原因是caffelib.cc中init_mllib()传入参数只是ad.getobj("parameters").getobj("mllib")；
+				同时在jsonapi.cc中CaffeModel cmodel(ad_model);传入的参数只是ad.getobj("model")。
+			代码修改：
+				CaffeModel(const APIData &ad, int nIndex=0); 添加nIndex参数，使用nIndex==1来表示执行mtcnn；
+			
+			返回的json数据也在httpjsonapi.cc中。
+			//2017-11-10 modify by zj init_mllib
+		15) curl是利用URL语法在命令行方式下工作的开源文件传输工具
+			????put、post时都必须有"mtcnn"参数，不然会出错，目前还没找到使put时"mtcnn"参数保存，在post时mlservice.h的预测时"mtcnn"还可用。
+			"bw":true,为灰度图，false为彩色图。
+		16) 加载模型：
+				put时，caffelib.cc :: init_mllib() ->create_model(), this->_mlmodel._weights可以得到权重的路径(.caffemodel)
+		17) 需要修改：det1.prototxt文件，deepdetect的网络结构第一次要是MemoryDataLayer。
+		18) ./dede 
+			error:
+				INFO - 00:57:51 - Running DeepDetect HTTP server on localhost:8080
+				ERROR - 00:57:51 - Error binding to socket.
+				terminate called without an active exception
+				Aborted (core dumped)
+			原因：dede服务已经启动
+			解决办法：重启容器
+			
+			{"status":{"code":700,"msg":"more pictures_648_1080_ratio_new_new_ratio_ratio_ratio_new_1080"}} //
+		19) caffe:MemoryDataLayer 图像大小必须与**.prototxt中的大小一致。
+			deepdetect: 输入层都是type: "MemoryData"。
+			修改读入图像的resize(): 在imginputfileconn.h中的DDImg类中添加bool _has_width_height来判断post时是否有input:width或height，如果有则按照给的宽高来resize.
+			https://deepdetect.com/img/cat.jpg 
+		20) "supervised" 与 "unsupervised" 必须有一个，不然会报错。
+			"description"：只是对服务的一个描述，对预测不起作用的。
+		21) error: {"status":{"code":500,"msg":"InternalError","dd_code":1007,"dd_msg":"src/caffe/data_transformer.cpp:205 
+					/ Check failed (custom): (datum_height) == (height)"}}
+			原因：输入图像高度与网络要求的高度不一致。
+			备注： 对于mtcnn，一般输入图像要求原图，但是对于别的网络有的要求输入大小必须与网络大小一致。
+					代码修改后，post时，"width"/"height"参数只有一个的情况时，图像会被缩放成(w,224)或(224，h)；
+										两个都存在时，会根据给定的w、h来缩放；
+										两个都不存在时，不会缩放，保持原图大小不变。
+			
+			error: "Error creating model for prediction"
+			原因：模型未创建成功。
+			
+		22) ”gpuid”为-1时，表示哪个gpu空闲使用哪个。如果不给“gpuid”, 如果都不空闲，会报错的。如果没“gpu”参数，就是使用cpu.
+		23)	遗留问题：目前支持的输入数据是image、txt、csv、svm，如果处理视频，先保存成图片，再读图像会多些耗时，最好是改成输入参数为图像的数据(比如：cv::Mat)。
+			解决办法： deepdetect支持base64
+		24) 单引号、双引号：
+				字符串：Let's go
+				s4 = 'Let\'s go'，注意没有，字符串中有一个'，而字符串又是用'来表示，所以这个时候就要使用转义符 \ （\，转义符应该知道吧）
+				s5 = "Let's go"
+				对于双引号，也是一样的，下面举个例子 
+				s6 = 'I realy like "python"!'
+		25）error-客户端:{"status":{"code":400,"msg":"BadRequest"}}，服务端-error:JSON parsing error on string: {"service":"imageserv" ...
+			原因：参数错误，比如图片路径错了或者没有找到图片
+			
+			error-服务端: JSON parsing error on string:{"service":"imageserv","parameters":{"input":{"width":224,"height":},"
+			error-客户端：{"status":{"code":400,"msg":"BadRequest"}}
+			原因："height"参数没有值。
+			
+			error:{"status":{"code":400,"msg":"NotFound","dd_code":1002,"dd_msg":"Service Not Found"}}
+			原因：服务名找不到。
+			
+			情况1: post时，"data":[] 或者 没有"data"参数
+			error: {"status":{"code":500,"msg":"InternalError","dd_code":1007,"dd_msg":"in get()"}}
+			error: {"status":{"code":400,"msg":"BadRequest"}}
+			原因：图片路径为空。
+			
+			情况2：post时，"data":[""]
+			error:{"status":{"code":400,"msg":"BadRequest","dd_code":1005,"dd_msg":"Service Input Error"}}
+			原因：参数错误，图像路径没找到。
+			
+			情况3：post时，"haha":
+			error:{"status":{"code":400,"msg":"BadRequest"}
+			原因：虽然没有"haha"这个参数，但是上面那样写也会错误。
+			
+			情况4：post时，"input":{}
+			不受影响
+				
+			情况5：put时，"mtcnn":{"enable":false},"model":{"repository":"/root/zhangjing/deepdetect/models/MTmodel/"}
+					post时，"mtcnn":{"enable":false}
+			结果：put、post都返回正确码，模型使用的是mtcnn，预测没有结果。
+			原因：模型没有找到，构建网络不成功，所以预测没结果，同时注意，如果模型构造成功，服务端会打印网络参数的，会很多东西。
+			
+			情况6：curl -X PUT "http://localhost:1234/servers/imageserv
+			error:curl: (7) Failed to connect to localhost port 1234: Connection refused
+			原因：1234端口的dede服务没有开启。
+			
+			情况7：post时，"data":["http://www.quanjing.com/imgbuy/ul1081-8301.html"]
+			error:
+					ERROR - 10:32:06 - no data for image http://www.quanjing.com/imgbuy/ul1081-8301.html
+					ERROR - 10:32:06 - exception while filling up network for prediction
+					ERROR - 10:32:06 - service imageserv mllib bad param: no image could be found
+					ERROR - 10:32:06 - Thu Nov 16 10:32:06 2017 UTC - ::1 "POST /predict" 400 15592
+			原因：无法从网址上获得图片数据。
+
+			图片格式JPG和jpg没任何区别，只是大小写而已。
+			有时，报400错误是因为网络图片下载不下来导致没有输入数据。
+			黑人检测效果不好，
+			
+			情况8: put时，如果没有"nclass"参数，会报错误，如下：
+			error: service creation mllib bad param: number of classes is unknown (nclasses == 0)
+			注意：目前"nclass"参数需要有值，它可能会影响预测的个数。
+			
+			情况9：curl -X POST "http://192.168.15.100:9527/predict" -d '{"service":"mtcnnemotion","parameters":{"output":{"bbox":true},"mllib":{"gpu":true}},
+					"mtcnn":{"enable":true},"emotion":{"enable":true},"attention":{"enable":true},"data":["/home/zhangjing/deepdetect/test_image/timg.jpg"]}'
+				在我自己的容器内发的pust,我的容器挂载到root, 刚哥的挂载到home。
+				
+			情况10："data":
+			error: curl: (52) Empty reply from server 服务挂掉
+			原因：代码写的有问题，正常是报400错误。
+			
+		26) error:Empty reply from server 
+			原因：CvMatToDatumSignalChannel()中之前不支持灰度图。
+			
+			error: 预测的情感置信度是nan
+			原因：输入图像未转成浮点型
+			解决办法：cv::Mat sample_single;
+					image.convertTo(sample_single,CV_32FC1);
+			
+			emotion:  "input":{"width":48,"height":48,"bw":true} //"bw":true 为灰度图
+			cv::Mat crop_img = gray(cv::Range(y1,y2),cv::Range(x1,x2));
+			caffeinputconns.h: 均值的处理 
+								bool has_mean_file = this->_mlmodel._has_mean_file;
+								cad.add("has_mean_file",has_mean_file);
+		27) post时，"output":{"best":5} 表示输出置信度前五的类别、置信度。代码在supervisedoutputconnector.h中，如果没有"best"参数，best值就为"nclass"的值。
+					分类问题，"output"参数中不能使用"bbox"：true。
+					检测问题，"output"参数中使用"bbox"：true，才能输出bbox等信息。
+			均值文件："mean.binaryproto" 代码中均值文件的名字是写死的,具体处理代码在caffeinputconns.h中，post时才加载处理，
+					FromProto("mean.npy")会报错，FromProto("mean.binaryproto")ok。 
+		28) 标签识别：误差分析（deepdetect caffe与自己加的代码）
+			a. image.convertTo(sample_single,CV_32FC1);放到resize的后置信度会统一提高点；
+			b. 没有添加均值文件之前两者的结果就不同；
+			c. resize()的方法不同，deepdetect "cv::INTER_CUBIC"   改 
+					INTER_NEAREST - 最近邻插值
+					INTER_LINEAR - 线性插值（默认）
+					INTER_AREA - 区域插值
+					INTER_CUBIC - 三次样条插值
+					INTER_LANCZOS4 - Lanczos插值
+			d.	对于彩色图像，opencv直接读成灰度图与读成彩色图后灰度化，两幅图像会有不同(jpg格式会存在这个问题，bmp就不存在了)；
+				jpg格式，对数据进行压缩，所以同样的图像数据，保存后再读进来就不一样了;
+				JPEG格式是目前 网络上最流行的图形格式，也是我们最为常用的图像格式。它是一个最有效、最基本的有损压缩格式，它可以把文件容量压缩到最小格式。
+					因为JPEG是有损压缩格式，所以在你对一张JPEG格式的图片反复进行修改保存时，则会让图片失真，品质下降。
+					如果对图像质量要求不高，且又要求储存大量图片，那么使用JPEG格式无疑是最好的方法。
+				BMP格式是微软制定的图形标准，最大的优点就是在PC机上兼容性一流，就算不装任何看图软件，用WINDOWS的画笔一样可以看到。
+					因为BMP格式采用了一种叫RLE的无损压缩格式，所以对图像质量不会产生影响，但容量会很大。
+			e. 均值数据需要传入mtcnn.h中，图像数据送入网络前再进行减均值。
+		29) 对于分类问题，类别的信息在corresp.txt中，代码在mlmodel.h。
+		30) cuda: http://blog.csdn.net/yu132563/article/details/50234457
+				maxThreadsPerBlock 每个块中的最大线程数
+		31) 遗留问题：同一个服务，多次post请求，耗时继增，使用gpu0、1，但是只有一个gpu有利用率；
+			备注：如果put，gpuid=[0,1]时； post，gpuid=[0,1]或不设置gpuid，不然会报错。
+		32) curl -X PUT "http://192.168.15.100:9528/services/mtcnnemotion1" -d '{"mllib":"caffe","description":"image classification service","type":"supervised","parameters":{"input":{"connector":"image"},"mllib":{"nclasses":6,"gpu":true,"gpuid":-1}},"mtcnn":{"enable":true},"emotion":{"enable":true},"attention":{"enable":true},"model":{"repository":"/home/zhangjing/deepdetect/models/model/"}}'
+			curl -X POST "http://192.168.15.100:9528/predict" -d '{"service":"mtcnnemotion1","parameters":{"output":{"bbox":true,"confidence_threshold":0.1},"mllib":{"gpu":true}},"mtcnn":{"enable":true},"emotion":{"enable":true},"attention":{"enable":true},"data":["/home/zhangjing/deepdetect/test_image/1.jpg"]}'
+7. 	https://github.com/davisking/dlib https://github.com/wujiyang/DlibFace
+	Dlib是一个使用现代C++技术编写的跨平台的通用库，遵守Boost Software licence.
+		主要特点如下：
+		1.完善的文档：每个类每个函数都有详细的文档，并且提供了大量的示例代码，如果你发现文档描述不清晰或者没有文档，告诉作者，作者会立刻添加。
+		2.可移植代码：代码符合ISO C++标准，不需要第三方库支持，支持win32、Linux、Mac OS X、Solaris、HPUX、BSDs 和 POSIX 系统
+		3.线程支持：提供简单的可移植的线程API
+		4.网络支持：提供简单的可移植的Socket API和一个简单的Http服务器
+		5.图形用户界面：提供线程安全的GUI API
+		6.数值算法：矩阵、大整数、随机数运算等
+		7.机器学习算法：
+		8.图形模型算法： 
+		9.图像处理：支持读写Windows BMP文件，不同类型色彩转换  人脸检测、人脸对齐（68个landmark点）
+		10.数据压缩和完整性算法：CRC32、Md5、不同形式的PPM算法
+		11.测试：线程安全的日志类和模块化的单元测试框架以及各种测试assert支持
+		12.一般工具：XML解析、内存管理、类型安全的big/little endian转换、序列化支持和容器类
+
+7. opencv：
+	int height = mat.rows;
+	int width  = mat.cols;
+	int channels = mat.channels();
+	if (mat.empty())
+		return false;
+	image.convertTo(sample_single,CV_32FC3);
+	cv::cvtColor(sample_single,sample_single,cv::COLOR_BGR2RGB);
+	sample_single = sample_single.t();
+	cv::cvtColor(image, gray, CV_BGR2GRAY);
+	cv::Mat crop_img = gray(cv::Range(y1,y2),cv::Range(x1,x2));
+	但是有些时候仍然会需要复制矩阵数据本身（不只是矩阵头和矩阵指针），这时候可以使用clone 和copyTo方法。
+	cv::Mat c = a.clone();
+	cv::Mat d ;
+	a.copyTo(d);
+	cv::resize(sample_single,resized,cv::Size(width,height),0,0,cv::INTER_NEAREST);
+	for (int i=0; i<img1.rows; i++)  
+	{
+		for (int j=0; j<img1.cols; j++)	
+		{
+			sum = sum + img2.ptr<uchar>(i)[j] - img1.ptr<uchar>(i)[j];  
+		}
+	}
+8. 	基于情感的课堂教学评价方法研究.caj： 2015、何炜	
+	正如法国教育家卢梭所说：“教育的艺术是使学生喜欢你所教的东西”。评价者可以通过教学评价这个衡量工具以学生直接表现即情感来判断学生对教师授课内容的喜爱程
+	度。如果学生表现出愉悦的情感，一般可以说明学生对教师讲授的知识感兴趣并能听懂教师讲授的知识；如果学生表现出痛苦的情感，一般可以表明学生对教师讲授的知识不感兴
+	趣并不能听懂教师讲授的知识。关注学生情感的教学评价是课堂教学中不可缺少的环节。
+		学生的听课过程不是一维的接受知识的过程，而是多维的伴随情感变化的过程，影响学生情感变化的主要因素是课堂教学质量。
+		好的教学评价的重点不在于检查学生记住了多少知识，而在于考察学生在实际中能否运用知识解决问题，学生在学习中是否体验到学习的乐趣，其本身是否发挥了应有的职能。
+		基于情感的课堂教学评价方法研究变化，即时了解学生心理动态，以便学生发生情感波动时，教师能够即时地了解影响学生情感波动的原因并采取相应的策略对学生进行情感教育。
+		只有当教师开始关注学生情感并了解引起学生情感变化原因的时候，才能对学生进行情感教育，而情感教育并非是教师对学生进行简单地说教，而是要求教师在整个教学过程中都要
+	实时地关注学生的情感教育。
+		本文提出以学生的行为表现为中心评价课堂教学，根据学生情感信息的反馈评价课堂教学质量。即时性评价的效果。
+		以感性工学理论为基础，日本索尼公司生产了 AIBO狗，QRIO、SDR-4X等宠物机器人，这一举动为具有情感交互能力的机器人的研究奠定了基础。
+		2003年12月，在北京举办了第一届中国情感计算与智能交互学术会议。
+		中科院自动化所走在情感计算技术领域的前列，主要致力于研究基于生物特征的身份验证，并为研究模式识别的国家重点实验室投入
+	巨资，引进大量先进设备。中科院心理学所、生物所致力于研究两方面的内容：一是属于情绪心理学，快乐、悲伤、愤怒、恐惧等情绪变化与认知水平和人格特点之间的关系；二
+	是当人的情绪发生波动时，往往伴随着生理变化，中科院心理学所、生物所致力于找到他们之间变化的联系，即属于生理学范畴。中科院软件所致力于研究人们所期待的能够通过
+	人工智能的方法来实现人机交互的技术，即计算机可以智能地在界面上识别人的语音、面部表情、身体姿势、触觉、唇动等这些表情所代表的情感，即智能用户界面。
+		把语音、文字、人脸面部表情、姿态表情等信息进行处理通过情感计算的处理。语音中特征参数的情感识别。
+		负向情绪——紧张、抑郁、愤怒等不利于学习，负向情绪一旦产生可使人的知觉面变窄，思维变得迟钝；而正向情绪——愉快、满意对学习非常有利，人如果一直处在正向情绪状态可使知觉面变宽，思维敏捷。
+		1997 年，美国麻省理工学院媒体实验室的 R.Picard教授在她出版的专著《Affective Computing》中定义了情感计算的概念，
+		表情包括面部表情、姿态表情和声调表情。在情感表达过程中，心理学家研究表明，面部表情最能表达一个人的情感，占情感表达的 55%；声音占情感表达的 38%；而语言则只占情感表达的 7%。
+9. PAD模型：pleasure-arousal dominance 快乐的觉醒优势
+		PAD三维情感模型是由Mehrabian 和Russell于1974年提出的维度观测量模型。
+		该模型认为情感具有愉悦度、激活度和优势度3个维度，其中P代表愉悦度（Pleasure-displeasure），表示个体情感状态的正负特性;A代表激活度(Arousal-nonarousal），
+		表示个体的神经生理激活水平;D代表优势度(Dominance-submissiveness），表示个体对情景和他人的控制状态。同时也可以通过这3个维度的值来代表具体的情感，
+		如愤怒的坐标为（-0.51,0.59,0.25）（各维度上的数值范围为-1到+1，+1表示在此维度上的值高，而-1表示在此维度上的值低）
+		https://github.com/JostineHo
+	
+	PAD情感空间中情感数据概率特性分析：http://www.chinadmd.com/file/cwriis366aawpcpiip6ipour_4.html
+	https://ibug.doc.ic.ac.uk/resources/afew-va-database/  标签为 valence and arousal
+	http://www.kasrl.org/jaffe_info.html  数据集
+	https://github.com/ypwhs/LaughOrNot  工程
+	
+	Rosalind Picard ： https://www.leiphone.com/news/201702/nFl7aX4tJfHvUw2s.html?from=timeline&viewType=weixin  
+					目前，在 24 个面部表情的识别上，AffdexMe 达到了 90% 的精确度。我的公司 Empatica 向开发者提供了实时情绪 SDK。
+					可以在 iOS 应用商店或安卓 Google Play 商店 免费下载，app 名为 “AffdexMe”。
+					https://github.com/Affectiva/emotion-api-python 
+	微软的emotion API：https://azure.microsoft.com/zh-cn/services/cognitive-services/emotion/
+					0 Angry 生气
+					1 Fear 恐惧
+					2 Happy 快乐
+					3 Neutral 中性
+					4 Sad 伤心
+					5 Surprise 惊喜
+					6 disgust 厌恶
+	
+	三维情绪识别量表(PAD): http://www.cexinli.com/qingganliangxing/2014-05-11/64.html
+		P代表愉悦度(Pleasure-displeasure),表示个体情绪状态的正负特性，即情感的积极或消极程度， 喜欢或不喜欢程度， 这个维度体现了情感的本质;
+		A代表激动度(Arousal-nonarousal ),表示个体的神经生理激活水平，警觉性， 与情感状态联系的机体能量的激活程度有关;
+		D代表主客观(Dominance-submissiveness),表示个体对情景和他人的控制状态。对他人和外界环境的控制力和影响力，主要指个体对情感状态的主观控制程度，
+											用以区分情感状态是由个体主观发出的还是受客观环境影响产生的。
+		”一个测量情绪的愉悦度、激活度和优势度的量表———PAD情绪量表, 它可以从3个维度上更精确地评定心境或情绪状态。
+			根据这3个维度可以将情绪划分为8类:
+			+ P +A +D, 如高兴的; - P - A - D,如无聊的;
+			+ P +A - D, 如依赖的; - P - A +D,如蔑视的;
+			+ P - A +D, 如放松的; - P +A - D,如焦虑的;
+			+ P - A - D, 如温顺的; - P +A +D,如敌意的。
+			
+	IEEE国际情感识别挑战赛 
+		情感计算与智能交互系列国际学术会议（ACII）是由国际先进情感计算协会（Association for the Advancement of Affective Computing- AAAC）发起的，每两年举办一次。
+			第六届情感计算与智能交互国际学术会议(ACII 2015)的主题为多模态情感交互及其应用，包括：(1)人类情感的识别与合成；(2)情感交互界面；
+			(3)情感计算系统中的心理与认知；(4)具有情感交互能力的机器人与虚拟人；(5)情感生物学；(6)情感数据库与标注工具；
+			(7)情感在虚拟现实、教育、环境智能中的应用等。
+		http://www.wikicfp.com/cfp/program?id=29&s=ACII&f=Affective%20Computing%20and%20Intelligent%20Interaction
+		
+
+10. 魏骁勇 http://www.cs.cityu.edu.hk/~xiaoyong
+	e_Learning系统中学生注意力识别的研究和应用_卫晓娜  根据一定间隔检测有误人脸，判断是否在学习的状态；根据一定间隔检测人眼数，判断瞌睡或正常学习状态。
+	https://github.com/Jsmilemsj/OpenFace-1  根据眼珠子的方向来判断注意力。
+	
+	
+11. 深入浅出时序数据库之分级存储 http://www.uml.org.cn/sjjm/201708021.asp
+	Face Recognition Homepage : http://www.face-rec.org/
+	storm 1.0版本滑动窗口的实现及原理 - yulio1234的博客 - CSDN博客: http://blog.csdn.net/yulio1234/article/details/77461021
+	http://mp.weixin.qq.com/s/gngbB_o9hfH3lcFazgpmaw 中庆智课 人工智能教育录播系统 
+	详见：阿里Goldeneye四个环节落地智能监控：预测、检测、报警及定位 http://www.infoq.com/cn/articles/alibaba-goldeneye-four-links
+	基于Storm、Esper CEP及Spark构建异常交易行为风险监控系统 \/ - 上交所技术服务 | 十条 http://www.10tiao.com/html/507/201702/2650685728/3.html
+
+12.	dlib人脸检测共可检测出68个检测点:
+		官网上的例子：http://dlib.net/face_landmark_detection_ex.cpp.html	
+		简介：	Dlib是基于现代C++的一个跨平台通用的框架，作者非常勤奋，一直在保持更新。Dlib内容涵盖机器学习、图像处理、数值算法、数据压缩等等，涉猎甚广。
+			更重要的是，Dlib的文档非常完善，例子非常丰富。就像很多库一样，Dlib也提供了Python的接口，安装非常简单，用pip只需要一句即可：pip install dlib
+12.	OpenFace:	目的是检测人脸角度以及是否睁眼、闭眼, 
+		github:		https://github.com/TadasBaltrusaitis/OpenFace
+					https://github.com/TadasBaltrusaitis/OpenFace/wiki/Unix-Installation
+		68个landmark点：http://blog.csdn.net/dan1900/article/details/10442557
+		可实现的功能：	1) Facial Landmark Detection	
+						2) Facial Landmark and head pose tracking
+						3) Facial Action Unit Recognition
+						4) Gaze tracking (视线跟踪)
+						5) Facial Feature Extraction (aligned faces and HOG features)						
+		容器： 		docker run -it  -v /home:/opt --name landmark_zj caffe_cpu_lg  #-d 有时容器启动不了
+					docker run -it  -v /home:/opt --name landmark_zj gds/keras-th-tf-opencv:latest 
+					docker exec -it openface_zj bash
+		编译：	chmod 755 install.sh
+				./install.sh
+			编译opencv3.1.0:
+				提醒两点：
+				1) 执行cmake .时， 若出现ippicv_linux_20151201.tgz的hash码不对，则需手动下载ippicv_linux_20141027.tgz,
+					然后手动替换掉/home/alphacocoa/opencv-3.1.0/3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e目录下的ippicv_linux_20141027.tgz。
+				2） http://www.jianshu.com/p/68ac83436a1b
+		备注：1）68个landmark点检测，如果输入图像为mtcnn的输出图片（48*48），效果不好；如果是原图，大小大概为100*100,效果还可以。
+			
+				./bin/FaceLandmarkImg -fdir "../samples/" -ofdir "./demo_img/" -oidir "./demo_img/" -wild   
+				入口函数：exe文件夹
+				
+		计算人脸角度： 
+					#计算两个眼睛间的角度， 
+							68个landmark点， 第31个为左眼坐标，36为右眼坐标
+							5个landmark点，第0个为左眼坐标，1为右眼坐标
+						float nAngle = (float)(atan(dY / dX)*180/3.1415926);
+		与人脸处理相关的连接：http://www.010lm.com/tuijian/20161102/4057657.html
+		人脸对齐，也叫做人脸特征点检测。在人脸对齐中，一个很重要的性能指标就是姿态估计，包括，yaw（左右旋转），roll（平面内旋转），pitch（上下旋转） https://www.cnblogs.com/Anita9002/p/7095380.html
+			《Supervised Descent Method and its Applications to Face Alignment》，这篇论文提供了demo，并且附加了人脸姿态估计功能，估计精度还不错。
+			
+			http://blog.csdn.net/wsj998689aa/article/details/39294171 
+		人脸旋转角度计算、EstimateHeadPose
+		SDM(Supervised Descent Method)是一种监督下降方法，属于解决非线性最小化NLS(Non-linear Least Squares)问题的一种方法。
+			https://github.com/RoboPai/sdm 
+		人脸检测	就是在一张图片中找到人脸所处的位置，即将人脸圈出来，比如拍照时数码相机自动画出人脸。
+		人脸对齐	就是在已经检测到的人脸的基础上，自动找到人脸上的眼睛鼻子嘴和脸轮廓等标志性特征位置。
+		人脸校验	就是判断两张脸是不是同一个人。
+		人脸识别	就是给定一张脸，判断这张脸是谁。 
+		人脸对齐的算法主要分为两大类：基于优化的方法（Optimization-based method）和基于回归的方法（Regression-based method）。
+				SDM方法属于基于回归的方法。 
+				ASM（Active Shape Model）是指主观形状模型，即通过形状模型 对 目标物体进行抽象。
+					ASM 是一种 基于点分布模型（Point Distribution Model, PDM）的算法。在PDM中，外形相似的物体，例如 人脸、人手、心脏等的几何形状可以通过若干关键特征点
+					（landmarks）的坐标依次串联形成一个形状向量来表示。https://www.cnblogs.com/Anita9002/p/7094535.html
+
+	基于ASM的人脸 通常通过 标定好的68个关键特征点 来进行描述：
+
+		https://item.jd.com/1289591.html#crumb-wrap
+		https://item.jd.com/2917656.html#crumb-wrap
+		ASM算法 分为 训练过程 和 搜索过程。。 http://blog.csdn.net/App_12062011/article/details/52572062 
+		cmake --version  
+		apt-get autoremove cmake #卸载
+		中科院人脸库： http://www.cbsr.ia.ac.cn/china/3DFace%20Databases%20CH.asp 
+	
+	g++ -shared -fPIC -o demo.so demo.cpp CCNF_patch_expert.cpp LandmarkDetectorFunc.cpp LandmarkDetectorModel.cpp LandmarkDetectorUtils.cpp LandmarkDetectorParameters.cpp LandmarkDetectionValidator.cpp Patch_experts.cpp PAW.cpp PDM.cpp SVR_patch_expert.cpp stdafx.cpp $(pkg-config opencv --cflags --libs) $( /usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_system.so) -I /usr/include/boost -I /usr/include/python2.7 -L /usr/lib/x86_64-linux-gnu/ -lboost_system -lboost_filesystem
+
+	测试人脸角度：
+		正脸：
+			timg0.jpg:	headPose:43.9482 5.0825 -0.375609
+			timg.jpg:	headPose:21.2295 -4.50136 2.73075
+			timg30.jpg:	headPose:24.7945 1.77096 0.862143
+			timg31.jpg:	headPose:15.6521 1.35866 0.354617
+			timg32.jpg:	headPose:26.7069 1.43138 -0.375183
+			timg33.jpg:	headPose:8.04967 0.791923 -0.681586
+			timg36.jpg:	headPose:4.89575 -0.45237 0.839669
+		x方向旋转：
+			timg38.jpg:	headPose:18.6926 3.06929 -18.8804
+			xtimg1.jpg:	headPose:21.3703 8.48121 11.554
+		y方向旋转：
+			ytimg0.jpg:	headPose:8.15689 2.57081 -0.341609
+			
+		z方向旋转：
+			timg39.jpg:	headPose:1.58034 -3.02838 2.7285
+			ztimg0.jpg:	headPose:13.3652 21.3591 1.32554
+	liunx与windows版本对比：
+		-wild:
+				y:(-1.85,15)  z:(-0.5,5) x:(-2.28,2)
+		-q:		用的windows的模型，validator_general_68.txt
+				y:(-2.08,9.4) z:(0.7,4.07)	x:(-1.24,2.15)  备注：该参数得到的68个点比较准确；
+		-multi_view -q:	没啥改变
+		
+		根据结果分析：{y(下为正)、z(右为正)、x(左为正)}
+		windows:	Turn->z
+					Up/down ->y
+					tilt-> x
+		liunx：(y,z,x)
+		使用参数-q，windows、liunx版本预测结果基本接近，有的相差1度，windows的结果是先四舍五入再取整得到的（角度），备注：测试了10张，其中有四张差1度。
+		windows模型 detection_validation/validator_general_68.txt
+		liunx模型与windows模型 detection_validation/validator_general_68.txt也相差1、2度。
+		取整 int c = floor(a+0.5);//四舍五入， 向上取整(ceil()) 向下取整(floor)
+	
+	同一个人，不同输入大小：
+		../zj/timg0.jpg  原图
+		pose: eul_x, eul_y, eul_z:{ 37.5753 5.63469 -0.0178859 }
+		../zj/timg00.jpg 	crop、次大
+		pose: eul_x, eul_y, eul_z:{ 2.75691 5.09214 0.0696878 }
+		../zj/timg000.jpg
+		pose: eul_x, eul_y, eul_z:{ 0.638181 2.22954 0.24335 }
+	网上找到的正脸图片：
+		效果最好的：{ 8.28182 0.698099 -0.800743 }
+		不好的：	{ 37.5753 5.63469 -0.0178859 }
+	openface:	眼睛位置 n = 37;
+				int x1 = (int)clnf_model.detected_landmarks.at<double>(n);
+				int y1 = (int)clnf_model.detected_landmarks.at<double>(n + 68);
+				备注：detected_landmarks：cols=1,rows=136
+				disEye = (d1+d2+d3+d4)/4/faceHeight; disEye>0.04 睁眼。
+	
+	代码备注：
+		cv::Vec6d  params_global; 			#rigid shape (1,0,0,0,0,0)
+		cv::Mat_<double>    params_local; 	#non-rigid shape (1*34) 值全为0
+		clnf_model.detected_landmarks: 		#(136,1) 先68个x，再68个y
+		landmarks_2D = landmarks_2D.reshape(1, 2).t();	#row=68, col=2
+		计算3D点：
+			cv::Mat_<double> landmarks_3D;
+			clnf_model.pdm.CalcShape3D(landmarks_3D, clnf_model.params_local); #(204,1)
+				cv::Mat_<double> mean_shape;	#PDM [x1,..,xn,y1,...yn,z1,...,zn]  (204,1)
+			landmarks_3D = landmarks_3D.reshape(1, 3).t();  #(68,3)  根据代码分析3D是不变的
+			源码：
+			void PDM::CalcShape3D(cv::Mat_<double>& out_shape, const cv::Mat_<double>& p_local) const
+			{
+				out_shape.create(mean_shape.rows, mean_shape.cols);
+				out_shape = mean_shape + princ_comp*p_local;
+			}
+			备注： 	p_local：(34,1)， 值全为0
+					princ_comp: (204,34)
+					mean_shape: (204,1)，从模型中加载的
+
+	
+13. UMDFaces数据集与人脸特征点检测 :	http://blog.csdn.net/qq_14845119/article/details/53444032 
+			提供的人脸信息包括，人脸框，人脸姿势，（yaw，pitch，roll），21个关键点，性别信息等。
+		容器：docker run -it  -v /home:/opt --name  UMDFaces_zj synthtext:v1  #创建容器并直接进入容器
+				nvidia-docker run -it  -v /home:/opt --name  UMDFaces_gpu_zj synthtext:v1 
+		安装步骤：
+			caffe-rc3安装：
+					wget https://github.com/BVLC/caffe/tree/rc3  
+					tar -xzvf rc3  
+					cd /caffe-rc3/  
+					mv Makefile.config.example Makefile.config  
+					修改其中库为自己的路径  
+					make matcaffe -j8  
+					make mattest -j8  
+				备注：必须安装caffe-rc3这个版本的caffe，我的容器还需安装glog、gflags、lmdb （http://blog.csdn.net/garfielder007/article/details/50441484）
+			UMDFace 安装：
+					wget http://umdfaces.io/UMD_Fiducials.tar.gz  
+					tar -xzvf UMD_Fiducials.tar.gz  
+					cd /caffe-root/data/ilsvrc12/  
+					get_ilsvrc_aux.sh  
+					启动matlab ：/usr/local/MATLAB/R2014a/bin/matlab
+					cd /caffe-root/examples/UMD_Fiducials/  
+					run demo.m
+			代码问题：
+				没桌面版liunx，所以不可以使用imshow(im_orig);
+				改成：	f = figure(1)
+						image(im_orig);
+						hold on;
+						plot(fiducials(:,1),fiducials(:,2),'g.','MarkerSize',15);
+						saveas(f,'out.jpg')
+			原理：VGG16网络结构
+				conv1:	3*3 1(p) 64、3*3 1(p) 64				
+					pool1:	2*2 2(s) Max
+				conv2:	3*3	1(p) 128、3*3	1(p) 128
+					pool2:	2*2 2(s) Max
+				conv3:	3*3 1(p) 256、3*3 1(p) 256、3*3 1(p) 256
+					pool3:	2*2 2(s) Max
+				conv4:	3*3 1(p) 512、3*3 1(p) 512、3*3 1(p) 512
+					pool4:	2*2 2(s) Max
+				conv5:	3*3 1(p) 512、3*3 1(p) 512、3*3 1(p) 512
+					pool5:	2*2 2(s) Max
+				fc6:	2048							VGG16 (4096)
+				fc7:	512								VGG16 (4096)
+				fc8:	42(21个人脸landmark点的坐标)	VGG16 (1000) + softmax
+				
+13.	DeepAlgnmentNetwork:	https://github.com/zj463261929/DeepAlignmentNetwork
+		论文翻译：http://blog.csdn.net/zjjzhaohang/article/details/78100465
+		error:immporting theano: AttributeError: 'module' object has no attribute 'find_graphviz'
+		解决方案：sudo pip uninstall -y pydot 或者 pip install pydot-ng	
+		lasagne:https://github.com/Lasagne/Lasagne  (深度框架)
+				pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
+				pip install https://github.com/Lasagne/Lasagne/archive/master.zip
+		pip install theano==0.8.0， 最新版本： theano-1.0.1, pip uninstall theano (卸载)
+		import sys
+		sys.path.append("libs")
+		
+		tensorflow pb: 模型、权重
+		tensorflow 另外一个：权重
+		class model(object或者nn.Module) #object是父类
+			net(img) #torch  调用forward()，并且每个类都要重写forward函数。
+		faceNet：一张人脸进行识别需要50ms，但是将所有人脸一起作为一个batch_size进行识别，会快很多。
+		人脸角度范围：	x：-60 ~ 60度； y、z:-40 ~ 40度， y(下-正)
+		查看ubuntu版本号：	cat /etc/issue	
+		theano：1.0.1
+				gpu测试：	https://www.cnblogs.com/shouhuxianjian/p/4590224.html
+				gpu设置：http://blog.csdn.net/wonengguwozai/article/details/52740674?locationNum=13
+						方法1：在命令行上指定gpu：THEANO_FLAGS=mode=FAST_RUN,device=gpu1,floatX=float32 python test_new.py  
+													THEANO_FLAGS=mode=FAST_RUN,device=gpu1,floatX=float32 python test_theano_gpu.py 
+								error: theano0.9以上版本会报下面错误
+										ValueError: You are tring to use the old GPU back-end. It was removed from Theano. Use device=cuda* now. See https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29 for more information.
+								解决办法：使用device=cuda instead of device=gpu：THEANO_FLAGS=mode=FAST_RUN,device=cuda,floatX=float32 python test_new.py
+																					THEANO_FLAGS=mode=FAST_RUN,device=cuda,floatX=float32 python test_theano_gpu.py
+								theano0.9:	THEANO_FLAGS=mode=FAST_RUN,device=gpu1,floatX=float32 python test_new.py
+						方法2：建立/root/.theanorc文件并添加例如类似下面:
+								[cuda]
+								root=/usr/local/cuda/bin/
+								[global]
+								floatX=float32
+								device=cuda
+								[nvcc]
+								fastmath = True
+							error:
+								NotImplementedError: Could not import inplace_increment, so some advanced indexing features are disabled. They will be available if you update NumPy to version 1.8 or later, or to the latest development version. You may need to clear the cache (theano-cache clear) afterwards.
+		error:
+				Exception: ('The following error happened while compiling the node', GpuDnnConvDesc{border_mode=(1, 1), subsample=(1, 1), conv_mode='conv', precision='float32'}(MakeVector{dtype='int64'}.0, MakeVector{dtype='int64'}.0), '\n', 'nvcc return status', 2, 'for cmd', 'nvcc -shared -O3 -arch=sm_61 -m64 -Xcompiler -fno-math-errno,-Wno-unused-label,-Wno-unused-variable,-Wno-write-strings,-DCUDA_NDARRAY_CUH=c72d035fdf91890f3b36710688069b2e,-DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION,-fPIC,-fvisibility=hidden -Xlinker -rpath,/root/.theano/compiledir_Linux-4.4--generic-x86_64-with-Ubuntu-14.04-trusty-x86_64-2.7.6-64/cuda_ndarray -I/usr/local/lib/python2.7/dist-packages/theano/sandbox/cuda -I/usr/local/cuda/include -I/usr/local/lib/python2.7/dist-packages/numpy/core/include -I/usr/include/python2.7 -I/usr/local/lib/python2.7/dist-packages/theano/gof -o /root/.theano/compiledir_Linux-4.4--generic-x86_64-with-Ubuntu-14.04-trusty-x86_64-2.7.6-64/tmpdKDr6e/bd1168e6726f16baed8c5f60c7ded9d1.so mod.cu -L/usr/lib -lcudnn -lpython2.7 -lcudart', "[GpuDnnConvDesc{border_mode=(1, 1), subsample=(1, 1), conv_mode='conv', precision='float32'}(<TensorType(int64, vector)>, <TensorType(int64, vector)>)]")
+	
+		ubuntu卸载python的theano包:		sudo pip uninstall theano 
+								但是卸载不成功，没办法，只能用暴力的方式删除，具体操作如下：
+									sudo rm -r /usr/local/lib/python2.7/dist-packages/theano* 
+								再删除/home/s/.theano这个文件夹就好，sudo rm -r /home/s/.theano* 
+
+		nvidia-docker run -it  -v /data:/opt --name  face_flask_gpu_zj caffe_ssd
+		nvidia-docker run -d  -v /data:/opt --name  face_flask_gpu_zj caffe_ssd
+		nvidia-docker run -d  -v /data:/opt --name  face_flask_gpu_zj1 caffe_ssd
+		nvidia-docker run -idt -p 9529:8080 -v /data:/opt --name face_flask face_flask_gpu_image
+		
+		pip install  pygpu:	
+				error：
+					Collecting pygpu, Could not find a version that satisfies the requirement pygpu (from versions:             )
+					No matching distribution found for pygpu
+		清除theano缓存：	theano-cache clear
+							theano-cache purge
+		查看 CUDA cudnn 版本：cat /usr/local/cuda/version.txt  #CUDA Version 8.0.44
+		/usr/local/lib/python2.7/dist-packages/theano/sandbox/
+		测试：	python -c "import scipy;scipy.test()"
+				python -c "import numpy;numpy.test()"
+				python -c "import theano; theano.test()"
+		一步一步安装theano:		http://blog.csdn.net/xuezhisdc/article/details/47065475
+						pip install theano==0.9.0 ####pip安装指定版本号 ==版本号
+						/root/.theanorc文件的[global]部分设置这些选项：
+						[global]
+						model=FAST_RUN
+						device = gpu 
+						floatX = float32
+
+						新后端需要安装libgpuarray以及至少一个计算工具包（CUDA或OpenCL）安装方式http://deeplearning.net/software/libgpuarray/installation.html#conda
+						方法一最简单的安装方式1、选择conda install pygpu 安装，首先安装conda http://www.jianshu.com/p/5df4c07ffc9d 安装过程报错
+						方法二安装libgpuarray http://www.deeplearning.net/software/theano/install_ubuntu.html 
+						需要安装依赖cmake &gt;= 3.0 (cmake).
+						a c99-compliant compiler (or MSVC if on windows).
+						(optional) libcheck (check) to run the C tests.
+						(optional) python (python) for the python bindings.
+						(optional) mako (mako) for development or running the python bindings. pip install mako http://www.makotemplates.org/download.html
+						(optional) Cython &gt;= 0.25 (cython) for the python bindings.
+						(optional) nosetests (nosetests) to run the python tests.
+
+						git clone https://github.com/Theano/libgpuarray.git
+						cd libgpuarray
+						git checkout tags/v0.6.5 -b v0.6.9 http://deeplearning.net/software/libgpuarray/installation.html#conda 无这一步会报错146行 git checkout includes tags
+						mkdir Build
+						cd Build
+						cmake .. -DCMAKE_BUILD_TYPE=Release
+						make 
+						make install
+						cd ..
+						python setup.py build 
+						报错pygpu/gpuarray.c:462:29: fatal error: gpuarray/config.h: No such file or directory 把以前编译的build 文件删除
+						python setup.py install 版本pygpu==0.6.5
+						sudo ldconfig ########否则安装成仍然报错ERROR (theano.sandbox.gpuarray): pygpu was configured but could not be imported 安装完需要执行这一步让 globally under Linux (in /usr/local), you might have to run to make the linker know that there are new libraries available. You can also reboot the machine to do that.
+						备注 theano不升级到0.09.0报错 安装完后测试报错ERROR (theano.sandbox.gpuarray): Could not initialize pygpu, support disabled 猜测是版本不合适“0.8.X版本尚未优化，无法与新后端正常工作。”
+						error:
+						/tmp/try_flags_uOyk_9.c:4:19: fatal error: cudnn.h: No such file or directory compilation terminated.
+			
+			THEANO_FLAGS=mode=FAST_RUN,device=cuda,floatX=float32 python test_theano_gpu.py		#test_theano_gpu.py测试gpu/cpu，https://www.cnblogs.com/shouhuxianjian/p/4590224.html
+				<GpuArrayType<None>(float32, (False,))>	使用cpu
+			THEANO_FLAGS=mode=FAST_RUN,device=cpu,floatX=float32 python test_theano_gpu.py
+				<TensorType(float32, vector)>	使用cpu
+			THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python test_theano_gpu.py
+				<CudaNdarrayType(float32, vector)>	使用gpu
+			
+		error:	http://www.jianshu.com/p/5d5b521c7382
+			F tensorflow/stream_executor/cuda/cuda_driver.cc:334] current context was not created by the StreamExecutor cuda_driver API: 0x4fae360; a CUDA runtime call was likely performed without using a StreamExecutor context
+			device = gpu 改成device = cuda就不会报错。
+			最后重新安装tensorflow问题解决，pip install tensorflow==1.0.0	(cpu版本的tensorflow)
+		
+		pip install -U numpy  #最新版本
+		安装tensorflow gpu：
+			pip install tensorflow-gpu==1.0.0
+			sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
+			pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0-cp27-none-linux_x86_64.whl
+		tensorflow gpu/cpu测试：
+			import tensorflow: 出现下面的情况，为gpu版本的tensorflow
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+				I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.8.0 locally
+
+		ave_angle_time:0.0282833242416(s)		640*480(h)		img/96.jpg
+		ave_angle_time:0.0270752739906(s)		640*480			img/75.jpg
+		ave_angle_time:0.0262934088707(s)		640*480(h)		img/1.jpg
+		ave_angle_time:0.149852292538(s)		2448*3264(h)	lg/self/1.jpg
+		ave_angle_time:0.0567229652405(s)		1920*1080(h)	lg/mtcnn_test/3_1080.jpg
+		ave_angle_time:0.0340584516525(s)		1080*720(h)		lg/mtcnn_test/3_720.jpg
+		ave_angle_time:0.486350693703(s) 		1920*1080(h)	lg/mtcnn_test/00030_1080.jpg	9个人
+		
+		bath_size:
+			ave_angle_time:0.135300121307(s)		640*480(h)		lg/mtcnn_test/00030_480.jpg 	9个人	3.5436687088012695
+			ave_angle_time:0.184817397594(s)		1080*720(h)		lg/mtcnn_test/00030_720.jpg		9个人	3.8037850689888(s)
+			ave_angle_time:0.369004817009(s)		1920*1080(h)	lg/mtcnn_test/00030_1080.jpg	9个人	4.666540138721466(s)
+			ave_angle_time:1.03793694735(s)			2448*3264(h)	lg/mtcnn_test/00030_3264.jpg	9个人
+			ave_angle_time:0.616100308895(s)		1920*1080(h)	lg/mtcnn_test/95_15_1080.jpg	15个人
+
+			640*480(h)		lg/mtcnn_test/00030_480.jpg
+						('68landmark:\t', 0.15282011032104492)
+						('box num: ', 9)
+						('single face pose time:\t', 0.0008399486541748047, 0)
+						('single face pose time:\t', 0.0003631114959716797, 0.0008399486541748047)
+						('single face pose time:\t', 0.0005769729614257812, 0.0012030601501464844)
+						('single face pose time:\t', 0.0007159709930419922, 0.0017800331115722656)
+						('single face pose time:\t', 0.0006480216979980469, 0.002496004104614258)
+						('single face pose time:\t', 0.0005991458892822266, 0.0031440258026123047)
+						('single face pose time:\t', 0.0005779266357421875, 0.0037431716918945312)
+						('single face pose time:\t', 0.0007240772247314453, 0.004321098327636719)
+						('single face pose time:\t', 0.0006721019744873047, 0.005045175552368164)
+						('all face pose time: ', 0.005717277526855469)
+			640*480(h)		lg/mtcnn_test/3_480.jpg
+						('68landmark:\t', 0.03099799156188965)
+						('box num: ', 1)
+						('single face pose time:\t', 0.0004229545593261719, 0)
+						('all face pose time: ', 0.0004229545593261719)
+	
+		time:	output = self.generate_network_output([inputImg])[0][0]
+		640*480 30.jpg	0.0162870883942(s) 	单张
+						0.0138506698608(s)	100张的平均			0.0135466313362(s)
+						0.718815088272(s)	bath_size = 100		1.38506698608(s)	100张
+						0.0863041877747(s)	bath_size = 10		0.130993843079		10张
+						0.16900396347(s)	bath_size = 20		0.273735046387
+						0.0724799633026(s)	bath_size = 8		0.147821903229
+						0.0250267982483		bath_size = 2		0.0340869426727
+		lg/mtcnn_test/95_15_1080.jpg:
+			('mtcnn_elapsed:\t', 0.8933789730072021)	python+tensorflow
+			('angle_elapsed:\t', 0.6249592304229736)	python + theano
+			('allface_elapsed:\t', 5.29242205619812)
+			('facenet_elapsed:\t', 1.3618004322052002)	tensorflow
+			('faceID_elapsed:\t', 0.022713422775268555)
+			('emotion_elapsed:\t', 3.9000446796417236)	caffe   cpu
+			('json_elapsed:\t', 0.0003330707550048828)
+			('time:\t', 6.860737085342407)
+
+			('mtcnn_elapsed:\t', 0.882220983505249)
+			('angle_elapsed:\t', 0.6166095733642578)
+			('allface_elapsed:\t', 0.9557459354400635)
+			('facenet_elapsed:\t', 0.8944809436798096)
+			('faceID_elapsed:\t', 0.023354530334472656)
+			('emotion_elapsed:\t', 0.032588958740234375)	gpu,#caffe.set_device(1)
+			('json_elapsed:\t', 0.00023508071899414062)
+			('time:\t', 2.506326913833618)
+
+		# Boost C++ Dependency
+			echo "Installing Boost..."
+			sudo apt-get install libboost-all-dev
+			echo "Boost installed."
+			
+		tensorflow gpu id设置：
+			其他的GPU它不可见可用的形式如下：
+			CUDA_VISIBLE_DEVICES=1           Only device 1 will be seen
+			CUDA_VISIBLE_DEVICES=0,1         Devices 0 and 1 will be visible
+			CUDA_VISIBLE_DEVICES="0,1"       Same as above, quotation marks are optional
+			CUDA_VISIBLE_DEVICES=0,2,3       Devices 0, 2, 3 will be visible; device 1 is masked
+			CUDA_VISIBLE_DEVICES=""          No GPU will be visible
+
+			在Python代码中指定GPU
+				import os
+				os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+				设置定量的GPU使用量
+				config = tf.ConfigProto()
+				config.gpu_options.per_process_gpu_memory_fraction = 0.9 # 占用GPU90%的显存
+				session = tf.Session(config=config)
+				设置最小的GPU使用量
+				config = tf.ConfigProto()
+				config.gpu_options.allow_growth = True
+				session = tf.Session(config=config)
+			
+		theano error:	http://makaidong.com/wangxiaocvpr/833_29614.html
+		代码备注：
+					#np.linalg.norm是范数是对向量（或者矩阵）的度量,默认为2范数=sqrt(x^2+y^2)
+					a = np.dot(srcVec, destVec) / np.linalg.norm(srcVec)**2	#矩阵乘法 (136,)*(136,),点乘 
+					b = 0
+					for i in range(destination.shape[0]):
+						b += srcVec[2*i] * destVec[2*i+1] - srcVec[2*i+1] * destVec[2*i]  #(x1*y2 - y1*x2) 向量叉乘
+					b = b / np.linalg.norm(srcVec)**2
+					
+					T = np.array([[a, b], [-b, a]]) #(2,2)，旋转矩阵的逆矩阵，dest->src
+					srcMean = np.dot(srcMean, T) 	#(1,2)
+		
+		#savez函数输出的是一个压缩文件(扩展名为npz)，
+			其中每个文件都是一个save函数保存的npy文件，文件名对应于数组名。
+			np.savez("files.npz", file)  #
+			f = np.load("DAN-Menpo.npz") #.npz是个压缩文件
+			self.initLandmarks = f["initLandmarks"] 
+		
+		python  变量类的成员：
+			for k in dir(net):
+				print("s1: {0}".format(k, type(k)))
+		# batch_norm  normalize
+        normalized = (input - mean) * (gamma * inv_std) + beta
+		
+		createCNN():
+			net['input'] = (None, nchannel=1, h=112, w=112) 
+			#STAGE 1
+			net['s1_conv1_1']: 64, 3*3
+			net['s1_conv1_2']: 64, 3*3
+			net['s1_pool1']: 2*2
+			
+			net['s1_conv2_1']: 128, 3*3
+			net['s1_conv2_2']: 128, 3*3
+			net['s1_pool2']: 2*2
+			
+			net['s1_conv3_1']: 256, 3*3
+			net['s1_conv3_2']: 256, 3*3
+			net['s1_pool3']: 2*2
+			
+			net['s1_conv4_1']: 512, 3*3
+			net['s1_conv4_2']: 512, 3*3
+			net['s1_pool4']: 2*2
+			
+			net['s1_fc1_dropout']:
+			net['s1_fc1']: 256
+			net['s1_output']: (None, 136)
+			net['s1_landmarks'] = LandmarkInitLayer(net['s1_output'], self.initLandmarks) #(None, 136)
+
+			#STAGE i+1层 (i>=1)
+			self.addDANStage(i + 1, net)
+				#connection layers of previous stage
+				#一个连接层由Transform Estimation layer、Image Transform layer、Landmark Transform layer、Heatmap Generation layer、Feature Generation layer 组成。
+				net[prevStage + '_transform_params'] = net['s1_landmarks']
+				net[prevStage + '_img_output'] = AffineTransformLayer(net['input'], net[prevStage + '_transform_params'])
+				
+				net[prevStage + '_transform_params'] = TransformParamsLayer(net[prevStage + '_landmarks'], self.initLandmarks)
+				net[prevStage + '_img_output'] = AffineTransformLayer(net['input'], net[prevStage + '_transform_params'])	 				
+				net[prevStage + '_landmarks_affine'] = LandmarkTransformLayer(net[prevStage + '_landmarks'], net[prevStage + '_transform_params'])
+				
+				# Landmark HeatMap H (热力图)
+				net[prevStage + '_img_landmarks'] = LandmarkImageLayer(net[prevStage + '_landmarks_affine'], (self.imageHeight, self.imageWidth), self.landmarkPatchSize)
+				
+				#特征 Image F
+				net[prevStage + '_img_feature'] = lasagne.layers.DenseLayer(net[prevStage + '_fc1'], num_units=56 * 56, W=GlorotUniform('relu'))
+				net[prevStage + '_img_feature'] = lasagne.layers.ReshapeLayer(net[prevStage + '_img_feature'], (-1, 1, 56, 56))
+				net[prevStage + '_img_feature'] = lasagne.layers.Upscale2DLayer(net[prevStage + '_img_feature'], 2)
+
+				#current stage, 第二层 类似下面的
+				net['s2_conv1_1']: 64, 3*3
+				net['s2_conv1_2']: 64, 3*3
+				net['s2_pool1']: 2*2
+				
+				net['s2_conv2_1']: 128, 3*3
+				net['s2_conv2_2']: 128, 3*3
+				net['s2_pool2']: 2*2
+				
+				net['s2_conv3_1']: 256, 3*3
+				net['s2_conv3_2']: 256, 3*3
+				net['s2_pool3']: 2*2
+				
+				net['s2_conv4_1']: 512, 3*3
+				net['s2_conv4_2']: 512, 3*3
+				net['s2_pool4']: 2*2
+				
+				net['s2_fc1_dropout']:
+				net['s2_fc1']: 256
+				net['s2_output']: (None, 136)
+				net['s2_landmarks'] = LandmarkInitLayer(net['s1_output'], self.initLandmarks) (None, 136)
+	
+	DeepAlgnmentNetwork: Tensorflow 1.3.0、OpenCV 3.1.0 
+		github:https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment
+		#安装OpenCV 3.1.0
+			1. Install OpenCV dependencies:	
+				sudo apt-get install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+				sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev checkinstall
+			2.wget https://github.com/Itseez/opencv/archive/3.1.0.zip	
+			3.Unzip it and create a build folder:
+				sudo unzip 3.1.0.zip
+				cd opencv-3.1.0
+				mkdir build
+				cd build
+			4.Build it using:
+				cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_SHARED_LIBS=OFF ..
+			make -j2
+			sudo make install
+			备注：
+				提醒两点：
+				1) 执行cmake .时， 若出现ippicv_linux_20151201.tgz的hash码不对，则需手动下载ippicv_linux_20141027.tgz,
+					然后手动替换掉/home/alphacocoa/opencv-3.1.0/3rdparty/ippicv/downloads/linux-808b791a6eac9ed78d32a7666804320e目录下的ippicv_linux_20141027.tgz。
+				2） http://www.jianshu.com/p/68ac83436a1b
+			error:
+				1./../opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp:120:54: error: 'NppiGraphcutState' has not been declared
+				typedef NppStatus (*init_func_t)(NppiSize oSize, NppiGraphcutState** ppState, Npp8u* pDeviceMem);
+				解决办法：
+					cuda8.0较新，opencv-2.4.11较早，要编译通过需要修改源码：
+					修改/data/opencv-2.4.11/modules/gpu/src/graphcuts.cpp
+					将 #if !defined (HAVE_CUDA) || defined (CUDA_DISABLER)   
+					改为 #if !defined (HAVE_CUDA) || defined (CUDA_DISABLER) || (CUDART_VERSION >= 8000) 
+					重新编译即可。		
+		#卸载：pip uninstall tensorflow-gpu==0.12.0	
+		#安装：pip install tensorflow-gpu==1.3.0
+			问题描述： 
+				进入python，然后import tensorflow，无法import，错误代码：libcudnn.so.6:cannot open sharedobjectfile: 
+				No such file or directory
+			问题解释： 
+				根据错误代码，应该是找不到libcudnn.so.6。到指定文件夹下发现只有5.0和8.0的版本，没有6.0，查找原因是因为当前已经是1.3版本，
+				而tensorflow-gpu1.3已经开始去找cudnn6了（也就是说是用cudnn6编译的）。。。所以需要换到tensorflow-gpu1.2版本，就解决问题了。 
+			解决方法：	
+				方法1： pip uninstall tensorflow-gpu
+						pip install tensorflow-gpu==1.2
+				方法2：安装cuda6.0
+		#python DAN.py
+			1. error:	AttributeError: 'module' object has no attribute 'glorot_uniform_initializer'
+				最开始使用了TensorFlow中默认的initializer（即glorot_uniform_initializer，也就是大家经常说的无脑使用xavier）
+				改成：tf.contrib.layers.xavier_initializer()
+			2. DAN-Menpo.np 转 model.ckpt：
+				https://www.cnblogs.com/hellcat/p/6925757.html
+				keras训练生成的h5文件转换为tensorflow支持的pb文件方法:
+					python keras_to_tensorflow.py -input_model_file model.h5 -output_model_file model.pb  -graph_def=True 
+			3. keras安装：
+				源码安装：
+					git clone https://github.com/keras-team/keras.git
+					cd keras
+					sudo python setup.py install
+				pip安装：pip install keras
+				
+13. 人眼睁闭判断：
+		('threshold(0.16)open_num: ', 521) ('close_num: ', 1941) acc=1941/(1941+521)=1941/2462=78.838% (83.77%)
+		('threshold(0.16)open_num: ', 4058) ('close_num: ', 641) acc = 4058/(4058+641)=4058/4699 = 86.358%
+		人眼 12*12 或 10*10  VGG或者AlexNet，15个回合，94%， 1.7ms
+		
+13. 相似图片搜索的原理:
+		参考文献：	http://www.ruanyifeng.com/blog/2011/07/principle_of_similar_image_search.html
+					http://www.ruanyifeng.com/blog/2013/03/similar_image_search_part_ii.html
+					类似的"相似图片搜索引擎"还有不少，TinEye（https://www.tineye.com/search/71cd84bc996c42fa518312a775e8c00f9675c112/）甚至可以找出照片的拍摄背景。
+		知识点：
+				这里的关键技术叫做"感知哈希算法"（Perceptual hash algorithm），它的作用是对每张图片生成一个"指纹"（fingerprint）字符串，
+				然后比较不同图片的指纹。结果越接近，就说明图片越相似。
+		下面是一个最简单的实现：
+			第一步，缩小尺寸。
+					将图片缩小到8x8的尺寸，总共64个像素。这一步的作用是去除图片的细节，只保留结构、明暗等基本信息，摒弃不同尺寸、比例带来的图片差异。
+			第二步，简化色彩。
+					将缩小后的图片，转为64级灰度。也就是说，所有像素点总共只有64种颜色。
+			第三步，计算平均值。
+					计算所有64个像素的灰度平均值。
+			第四步，比较像素的灰度。
+					将每个像素的灰度，与平均值进行比较。大于或等于平均值，记为1；小于平均值，记为0。
+			第五步，计算哈希值。
+					将上一步的比较结果，组合在一起，就构成了一个64位的整数，这就是这张图片的指纹。组合的次序并不重要，只要保证所有图片都采用同样次序就行了。
+					比如：一幅图片 = 8f373714acfcf4d0(哈希值)
+			得到指纹以后，就可以对比不同的图片，看看64位中有多少位是不一样的。在理论上，这等同于计算"汉明距离"（Hamming distance）。如果不相同的数据位不超过5，
+			就说明两张图片很相似；如果大于10，就说明这是两张不同的图片。	
+		
+		这种算法的优点是简单快速，不受图片大小缩放的影响，缺点是图片的内容不能变更。如果在图片上加几个文字，它就认不出来了。所以，
+			它的最佳用途是根据缩略图，找出原图。
+		实际应用中，往往采用更强大的pHash算法和SIFT算法，它们能够识别图片的变形。只要变形程度不超过25%，它们就能匹配原图。
+			这些算法虽然更复杂，但是原理与上面的简便算法是一样的，就是先将图片转化成Hash字符串，然后再进行比较。
+		pHash:	http://www.phash.org/download/
+		找出与其最相似的向量。这可以用"皮尔逊相关系数"-（协方差） 或者"余弦相似度" 算出。
+		"余弦相似性"（cosine similiarity）：可以通过夹角的大小，来判断向量的相似程度。夹角越小，就代表越相似。（0-180度）
+											余弦值越接近1，就表明夹角越接近0度，也就是两个向量越相似，这就叫"余弦相似性"。
+		"余弦相似性"与"欧氏距离"：
+				归一化后，计算欧氏距离，等价于余弦值啊，证明：两个向量x,y, 夹角为A，经过归一化，他们的欧氏距离D=(x-y)^2 = x^2+y^2-2|x||y|cosA = 2-2cosA，也就是说D=2(1-cosA)。
+13.
+	print (src.dtype)  #uint8  
+		Int64, 等于long, 占8个字节. 
+		Int32, 等于int, 占4个字节.
+		1字节 uint8_t
+		2字节 uint16_t
+		4字节 uint32_t
+		8字节 uint64_t
+	备注：如果封装成动态库，opencv版本不受限制，但是需要注意的是，你需要在调用动态库的opencv环境下重新编译生成新的动态库，不然会报错误。
+	
+	for(cv::Point p : landmarks) vector<cv::Point> landmarks   ##c++98 model
+	parallel_for()  #屏蔽
+	ifstream pdmLoc(location, ios_base::in);  // 改成ifstream pdmLoc(location.c_str(), ios_base::in);
+	TBB,Thread Building Blocks,线程构建模块，是Intel公司开发的并行编程开发的工具。
+	pkg-config --modversion opencv  #版本号：3.1.0
+	pkg-config --cflags --libs opencv  #库的路径以及库名称
+	g++ test.cpp -o test 'pkg-config --cflags --libs opencv'
+	
+	set(OpenCV_DIR /opt/opencv-2.4.11/share/OpenCV) #控制哪个版本
+	find_package(OpenCV REQUIRED)中的OpenCV一定要遵循该大小写。
+　　因为该句话是根据OpenCV作为前缀自动去/usr/local/share/OpenCV（如果你的opencv安装时，默认前缀设置为：/usr/local时）文件夹中去找OpenCVConfig.cmake，
+		OpenCV-config.cmake 两个文件，进而确定你要引入的opencv头文件和库函数在哪里。
+	opencv_DIR的默认路径怎么改？？？：
+	
+	CMake下指定Opencv版本
+		关键文件：OpenCVConfig.cmake。在opencv编译好后，所在目录中一般会有一个叫OpenCVConfig.cmake的文件，这个文件中指定了CMake要去哪里找OpenCV
+	Makefile下指定Opencv版本
+		关键文件：opencv.pc 。在Makefile下，应该是可以在其中详细设定Opencv路径。
+		我们常常使用pkg-config --modversion 来查看指定库的版本，比如查看opencv版本pkg-config --modversion opencv。其实pkg-config显示的信息来自于这个库对应的.pc文件，
+			比如安装了opencv后，我们可以在/usr/local/lib/pkgconfig/ 文件夹下找到opencv.pc或者../opencv2410/build/unix-install/opencv.pc
+			set(OpenCV_DIR /usr/local/opencv)  #设置opencv路径，在cmakelists.txt中find_package( OpenCV REQUIRED )之前添加。
+			
+			
+			
+	修改环境变量： https://www.cnblogs.com/qiaozhoulin/p/4978055.html
+	vim /etc/profile
+	export PYTHONPATH=/opt/modules/caffe/python:$PYTHONPATH  
+	source /etc/profile
+	
+	g++ test.cpp $(pkg-config --cflags --libs opencv) -o test
+
+	pkill -U zhangjing  #关闭zhangjing用户
+	
+	error1:
+		undefined reference to cv::imread(cv::String const&, int)’
+	原因：opencv库没链接上。 
+	cmake -D BUILD_SHARED_LIBS=OFF (该参数=true,生成动态库.so文件；否则生成静态库.a文件)
+
+	error2: /usr/bin/ld: 找不到 -lippicv
+	解决办法1：可以在cmake时加上"cmake -DINSTALL_CREATE_DISTRIB=ON" 这句,就不会有这个错误了.  
+	解决办法2：cp opencv-3.1.0/3rdparty/ippicv/unpack/ippicv_lnx/lib/intel64/libippicv.a /usr/local/lib, 问题解决。http://blog.csdn.net/dengshuai_super/article/details/51895120
+	
+	liunx c++：统计时间
+		clock_t t1, t2; // #include<ctime> 
+		t1 = clock();
+		svm.predict_all("/opt/zhangjing/ocr/svm/datasets/test/benchmark_20170904_new/", sTxt, sPathModel, 0.5);
+		t2 = clock();
+		cout << (double)(t2-t1)*1000/69/CLOCKS_PER_SEC <<"ms"<<endl;
+	
+	g++ test.cpp $(pkg-config --cflags --libs opencv) -o opencv_test??
+	gcc test.cpp -fPI -share -o test.o $(pkg-config opencv  --cflags --libs)
+	c++技术网：httphttp://www.cjjjs.com/index.aspx  
+	备注：opencv3.0以上版本采用的#include <opencv2/imgcodecs.hpp>
+	
+	封装dll: http://www.linuxidc.com/Linux/2012-09/70502.htm
+		//test.cpp
+		#include <iostream>
+		extern "C"  
+		int myadd(int a, int  b)  
+		{  
+			return a + b;  
+		} 
+		
+		//test.h
+		#ifndef _TESTSO_H   
+		#define _TESTSO_H   
+		extern "C"   
+		{  
+			int myadd(int a, int b);  
+			typedef int myadd_t(int, int); // myadd function type   
+		}  
+		#endif // _TESTSO_H   
+		编译：g++  -shared  -fPIC  -o test.so test.cpp
+
+	c++方式调用：
+		//main.cpp:   
+		#include <stdio.h>   
+		#include <dlfcn.h>   //必须有
+		#include <iostream>
+		// for dynamic library函数   
+		#include "test.h"   
+     
+		int main(int argc, char *argv[])  
+		{  
+			std::cout<<"111111111111111"<<std::endl;
+			if (2 != argc) {  
+				return -1;  
+			}  
+		  
+			const char *soname = argv[1];  	  
+			void *so_handle = dlopen(soname, RTLD_LAZY); // 载入.so文件   
+			if (!so_handle) {  
+				//std::cout<<"Error: load so `%s' failed./n"<<soname<<endl;  
+				fprintf(stderr, "Error: load so `%s' failed./n", soname);  
+				return -1;  
+			}  
+		  
+			dlerror(); // 清空错误信息   
+			myadd_t *fn = (myadd_t*)dlsym(so_handle, "myadd"); // 载入函数   
+			char *err = dlerror();  
+			if (NULL != err) {  
+				fprintf(stderr, "%s/n", err);  
+				return -1;  
+			}  
+		  
+			printf("myadd 57 + 3 = %d/n", fn(57, 3)); // 调用函数   
+		  
+			dlclose(so_handle); // 关闭so句柄   
+			return 0;  
+		}  
+		编译： g++ main.cpp -o main -ldl  
+		运行：./main test.so
+		备注：如果没有-ldl参数，会报undefined reference to `dlopen'错误解决。
+		
+	python方法调用：
+		from ctypes import *
+
+		#load dll and get the function object
+		dll = cdll.LoadLibrary('/opt/zhangjing/landmark/LandmarkDetector/test.so');
+		t = dll.myadd(1,2)
+		print(t)
+		运行： python main.py
+	g++ -shared -fPIC -o demo.so demo.cpp CCNF_patch_expert.cpp LandmarkDetectorFunc.cpp LandmarkDetectorModel.cpp LandmarkDetectorUtils.cpp LandmarkDetectorParameters.cpp LandmarkDetectionValidator.cpp Patch_experts.cpp PAW.cpp PDM.cpp SVR_patch_expert.cpp stdafx.cpp $(pkg-config opencv --cflags --libs) $( /usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_system.so) -I /usr/include/boost -L /usr/lib/x86_64-linux-gnu/ -lboost_system -lboost_filesystem
+	
+	备注：首先，将所有的.cpp文件放到一起；使用g++编译，-I 指头文件的路径，-L 指库的路径；
+		http://bbs.csdn.net/topics/340060802  python 调c++动态库，传入参数
+		https://www.cnblogs.com/thundertt/p/6368754.html?utm_source=itdadao&utm_medium=referral  cv::Mat 读数据
+		http://blog.csdn.net/uniqsa/article/details/78603082   python 调c++动态库，传出参数，使用结构体可传入也可传出。
+	
+13.	CNN会认为，眼睛和嘴的位置不管在哪，都没什么区别，会很宽容地，把这张照片归类成“人”：
+		https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247491077&idx=1&sn=7b68cd5b60a9b134b39dfc8f43c31796&chksm=e8d3a977dfa4206103b7b2c926ba0332da94f0ad11654e3c838fd38b1ec20910afe899f2c3ba&mpshare=1&scene=1&srcid=11146a2z5fDCEXsoQGvnpeSR#rd
+		代码：https://github.com/bourdakos1/capsule-networks
+14. 文字：
+		http://east.zxytim.com/?r=d3880c58-da35-11e7-bab2-f23c91e0703e  demo
+		https://github.com/argman/EAST  
+14. 	
+	1判断相关软件是否安装：	sudo apt-get install build-essential  
+·	2.删除先前版本的cmake(如果有的话)	sudo apt-get autoremove cmake  
+	3.下载cmake3.2.2源码	wget http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz  
+	4.解压	tar zxvf cmake3.2.2.tar.gz  
+	5.进入cmake3.2.2文件夹，安装
+		cd cmake3.2.2  
+		./configure  
+		make  
+		sudo make install  
+	6.设置环境变量	sudo gedit /etc/profile  
+		在/etc/profile末尾加上对应的路径	export PATH=cmake路径/bin:$PATH  
+	7.保存，更新环境变量	source /etc/profile  
+	8.确认	cmake --version  	
+15. 
+	c/c++中出现“undefined reference to”的解决
+	“undefined reference to”的意思是，该函数未定义。
+	如果使用的是gcc，有以下检查方案：
+		如果提示未定义的函数是某个库的函数。检查库时候已经安装，并在编译命令中采用-l和-L参数导入库。
+		如果提示未定义的函数是程序中的函数。检查是否在头文件中声明，是否在编译中有对应的obj文件。
+		如果提示未定义的函数是程序中的函数，还有一种很隐蔽的可能：检查改函数的代码的上下文是否有#ifdef或者#ifndef等预编译信息，这也很有可能导致相关代码没有被编译而出现“undefined reference to”提示。
+16. 在编译时会将std::string类型按c++11下std::__cxx11::basic_string<char> 来处理，这时如果你调用的库在编译时未启用c++11特性则其中的std::string实际上是std::basic_string<char> ，
+	这时如果将c++11下的string当作参数传入非c++11的库时，就会出现error: cannot convert 'const std::__cxx11::basic_string<char>' to 'const char*'，或者未定义的方法引用（undefined reference）。
+
+	C++开源日志库Glog的使用:#include <glog/logging.h> 
+		Glog地址：https://github.com/google/glog
+	
+2017-10-01:
+1.  ocr gpu: attention_gpu_home_zj
+	真实数据：/home/ligang/data/icdar2017rctw/WordBBText_chinese.txt  过滤掉符号、英文、数字等还剩21808个词，2607个字。
+	文字检测与识别资料整理（数据库，代码，博客）【持续更新】：http://www.cnblogs.com/lillylin/p/6893500.html 
+	华南理工博士论文:《深度模型及其在视觉文字分析中的应用》 http://cdmd.cnki.com.cn/Article/CDMD-10561-1016770438.htm
+	
+	华南理工大学人机智能交互实验室发布数据集：（SCUT-FORU: Flickr OCR Universal Database）  https://github.com/HCIILAB/SCUT_FORU_DB_Release/blob/master/README.md 
+		The Chinese2k dataset has 1861 training images and 355 testing images。 （下载地址失效）
+	MSRA-TD500: 500张检测数据集
+		
+2. 样本增强：
+	1）弹性变换算法: http://blog.csdn.net/lhanchao/article/details/54234490 (提供的代码效果不好)
+					https://github.com/KyotoSunshine/CNN-for-handwritten-kanji (最终使用该代码，python版本，要求输入图像是长宽相等的，处理后可用于文本样本增强)
+					https://pdfs.semanticscholar.org/7b1c/c19dec9289c66e7ab45e80e8c42273509ab6.pdf 
+			对于图像而言，常用的增加训练样本的方法主要有对图像进行旋转、移位等仿射变换，也可以使用镜像变换等等，这里介绍一种常用于字符样本上的变换方法，
+			弹性变换算法(Elastic Distortion)。该算法最先是由Patrice等人在2003年的ICDAR上发表的《Best Practices for Convolutional Neural Networks Applied to Visual Document Analysis》提出的，
+			最开始应用在mnist手写体数字识别数据集中，发现对原图像进行弹性变换的操作扩充样本以后，对于手写体数字的识别效果有明显的提升。
+		下面来详细介绍一下算法流程：
+
+		1）首先需要对图像中的每个像素点(x,y)产生两个-1~1之间的随机数，Δx(x,y)和Δy(x,y)，分别表示该像素点的x方向和y方向的移动距离；
+
+		2）生成一个以0为均值，以σ为标准差的高斯核k_nn，并用前面的随机数与之做卷积，并将结果作用于原图像。
+
+		作者在这里提出σ的大小与弹性变换的处理结果息息相关，如果σ过小，则生成的结果类似与对图像每个像素进行随机移动，而如果σ过大，则生成的结果与原图基本类似。
+		
+	2）仿射变换：https://github.com/codebox/image_augmentor
+		
+3. Opencv判断是否加载图片的两种方法:
+		1)  src = imread( "1.jpg" ,CV_LOAD_IMAGE_COLOR );    //注意路径得换成自己的  
+			//判断是否加载图片  
+			if(!src.data)  
+			{  
+				cout<<"Picture loading failed !"<<endl;  
+				return -1;  
+			}  
+		2) if(src.empty())  
+			{  
+				cout<<"Picture loading failed !"<<endl;  
+				return -1;          
+			} 
+		3) img = cv2.imread(img_path)
+			if img is None:
+				continue
+				
+	img = cv2.imread( path.c_str(), 1); //0载入灰度图, 1载入彩色图
+	len(img.shape) #如果长度为3，shape为tuple,（h,w,c）;其次(h,w)
+	h = img.shape[0]
+	转换通道顺序： img2 = np.reshape(img1, (w,h)) #w、h互换
+	
+4. OpenCV Error: Unspecified error (The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script) in cvShowImage, file /notebooks/download/opencv-2.4.13/modules/highgui/src/window.cpp, line 501
+	原因：缺少界面
+5. python自动给数字前面补0的方法
+		python中有一个zfill方法用来给字符串前面补0，非常有用
+		n = "123"
+		s = n.zfill(5)
+		assert s == "00123"
+	Decimal ：意思为十进制，这个模块提供了十进制浮点运算支持。
+				http://www.cnblogs.com/xueweihan/p/5207959.html
+				Decimal('50.5679').quantize(Decimal('0.00'))
+				# 结果为Decimal('50.57')，结果四舍五入保留了两位小数
+	abs(): 函数返回数字的绝对值
+		
+6. 20个令人惊叹的深度学习应用（Demo+Paper+Code）: http://www.cnblogs.com/czaoth/p/6755609.html 
+7. caffe: 均值文件，根据训练数据在训练时生成，预测时减去均值文件而已； 
+			1）跟原图一样大，每个像素的均值（RGB）; 2)在1）基础上再求均值，得每个通道的均值。
+8. 视频——>文字， 视频->向量
+9. print( c + " 的ASCII 码为", ord(c))
+	print( a , " 对应的字符为", chr(a))
+	
+    10进制转16进制: hex(16)  ==>  0x10
+    16进制转10进制: int('0x10', 16)  ==>  16
+10. 
+	cc = c.encode("raw_unicode_escape") #将汉字等转成\u300b
+	print (c.encode("utf-8"))        #为了在屏幕上显示而已
+	print cc                         #如果是英文对应的是字符串，中文对应的是\u300b
+	cc.decode('unicode_escape')      #将\u300b等转成汉字
+11. （attention-ocr）error:
+			File "/opt/zhangjing/ocr/attention_ocr/attention_ocr_32/src/data_util/data_gen.py", line 141, in gen
+			assert False, 'no valid bucket of width %d'%width
+			AssertionError: no valid bucket of width 100
+		原因：word_len=30+2, word的长度不能大于32
+12. if w<h:
+		img1 = np.zeros((h,h))
+		print img1.shape
+		print img2.shape
+		#img1[:][0:w] = img2[:][:]  #会报错，但是if w>h，img1[0:h][:] = img2[:][:]就ok.所以使用下面的代码。
+		for i in range(img2.shape[0]): #h
+			for j in range(img2.shape[1]): #w
+				img1[i,j] = img2[i,j]	 
+	
+	crop： cropped_img = img[crop_p1y:crop_p2y, crop_p1x:crop_p2x]
+	b, g, r = cv2.split(img)
+	cv2.merge([b1,g1,r1])
+13. 
+	Skimage读取图像是RGB，而Opencv是BGR
+	Skimage读取图像后是(height, width, channel)
+	椒盐噪声是由图像传感器，传输信道，解码处理等产生的黑白相间的亮暗点噪声。椒盐噪声往往由图像切割引起。
+14.反色：
+	if 3==length:
+			for i in range(height):
+				for j in range(width):
+					img2[i,j] = (255-img[i,j][0],255-img[i,j][1],255-img[i,j][2]) 
+		else:
+			for i in range(height):
+				for j in range(width):
+					img2[i,j] = (255-img[i,j]) 
+15. python:类的定义与调用
+	import function as FUN
+
+	fun = FUN.Function() #Function类名
+	result = fun.inverse(img) #类中的函数
+16. 这两个函数之间最大的区别是当父目录不存在的时候os.mkdir(path)不会创建，os.makedirs(path)则会创建父目录。
+17. excel中不能直接回车需要同时按住alt键。
+18. list这种情况竟然不会报错：
+		lst = [1]
+		print lst
+		lst1 = []
+		lst1.append(lst[0])
+		lst1[1:] = lst[1:]
+		print lst1
+	python 退出程序的方式: sys.exit() #默认为0，表示正常退出，也可以为1，表示异常退出.也不需要考虑平台等因素的影响，一般是退出Python程序的首选方法.
+	
+	for dirpath, dirnames, filenames in os.walk(image_dir):
+		for filename in filenames:
+			if filename.endswith('.jpg')
+	with codecs.open(image_txt, 'rb', "utf-8") as ann_file:
+	lines = ann_file.readlines()
+	for l in lines:
+		lst = l.strip().split()
+		
+	if not os.path.exists(ss):
+		os.makedirs(ss)# 创建目录,这两个函数之间最大的区别是当父目录不存在的时候os.mkdir(path)不会创建，os.makedirs(path)则会创建父目录。
+19. xml读写：
+	读：http://www.cnblogs.com/kaituorensheng/p/4493306.html 
+		import  xml.dom.minidom
+		#打开xml文档
+		dom = xml.dom.minidom.parse('0824010011.xml') #用于打开一个xml文件，并将这个文件对象dom变量。如何xml中含有中文（乱码）会报错！！！！！！
+		root = dom.documentElement #用于得到dom对象的文档元素，并把获得的对象给root
+		1） xmin = root.getElementsByTagName("xmin")
+			for i in range(len(xmin)):
+				print xmin[i].firstChild.data  #获得标签对之间的数据,如：<xmin>418</xmin>
+		2）获得标签属性值，如：<login username="pytest" passwd='123456'>
+			itemlist = root.getElementsByTagName('login')
+			item = itemlist[0]
+			print item.getAttribute("username")
+			print item.getAttribute("passwd")
+	写：http://www.jb51.net/article/67190.htm
+		例子：
+		<annotation>
+			<object>
+				<bndbox>
+					<xmin>34</xmin>
+				</bndbox>
+			</object>
+		</annotation>
+		
+		
+		impl = xml.dom.minidom.getDOMImplementation() 
+		dom = impl.createDocument(None, 'annotation' , None)    
+		root = dom.documentElement  
+		#读
+		object = root.getElementsByTagName("object")
+		bndbox = root.getElementsByTagName("bndbox")
+		xmin = root.getElementsByTagName("xmin")
+		#写
+		object = dom.createElement( 'object' ) 
+		root.appendChild(object) 
+		bndbox = dom.createElement( 'bndbox' ) 
+		object.appendChild(bndbox) 
+		nameE = dom.createElement( 'xmin' ) 
+		nameT = dom.createTextNode( xmin[0].firstChild.data ) #type unicode, 所以使用时需要int()
+		nameE.appendChild(nameT) 
+		bndbox.appendChild(nameE) 
+	
+		f = open( 'employees2.xml' , 'w') 
+		dom.writexml(f, addindent = ' ' , newl = '\n' ,encoding = 'utf-8' )
+		f.close()  
+
+20. caffe: 统计mAP值(单个类、整体的)
+		统计mAP值会跑eval.sh：
+			cd /opt/yushan/caffe
+			./build/tools/caffe train \
+			--solver="jobs_11_512_new/SSD_512x512_score/solver.prototxt" \
+			--weights="jobs_11_512_new/VGG_VOC0712_SSD_512x512_lamda_adam_iter_100000.caffemodel" \
+			--gpu=1 2>&1 | tee jobs_11_512_new/SSD_512x512_score/VGG_VOC0712_SSD_512x512_test.log
+		需要修改solver.prototxt中的参数：
+			eval_type: "detection"		#统计整体的mAP值
+			ap_version: "11point"		#计算mAP值的方式不同，
+			show_per_class_result: true #统计每个类的mAP值
+		
+	备注：ap_version的参数：默认参数是Integral
+			https://sanchom.wordpress.com/tag/average-precision/
+			mAP = 前后召回率的间隔*准确率; #其实就是离散函数积分求面积
+			11point：只用到准确率，11-point interpolated average precision，默认召回率的间隔是{0, 0.1, 0.2, …, 0.9, 1.0}，
+						VOC2007 style for computing AP.
+			MaxIntegral：使用准确率、召回率；VOC2012 or ILSVRC style for computing AP. 从后往前计算。
+			Integral：与MaxIntegral差不多，只是从前往后计算； 
+			
+	caffe中所有文件的根目录都指的是caffe路径，所有路径的就可以写成：data/VOC0712/labelmap_voc.prototxt 
+	
+21. 退出终端： ctrl+c、quit(或q)、exit
+22. lst = list(set(lst))#list(set(lst)) 去除列表中重复的元素
+23. shutil.copyfile(src, dst) #拷贝文件内容，不能追加写
+	shutil.rmtree(save_dir)  #删除save_dir指定的文件夹, 
+	os.rmdir(save_dir + "img") 递归删除空目录
+	os.removedirs() 递归删除目录和文件
+24. 保留2位小数：round(a,2)
+25. 防止过拟合的方法： 正则化、dropout、BatchNormalization、加样本
+	一般检测网络，使用正则化来防止过拟合。
+26.caffe: 
+	train.prototxt :训练，需要计算loss
+	test.prototxt: 测试， 需要计算准确率, 多了DetectionEvaluate层，少了一些训练用的；
+	deploy.prototxt: 比如在deepDetect部署时需要，不需要计算loss、准确率，需要画框；
+	
+	测试：
+		caffe/layers/detection_output_layer.hpp ： （confidence_threshold:0.01）->ApplyNMSFast()->bbox_util.cpp
+				1) 保留置信度大于confidence_threshold的box等；
+				2) top_k：如果第一步剩余的个数大于top_k，再只保留最大的top_k个，否则全部保留。（升序）
+				3) 再进行nms处理。
+
+27. Faster RCNN: https://github.com/rbgirshick/py-faster-rcnn 
+	mAP：lib/datasets/voc_eval.py
+		voc_eval(detpath,
+             annopath,
+             imagesetfile,
+             classname,
+             cachedir,
+             ovthresh=0.5,
+             use_07_metric=False) #是否使用voc07 11点计算mAP (true为使用11点，false对应的SSD中的MaxIntegral)
+		最终调用函数： ap = voc_ap(rec, prec, use_07_metric)
+		
+		lib/datasets/pascal_voc.py：
+			如果VOC数据的年限小于2010，use_07_metric=true;
+		
+	Faster RCNN有两个版本计算mAP: python、matlab, 如果有参数'matlab_eval'，则使用matlab版本。 (http://www.cnblogs.com/louyihang-loves-baiyan/p/4903231.html)
+		matlab版本：lib\datasets\VOCdevkit-matlab-wrapper\voc_eval.m
+				ap_auc = xVOCap(recall, prec): ROC曲线的横坐标为false positive rate（FPR），纵坐标为true positive rate（TPR）。
+														AUC（Area Under Curve）被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，
+														所以AUC的取值范围在0.5和1之间。使用AUC值作为评价标准是因为很多时候ROC曲线并不能清晰的说明哪个分类器的效果更好，
+														而作为一个数值，对应AUC更大的分类器效果更好。https://www.douban.com/note/284051363/
+														
+														填补auc曲线中的沟,（如果prec在开始出现下降，则认为此时iou<0.5是出现了误判，iou不能作为唯一评判标准；
+														这时将后面出现的prec的较大值往前填补）。找到rec的突变点；计算面积
+						
+				[recall, prec, ap] = VOCevaldet(VOCopts, comp_id, cls, true);  :VOCdevkit/VOCcode/VOCevaldet.m  使用11点计算mAP
+				
+	./tools/compress_net.py: 用全连接层压缩的SVD来压缩FRCNN模型,http://blog.csdn.net/u010678153/article/details/46892911
+		
+	备注：
+		mrec = np.concatenate(([0.], rec, [1.]))  #[0.]数组类型参数，[1.]对应行拼接（默认情况下，axis=0可以不写）
+        mpre = np.concatenate(([0.], prec, [0.]))
+		
+		np.maximum:(X, Y, out=None) X与 Y 逐位比较取其大者
+		[False] * len(R): [False,False,False,..]
+28. 王峰【源码】Python的开源人脸识别库:离线识别率高达99.38%
+
+2017-09-01：
+11. python  计算程序运行的时间：
+			import time
+			start = time.time()
+			end = time.time()
+			print "Search took %g s" % (end - start)
+
+10. TextBoxes + Attention_ocr:
+	容器：
+			caffe_ys 、caffe_gpu_ys2  : /dataTwo
+			caffe_tf_cpu_ys1 ：/home
+	代码路径：(用于预测)
+			/home/yushan/TextBoxes/examples/TextBoxes/recognize_by_attenton.py  (英文文本检测+识别)
+			修改recognize_by_attenton.py中的路径、索引转字符、gru_use=true；
+			删除model.py中的中间过程以及迭代获取图像部分；
+			data_util中的图像来自crop，不需要字符转索引；
+	error:
+		1. TypeError: 'str' object is not callable, 原因：str被预先定义了(要特别注意: 不要用内部已有的变量和函数名作自定义变量名)
+		2. lst = str1.strip().split() #strip() 默认为去除两端的空格； split()，默认安装空格切分字符串
+		3. 代码加好了，cv2.putText(img, "大家", (20,20), 0, 1, (255, 0 ,0), 1)无法在图像上显示汉字；(OpenCV不支持汉字有点缺憾)
+						windows: CvxText.h、CvxText.cpp http://www.linuxidc.com/Linux/2012-11/74140.htm 
+			liunx+python 图片上显示汉字问题解决办法：
+					from PIL import Image,ImageDraw,ImageFont
+					font = ImageFont.truetype('simsun.ttc',24)
+					#img = Image.new('RGB',(300,200),(255,255,255)) #图片信息
+					img = Image.open("17.jpg")   # img.crop((0,0,width,9))  width = img.size[0]   height = img.size[1]  img.thumbnail((50, 100))-缩放
+					draw = ImageDraw.Draw(img)   # draw.rectangle((200,200,w,500),outline = "red") 
+					str2 = '你好,世界'
+						str3 = str2.decode("utf-8")
+						draw.text( (0,50), str3,(0,0,0),font=font)
+					或者：
+						with codecs.open("word.txt", 'rb', "utf-8") as ann_file:
+							lines = ann_file.readlines()
+							str3 = lines[0]          #type(str3) <type 'unicode'>
+					或者：
+						str3 = ""
+						with codecs.open("word.txt", 'rb', "utf-8") as ann_file:
+							lines = ann_file.readlines()				
+							str2 = lines[0]
+							for c in str2:
+								lst.append(c)
+								str3 += c
+					draw.text( (100,100), str3,(0,0,0),font=font)
+					#draw.text((0,60),unicode('你好','utf-8'),(0,0,0),font=font) 
+					#draw.text( (0,50), u'你好,世界!',(0,0,0),font=font)
+					img.save("jpeg.jpg",'JPEG')
+		4. 	crop = saveimge[y_min:y_max, x_min:x_max]
+			crop1 = crop.copy()
+			draw.rectangle(((x_min, y_min),(x_max,y_max)),outline = "red") 
+			cv2.imwrite('/opt/yushan/TextBoxes/examples/TextBoxes/test_vi_chinese/'+"crop_"  + str(i) + line,crop) 
+			cv2.imwrite('/opt/yushan/TextBoxes/examples/TextBoxes/test_vi_chinese/'+"crop_"  + str(i) + line,crop1)
+			注意：copy是深度复制，如果不采用copy()，保存saveimge图片会将画的框也保存了。
+		5. 我训练的模型，use_gru=True
+			ys-72000: use_gru=False
+		6. 测试图片：test2 
+			结果：test_vi_2
+			代码：recognize_by_attenton.py
+		
+
+1. liunx opencv源码安装：
+		mkdir build
+		cd build
+		cmake ..
+		sudo make
+		sudo make install
+		备注：如果已经安装了opencv,但是python导不出来cv2，解决办法：将cv2的库拷贝到Python的安装路径下。
+2.  docker images
+	docker rmi 镜像ID
+	docker rm 容器ID
+	docker run -idt -p 9001:5901 -v /home:/opt --name blob_zj gds/keras-th-tf-opencv /bin/bash 
+	nvidia-docker run -idt -p 9529:8080 -v /home:/opt --name face_flask face_flask_gpu_image 
+	docker commit 26045d5598a3  tensorflow/test  #将容器创建成镜像
+					容器ID          镜像名字 
+	docker save 9045 > tomcat8-apr.tar 或 sudo docker save -o attention_ocr.tar tensorflow/test #选择要打包的镜像，执行打包命令，会在当前目录下生成导出文件xxx.tar，然后将此文件下载到本地
+				镜像ID
+	docker load -i quay.io-calico-node-1.tar #在开发环境导入上述打包的镜像
+3. notepad：
+		1）视图->显示符号->显示空格与制表符
+		2）ctrl+a（全选）->编辑->空白字符操作->空格转tab
+4. putty多窗口：
+	screen -S lg(lg名字 随意)
+	ctrl+A+C 增加窗口
+	ctrl+A+N 切换窗口
+5. cd：
+	1）返回进入此目录之前所在的目录：cd -
+	2）进入用户主目录
+		cd
+		cd $home
+		cd ~
+	3）返回上级目录
+		cd ..
+		若当前目录为“/“，则执行完后还在“/"；".."为上级目录的意思，“.”为当前目录
+	4）返回上两级目录；cd ../..
+	5）转到系统根目录： cd /
+	例如:cd /home/cc/it.dengchao.org,可以进入到指定目录
+	6）转到当前用户目录下的目录：cd  sys/....
+6. 1) int->string:
+			int aa = 30;
+			stringstream ss;
+			ss<<aa; 
+			string s1 = ss.str();
+		或
+			char buffer[256];
+			sprintf( buffer, "feat_num=%d\n", m_nFeatNum);
+		
+	2) vector<string> vs; 
+		vs.size();
+	3) Mat data;  data.rows
+		Mat sample = Mat::zeros(1, nWidth, CV_32FC1);
+		for (int nRow=0; nRow<nTotal; nRow++)
+		{
+			for (int nCol=0; nCol<nWidth; nCol++)
+			{
+				sample.at<float>(0,nCol) = data.at<float>(nRow, nCol);
+			}
+		}
+	4) ofstream file; //写
+				file.open(sTemp.c_str(),ios::out);
+				//ofstream file("1.txt",ios::ate);   //打开文件，设置写入方式为覆盖写入
+				if(!file)
+				{
+					file<<"写入txt文件示例.\n"; //////////////////////////////////////////
+					file<<"成功写入.\n";
+					file.close();
+				}
+			
+		ifstream file; //读
+				file.open(sTemp.c_str(),ios::in);
+				char buffer[256];
+				string str;
+				while(!file.eof())
+				{
+					file.getline(buffer,256,'\n');//getline(char *,int,char) 表示该行字符达到256个或遇到换行就结束
+					sTemp = buffer;	
+				}
+				file.close();
+				
+	5）if(access(sPathModel.c_str(),0)==-1) //表示文件不存在, #include <unistd.h> ; _access()  #include <io.h>
+		{
+			cout<<"The file does not exist!:"<<sPathModel<<endl;
+			return -1;
+		}
+7. 	attention_gpu_home_zj   172.17.0.36 6006->192.168.15.100 1110
+		#在不同类别、相同类别数目基础上加载模型（增强训练），需要添加下面这段代码代码：
+        if self.phase == 'train':
+			self.sess.run(tf.initialize_all_variables())
+			
+			nClassNum = 0
+			for v in tf.global_variables():
+				if v.name == "embedding_attention_decoder/attention_decoder/AttnOutputProjection/biases/Adadelta:0":
+					print (v.get_shape())
+					tuple_data = v.get_shape()
+					if len(tuple_data) > 0:
+						nClassNum = tuple_data[0]
+						print ("nClassNum = %d" % (nClassNum))
+						
+			if (target_vocab_size != nClassNum):
+				#在不同类别数目基础上加载模型，需将下面代码放开
+				variables_to_restore = []
+				for v in tf.global_variables():
+					if not(v.name.startswith("embedding_attention_decoder/attention_decoder/AttnOutputProjection") or (v.name.startswith("embedding_attention_decoder/embedding"))):
+						variables_to_restore.append(v)		  
+				self.saver_all = tf.train.Saver(variables_to_restore)
+				print ("target_vocab_size != nClassNum")
+			else:
+				print ("target_vocab_size == nClassNum")
+				self.saver_all = tf.train.Saver(tf.all_variables())
+		else:
+			self.saver_all = tf.train.Saver(tf.all_variables())
+8. https://github.com/taolei87/sru   [像训练CNN一样快速训练RNN】全新RNN实现，比优化后的LSTM快10倍   http://www.sohu.com/a/191417469_465975 （翻译后的）
+	RNN:前向计算要到的计算完成后才能开始，这构成了并行计算的主要瓶颈。不断增大的模型和超参数数量也大大增加了训练时间。
+		虽然诸如卷积和注意力的运算非常适合于多线程/GPU计算，但是循环神经网络（RNN）仍然不太适合并行化。在典型的RNN实现中，输出状态的计算需要等到计算完成后才能开始。
+		这阻碍了独立计算，并大大减慢了序列处理的速度。
+		
+	SRU: 提出了一种名为“简单循环单元”（Simple Recurrent Unit，SRU）的结构，对现有门控单元做了调整，简化了状态计算的过程，从而展现出了与CNN、注意力和前馈网络相同的并行性。
+			实验结果表明，SRU训练速度与CNN一样，并在图像分类、机器翻译、问答、语音识别等各种不同任务中证明了有效性。
+		虽然SRU的内部状态ct的更新仍然与前一个状态ct-1有关，但是在循环步骤中不再依赖于。因此，SRU中的所有矩阵乘法（即gemm）和元素方面的操作可以在不同的维度和步骤中实现并行化。
+		SRU实现：增加highway连接（残差链接）和变分dropout；
+		作者指出，当前性能最佳的RNN，比如LSTM和GRU，都使用神经门（neural gate）控制信息流，缓解梯度消失（或爆炸）的问题。
+		因此，他们在此基础上，对门控单元进行了调整。具体说，作者新增加了两个特征：
+			首先，他们在循环层之间增加了highway连接，因为此前的研究已经证明，像highway连接这样的skip connections，在训练深度网络时非常有效；
+			其次，在将RNN正则化时，他们在标准的dropout外，增加了变分dropout，变分dropout在时间步长t与dropout使用相同的mask。
+			
+		cupy是一个开源的矩阵库(NVIDIA CUDA加速)。它还使用CUDA相关库包括CUBLAS，cudnn，柯伦，cusolver和NCCL充分利用GPU的体系结构。 
+		NVRTC————cuda runtime
+		我对目前常用的RNN的理解是，它们将序列相似度更好的encode在了hidden state中 （they better encode sequence similarity，不太确定怎么用中文表达），因此能更好的泛化。
+		Quasi-RNN
+		https://www.zhihu.com/question/65244705/answer/229811026 
+		网络结构：Quasi-RNN的核心是在 k-gram CNN（文本卷积）的基础上使用 adaptive gating。在讨论k-gram卷积的时候，通常不会使用k=1既 window size 1作为运行参数。
+		RNN的加速技巧，包括batched gemm()-The general matrix-matrix multiplication(一般矩阵乘法)，
+						element-wise operation fusion（元操作融合）等等是由 Nvidia 的研究人员最先提出并开源的。
+
+		无论是SRU、Q-RNN 亦或者是诸如百度出品的 persistent RNN [14] 都是为了更好的推动 deep learning / RNN 的研究与应用。
+		对于GPU来说，将多个小矩阵相乘合并为大矩阵相乘要比串行循环计算多个矩阵乘法快很多。所以LSTM的一种优化加速方案就是将多个门合并进行运算。
+		其中，最大的时间开销就是矩阵乘法（回家补性能分析）而element-wise的操作（乘法，加法），速度非常的快。简单地说，SRU高明的地方就是他把矩阵乘法放在了串行循环外，
+		用全部x进行两次大矩阵乘法（合并  ），而把快速的element-wise放在了串行循环内！
+		RNN是针对序列建模，序列就是存在先后关系的，这种先后关系就是通过这种依赖方式表达出来了。
+		我也做过相关的是实验发现RNN加入残差连接可以加快收敛速度，也可以达到复杂门结构（LSTM，GRU）神经网络的效果。
+	
+sru:	简单循环单元(Simple Recurrent Unit，SRU)	
+	pip install -r requirements.txt
+	安装torch #pytorch 也需要安装torch, torch是一个深度学习的工具，它使用lua语言编写，集成了各种深度学习开发包。
+	
+9.  notepad: 设置--首选项--语言--制表符设置--(勾选上)替换为空格
+	关于深度神经网络压缩: https://zhuanlan.zhihu.com/p/27747628
+						https://github.com/DeepScale/SqueezeNet 
+						https://github.com/Zehaos/MobileNet
+						https://github.com/farmingyard/ShuffleNet
+	
+2017-08-1:
+1. CVPR：1）腾讯AI Lab的论文：deep self-taught learning for weekly supervised object localization，提出依靠检测器自身不断改进训练样本质量，
+						破解弱监督目标检测问题中训练样本质量低的瓶颈；
+           deverse image annotation, 用少量多样性标签表达尽量多的图像信息，该目标充分利用标签之间的语义关系，
+				以使得自动标注结果与人类标注更加接近--都强调了模型的自主学习和理解的方法的突破。
+2. ImageNet数据集：人工标注的
+	WebVision竞赛是接棒ImageNet比赛，所使用的数据集是从网络爬取，没有经过人工标注，是通过特定的标签在互联网上搜索1000个类的图片，含有大量噪音(图像和标签含有大量的错误信息)之外，数据类别和数量也远远大于ImageNet.
+3. CV领域的突破方向主要有三个：
+	做更大更有挑战性的数据集：1）给上亿的数据集打标签，几乎是不可能的事情，带来新的挑战：怎样提供标签？？？每个领域的AI应用都需要各自领域的数据集；
+					要解决该问题，需要发展半监督、甚至无监督学习，这就需要设计更好、更优化的损失函数，来减少模型训练对标签数据的依赖；
+					或者使用生成式对抗网络（GAN）来自动生成大量的人工样本。
+	需要带有结构的数据：就是说我觉得计算机视觉要和robotics（机器人学、机器人技术）结合在一起，它是用时间的维度去看场景的变化 ，什么是前景什么是背景，什么是一个物体，什么是形状。
+						林达华教授表示，从学术的角度看，只有把结构数据融合在一个几何的框架下面，才能知道客观世界是什么--前面多少米是人、是建筑，前面的车开得多快...这才是实际有用的成果。
+						所以，所谓的结构就是有多个不同的方面，相互之间的有着数学上、语义上、物理上的各种联系。在多种补充结构相互联系的系统里面，用系统的角度，
+						带有结构的角度，去系统地观察，把不同的视觉联合在一起解决问题，我也觉得也是一个现在正在开始推进的方向。（比如：自动驾驶）
+	做视频领域的ImageNet: 视频相对于图像，多了一个时间维度，可利用时间的关系.....
+
+	今年的挑战分两项：图像分类、迁移学习
+	迁移学习：是为了解决在一类环境下学习到的模型能用于一个全新环境下缺少样本数据的机器学习的问题，迁移学习是提升机器学习泛化能力的一个出路。
+	实际应用中，很多时候对图像的处理不只是视觉问题，更多也涉及到需要NLP交叉结合的研究。
+	WebVision提到的视觉理解目前还只是字面意义的，真正的视觉理解更加大的挑战应该是理解图像内容的语义内涵，而不仅仅是检测定位、分类这些任务，还要理解图像表达出的人类高级知识范畴的内容。
+	视觉+NLP: 比如图像文本匹配、图像描述生成、图像问答等。
+	Visual Genome \ Web Vision 这样的结合语义和知识的图像数据集； 需要像素级标注数据；
+4. \\Lenovo-1448ad39\敏捷scrum视频 用户名/密码： share/share    (retry,pls)
+5. 无论是训练还是测试，每次必须确保数据集正确、合适。
+6. yolo2: 
+	1)数据集：voc2007数据格式
+		Annotations： 放xml
+		JPEGImages: 放xml对应的图片
+		ImageSets/Main/train.txt: 存放图片的名字，不含后缀（如：.jpg）
+		使用scripts/voc_label.py生成labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080,一个图片对应一个txt
+	
+		error: xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 4, column 21
+		错误位置：ET.parse("*.xml")   import xml.etree.ElementTree as ET
+		tree=ET.parse(in_file, ET.XMLParser(encoding='utf-8')) #从硬盘的xml文件读取数据
+		错误原因： 中文乱码导致的  <filename>E:\zj\images\???Υ???_zj\??-zj\0018.jpg</filename>
+		
+	2）修改文件：
+		a. cfg/voc.data:
+			classes= 20  #类别个数，不含背景
+			train  = /home/pjreddie/data/voc/train.txt  #训练集，图片的绝对路径
+			valid  = /home/pjreddie/data/voc/2007_test.txt  #验证集
+			names = data/voc.names   #存放类别的名字，个数=classes，每行一个物体
+			backup = backup  #对应路径是备份训练权重文件（训练的权重文件yolo.weights存放的位置）
+			
+		b.cfg/yolo.cfg（该文件用于描述网络结构）：需要修改的几个地方
+			batch = 8或16或32或64，如果你内存不够的话跑起来发现内存分配失败，可以改小点;
+			subdivisions=2^n，越小需要内存越大；
+			classes=8;
+			最后一个卷积层的滤波器个数=B*（C+4+1）=5*(8+4+1)。
+		c. 如果使用GPU跑训练，修改makefile，重新make –j16；
+			
+	3)跑训练代码：	预训练文件darknet19_448.conv.23	
+		./darknet detector train ./cfg/voc.data ./cfg/yolo.cfg  ./cfg/darknet19_448.conv.23 | tee train_20170810.log 
+		#yolo官网提供的已经训练好的权重文件（76M）
+		./darknet detector train ./cfg/voc.data ./cfg/yolo.cfg  ./backup/yolo_100.weights | tee train_20170810.log   #屏幕上可能就不会打印了，文件中也可能不会写入
+		./darknet detector train ./cfg/voc.data ./cfg/yolo.cfg  ./backup/yolo_100.weights > train_20170810.txt 
+		#下次开始训练时，可以在上次训练的基础上继续训练
+		
+		error: 
+			a. darknet: ./src/parser.c:271: parse_region: Assertion `l.outputs == params.inputs' failed.
+				原因：最后一个卷积层的滤波器个数需要计算准确（滤波器个数=B（C+4+1））B=5,c=类别个数；
+			备注：yolo.weights是用于测试的权重，预训练的话就需要添加darknet19_448.conv.23
+			b. error: Loading weights from ./cfg/darknet19_448.conv.23...Done!
+						Learning Rate: 0.001, Momentum: 0.9, Decay: 0.0005
+						Resizing
+						576
+						Loaded: 2.691048 seconds
+						Killed
+				解决办法：
+
+		
+		屏幕打印：subdivisions=8
+			Loaded: 2.444094 seconds
+			Region Avg IOU: 0.062378, Class: 0.160860, Obj: 0.338675, No Obj: 0.478185, Avg Recall: 0.000000,  count: 5
+			Region Avg IOU: 0.026795, Class: 0.107925, Obj: 0.440023, No Obj: 0.477633, Avg Recall: 0.000000,  count: 8
+			Region Avg IOU: 0.085540, Class: 0.157648, Obj: 0.503121, No Obj: 0.475146, Avg Recall: 0.000000,  count: 5
+			Region Avg IOU: 0.039670, Class: 0.179312, Obj: 0.398830, No Obj: 0.476078, Avg Recall: 0.000000,  count: 8
+			Region Avg IOU: 0.059762, Class: 0.102418, Obj: 0.459931, No Obj: 0.477383, Avg Recall: 0.000000,  count: 11
+			Region Avg IOU: 0.055954, Class: 0.148700, Obj: 0.405422, No Obj: 0.474240, Avg Recall: 0.000000,  count: 7
+			Region Avg IOU: 0.009246, Class: 0.083920, Obj: 0.372194, No Obj: 0.476276, Avg Recall: 0.000000,  count: 6
+			Region Avg IOU: 0.070338, Class: 0.146435, Obj: 0.543887, No Obj: 0.475888, Avg Recall: 0.000000,  count: 7
+			1: 331.446198, 331.446198 avg, 0.000000 rate, 669.681763 seconds, 32 images
+
+	4）评估模型：
+		观察avg（loss）这个值的变化，如果这个值基本不再变小，那么训练就可以停止了。
+		./darknet detector recall ./data/myData.data ./cfg/yolo.cfg ./backup/yolo-obj_XXX.weights
+		根据输出IOU和Recall值，找到最好的weight文件。一般IOU越大越好，Recall也是越大越好。
+	5) 测试模型：
+			Yolov1测试:  ./darknet yolo test   cfg/yolo.cfg cfg/yolo.weights data/dog.jpg -thresh 0.5
+			Yolov2测试：./darknet detector test cfg/voc.data cfg/yolo.cfg backup/yolo_100.weights data/data20170810/JPEGImages/0002.jpg -thresh 0.5
+			或者 （检测多张图片）  先执行：./darknet detect cfg/voc.data cfg/yolo.cfg backup/yolo_2000.weights -thresh 0.5 加载模型，
+			会提示输入图片路径Enter Image Path:输入如./data/dog.jpg   ctrl+c终止程序
+			
+			./darknet detector test cfg/voc.data cfg/yolo.cfg backup/yolo_28000.weights data/data20170810/JPEGImages/0002.jpg -thresh 0.5
+			
+			error:
+				a. Segmentation fault (core dumped)
+
+	6)源码备注：
+		a. 预测在detector.c  关键字（ Predicted）； draw_detections() 该函数在image.c中；
+		b. 重新编译： make clean
+					make
+	7) 网络结构：
+		layer     filters    size              input                output
+		0 conv     32  3 x 3 / 1   608 x 608 x   3   ->   608 x 608 x  32
+		1 max          2 x 2 / 2   608 x 608 x  32   ->   304 x 304 x  32
+		
+		2 conv     64  3 x 3 / 1   304 x 304 x  32   ->   304 x 304 x  64
+		3 max          2 x 2 / 2   304 x 304 x  64   ->   152 x 152 x  64
+		
+		4 conv    128  3 x 3 / 1   152 x 152 x  64   ->   152 x 152 x 128
+		5 conv     64  1 x 1 / 1   152 x 152 x 128   ->   152 x 152 x  64
+		6 conv    128  3 x 3 / 1   152 x 152 x  64   ->   152 x 152 x 128
+		7 max          2 x 2 / 2   152 x 152 x 128   ->    76 x  76 x 128
+		
+		8 conv    256  3 x 3 / 1    76 x  76 x 128   ->    76 x  76 x 256
+		9 conv    128  1 x 1 / 1    76 x  76 x 256   ->    76 x  76 x 128
+		10 conv    256  3 x 3 / 1    76 x  76 x 128   ->    76 x  76 x 256
+		11 max          2 x 2 / 2    76 x  76 x 256   ->    38 x  38 x 256
+		
+		12 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512
+		13 conv    256  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x 256
+		14 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512
+		15 conv    256  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x 256
+		16 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512
+		17 max          2 x 2 / 2    38 x  38 x 512   ->    19 x  19 x 512
+		
+		18 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024
+		19 conv    512  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x 512
+		20 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024
+		21 conv    512  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x 512
+		22 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024
+		23 conv   1024  3 x 3 / 1    19 x  19 x1024   ->    19 x  19 x1024
+		24 conv   1024  3 x 3 / 1    19 x  19 x1024   ->    19 x  19 x1024
+		25 route  16
+		26 conv     64  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x  64
+		27 reorg              / 2    38 x  38 x  64   ->    19 x  19 x 256
+		28 route  27 24
+		29 conv   1024  3 x 3 / 1    19 x  19 x1280   ->    19 x  19 x1024
+		30 conv     65  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x  65
+		31 detection
+
+		
+7. 爬虫技术：可以参考“GAN学习指南：从原理入门到制作生成demo”的第三部分
+8. svm: 
+	1)
+		ret = self.svm.train(train_data, train_label, self.param)
+		TypeError: varIdx is not a numpy array, neither a scalar （varIdx 不是一个numpy数组，也不是标量数组）
+		原因： self.param参数定义为dict，所以保存； cv2.__version__ ('2.4.13')
+		解决办法： ret = self.svm.train(train_data, train_label, None, None, self.param) 
+	2)
+		(ret, res) = self.svm.predict(predict_data)
+		TypeError: 'float' object is not iterable 
+		(ret, res) = self.svm.predict_all(predict_data)
+		ValueError: too many values to unpack (太多的值要解压)
+		解决办法：res = self.svm.predict(predict_data)
+	3)  from .obj_svm import SVM
+		ValueError: Attempted relative import in non-package
+		解决办法：
+			import sys #sys是Python内建标准库
+			#通知解释器除了在默认路径下查找模块外，还要从指定的路径下查找。指定完模块路径后，就可以导入自己的模块了。
+			sys.path.append(os.path.join(os.getcwd(), 'obj_svm.py'))
+			from obj_svm import SVM
+	备注：
+		class obj_svm(object):
+			def __init__(self,feat_num, obj_num, thresh_data):
+			
+		if __name__ == '__main__':
+			c = obj_svm(8, 8, 0.6)
+
+9. uuID:解决文件命名会重复的文件
+10. Audodest的123D Catch根据一组照片构建3D物体，需要从各个角度拍摄希望建模的物体，需要将图片上传到Audodest的云端服务器；
+	照片重建的步骤：
+		1)找出各张图片中的特征点，进行两两匹配；（sift特征）
+		2)根据匹配的结果，利用摄影定理计算得到相机位置等场景信息；(稀疏重建, Bundler算法)
+		3)将场景信息与原始照片结合在一起，得到照片中物体的三维点云；（多视立体重构）
+		4)根据三维点构建三维模型；（泊松表面重建算法：poisson surface reconstruction）
+		备注：使用VisualSFM来完成前三步，包含sift、bundler;第三步下载PMVS升级版CMVS,VisualSFM会自动调用；
+				第四步，使用Meshlab（软件，可打开.ply文件）进行网格处理。
+		缺点：需要几十张图片；慢，大约半个小时；Audodest云端大约几分钟完成；
+		例子：https://github.com/yihui-he/3D-reconstruction, 其中没有摄像机标定, 只做到点云。
+			SFM: structure from motion,算法的目标是通过一堆照片重建3D模型；
+			Bundler是Noah Snavely博士写的Structure from Motion的工具包。它能够通过对某个场景不同角度的多张图片生成稀疏点的三维信息，
+											并且估计每一幅图片的相机参数（内参和外参）。Bundler属于SFM的范畴。
+			PMVS和CMVS（CMVS是PMVS的改进版，里面包含PMVS）是Yasutaka Furukama博士写的已知一组图片和图片对应的相机参数生成dense reconstruction (稠密的三维模型)。
+				http://blog.csdn.net/zzzblog/article/details/17166869
+	   
+11. Make3dSingleImageStanford_version0.1.tar.gz，MakedLearnedParameters_v0.1.tar.gz: 根据一张图片构建3d模型，该运行步骤网上有：
+	http://make3d.stanford.edu/publications
+	http://make3d.stanford.edu/publications/code
+	http://blog.csdn.net/zouxy09/article/details/8083553
+	环境：matlab+vs
+	步骤：
+		1) 新建文件夹：make3d, make3d->params,make3d->learningCode->bin
+		2) Make3dSingleImageStanford_version0.1.tar.gz解压到make3d，MakedLearnedParameters_v0.1.tar.gz解压到params;
+		3) InitialPath(true);
+		4)改segment-image-opt.h中的c.r = (uchar)rand()
+		5)改Oneshot3dEfficient.m 中的路径，5处（'../../make3d/scratch', '../../make3d/params/','../../make3d/scratch', '../../make3d/params/', '../../make3d/params/'）
+		6)运行Oneshot3dEfficient('test.jpg','/')，生成.wrl（场景文件，是一种虚拟现实文本格式文件，使用BSContactVRML、cortvrml软件，双击vrml文件，IE可打开）
+	备注：
+		1） imread('test.jpg'),双引号会报错；
+		2) 将gzip.exe放到learningCode文件夹下面，不然生成的.wrl是空的，gzip作用是压缩文件；
+		3) cortvrml插件的使用：
+				a.plan：平面布局（放大、缩小），按下鼠标左键移动，上下移动调整大小；左右移动默认绕y轴旋转；
+				b.pan： 方向移动（上下、左右），点击该按钮，随之进行模型的方向移动，按下鼠标左键移动达到最佳位置；
+				c.turn: 模型转动， 点击该按钮，随之进行模型转动，按下鼠标左键移动，均为绕坐标轴移动；
+				d.roll: 自由旋转， 
+				e.goto: 选取点（选取某点放大），点击该按钮，光标变成十字，选取你感兴趣的部分；
+				f.aglin: 排列，电脑会自动移动模型的位置试图达到最佳效果(不一定准确)；
+				g.view: 观察点浏览， 如果模型设置有观察点，该按钮可用；
+				h.restore:还原，将该模型置为初始状态；
+				i.fit: 适应大小，模型缩小；
+	备注：
+		1） 一幅图像需要21.9776 seconds.
+				
+12. 1) sift特征、匹配:
+	2) 8点法计算基本矩阵（F矩阵）：
+		a. 计算F矩阵： X'的转置*F*X=0, X'->X是两幅图像的一对匹配点
+		b. 计算本征矩阵（E矩阵）：
+13. Sparse Views：稀少的视觉
+14.  PLY是一种电脑档案格式，全名为多边形档案（Polygon File Format）或 斯坦福三角形档案（Stanford Triangle Format）。
+	在档案内容的储存上PLY有两种版本，分别是纯文字（ASCII）版本与二元码（binary）版本，其差异在储存时是否以ASCII编码表示元素资讯。
+15. https://zhuanlan.zhihu.com/p/28690706 自动选择空闲gpu的小脚本 支持TensorFlow和pytorch
+16. 如果一个过程的“将来”仅依赖“现在”而不依赖“过去”，则此过程具有马尔可夫性,或称此过程为马尔可夫过程。
+17. Look Closer to See Better: Recurrent Attention Convolutional Neural Network for Fine-Grained Image Recognition
+	（纹理细密的物体识别中基于递归注意力模型的卷积神经网络）
+		细粒度图像识别（fine-grained image recognition）是应该能够进行局部定位（localizing），并且能在其从属（subordinate）类别中表征很小的视觉差异的，
+		从而使各种应用受益，比如专家级的图像识别、图像标注等等。识别纹理细密的物体类别（比如鸟类）是很困难的，这是因为判别区域定位
+		（discriminative region localization）和细粒度特征学习（fine-grained feature learning）是很具有挑战性的。
+		
+	提出了一个全新的循环注意力卷积神经网络（recurrent attention convolutional neural network——RA-CNN），用互相强化的方式对判别区域注意力（discriminative region attention）
+	和基于区域的特征表征（region-based feature representation）进行递归学习。
+18. http://www.sohu.com/a/166947110_473283 深度学习图像处理项目集锦：生成可爱的动漫头像，骡子变斑马等入选  
+19. 训练模型：
+		1）数据集批量中心化；
+		2）可视化：tensorboard, 查看数据如损失、权重直方图、变量和梯度；
+		3）权重初始化：大学习率和大权重可能导致NaN问题；或者梯度消失（因为权重相乘多次，会很小），batch-normalization(批量归一化)尤祖宇解决该问题；
+		4）零中心化的输入数据；
+		5）无效ReLU：标准的ReLU函数也不完美。对于负数，ReLU会给出0，这意味着函数没有激活。换句话说，神经元有一部分从未被使用过。发生这种情况的原因，
+					主要是使用了大学习率以及错误的权重初始化。如果参数调整不能帮你解决这个问题，可以尝试Leaky ReLU、PReLU、ELU或者Maxout等函数
+		6）梯度爆炸：一个解决的方案是使用梯度裁剪，也就是给梯度下了一个硬限制。
+20 .https://www.leiphone.com/news/201708/7pRPkwvzEG1jgimW.html  
+	一文详解YOLO 2与YOLO 9000目标检测系统 | 分享总结
+21. libsvm：台湾大学林智仁(Lin Chih-Jen)教授等开发设计的一个简单、易于使用和快速有效的SVM模式识别与回归的软件包.
+		http://blog.csdn.net/shengerjianku/article/details/54237376 （参数解释，带类别置信度的，opencv的不带）
+		https://www.csie.ntu.edu.tw/~cjlin/libsvm/#download （lib）
+		http://blog.csdn.net/letsseehow/article/details/10483729 (安装)
+		http://blog.csdn.net/u011853479/article/details/51113859
+		http://blog.csdn.net/u010159842/article/details/49255955  （libsvm中的dec_values以及分类结果评分问题 ）
+	opencv svm 手册： http://docs.opencv.org/2.4/modules/objdetect/doc/latent_svm.html?highlight=load%20svm 
+		理论： http://blog.csdn.net/u012581541/article/details/51181041 
+				http://blog.csdn.net/luoshixian099/article/details/51073885
+				http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html 
+				http://blog.csdn.net/chaipp0607/article/details/68067098  代码
+				http://blog.csdn.net/ybdesire/article/details/53915093  直观解释
+		源码：opencv-2.4.13\modules\ml\src\svm.cpp: float CvSVM::predict( const float* row_sample, int row_len, bool returnDFVal ) const
+				2类，vote[0]与vote[1]其中一个为0一个为1，本身打算使用vote值归一化来求置信度，现在看来不行了；
+				float p = (float)(1 / (1 + exp((-1.0)*sum))); 计算置信度，大于0.5为标签为0；
+		libsvm 置信度：
+				double fApB = decision_value*A+B;
+				if (fApB >= 0)
+					return exp(-fApB)/(1.0+exp(-fApB));
+				else
+					return 1.0/(1+exp(fApB)) ;
+		
+		修改源码后重新编译：
+			mkdir build
+			cd build
+			cmake ..
+			sudo make
+			sudo make install	
+	备注：
+		1）opencv svm 预测的结果为类别号，不带置信度；
+		2）libsvm 在训练、测试时使用参数‘-b 1’,就可预测出 置信度；
+			但是在二分类中预测的标签为置信度最大的那个类别，参数‘-b 1’与‘-b 0’获得类别不一定相同；
+		3）	libsvm中p_label, p_acc, p_val = svmutil.svm_predict(label, data, model, '-b 0') 中 p_acc：3个值
+			分类准率（分类问题中用到的参数指标）
+			平均平方误差（MSE (mean squared error)） [回归问题中用到的参数指标]
+			平方相关系数（r2 (squared correlation coefficient)）[回归问题中用到的参数指标]
+		4) opencv python/c++版本训练的模型可以互调用;
+		5) predict(data,returnDFVal) 如果returnDFVal参数为false,预测为标签值；如果为true,使用sigmod可求置信度，注意置信度是0的。
+				dSum = svm.predict(sample,true);
+				dCof = 1.0-(float)(1 / (1 + exp((-1.0)*dSum)));
+		6) 如果预测出现问题，多注意输入数据的问题；
+			
+23. 总结
+	1、*.tar 用 tar -xvf 解压
+	2、*.gz 用 gzip -d或者gunzip 解压
+	3、*.tar.gz和*.tgz 用 tar -xzf 解压
+	4、*.bz2 用 bzip2 -d或者用bunzip2 解压
+	5、*.tar.bz2用tar -xjf 解压
+	6、*.Z 用 uncompress 解压
+	7、*.tar.Z 用tar -xZf 解压
+	8、*.rar 用 unrar e解压
+	9、*.zip 用 unzip 解压
+24. which python  #/usr/bin  查看python的安装目录，头文件在/usr/include/python.h 
+
+2017-07:
+1. 查看文件占内存情况： du -h --max-depth=1 /home
+   ctop   或 free -h
+2. 设置只占用gpu0的内存
+   import os
+   os.environ["CUDA_VISIBLE_DEVICES"] ="0"
+3. cp -Rf 原路径/ 目的路径/  如：cp -Rf ./train-word/* ./train_new/         复制文件夹内所有文件到另一个文件夹
+4. 输入数据归一化：https://www.zhihu.com/question/47908908/answer/112468487 
+   利用TensorFlow 提供了变量作用域 机制，当构建一个视图时,很容易就可以共享命名过的变量.
+5. os.path.isfile(s) #如果路径s中包含中文，会报错。
+6. DOCKER 给运行中的容器添加映射端口
+	方法1
+	1、获得容器IP
+	将container_name 换成实际环境中的容器名
+	docker inspect `container_name` | grep IPAddress   #docker inspect attention_cpu_ys | grep IPAddress
+	2、 iptable转发端口
+	将容器的8000端口映射到Docker主机的8001端口
+	iptables -t nat -A  DOCKER -p tcp --dport 1122 -j DNAT --to-destination 172.17.0.26:8080   #attention_cpu_ys
+	#iptables -t nat -A DOCKER -p tcp --dport 1111 -j DNAT --to-destination 172.17.0.25:6006   #attention_gpu_ys
+
+	1) iptables -t nat -nvL :先查看100主机的那些端口被使用
+	2）在浏览器里面使用http://192.168.15.100:1111 访问网页；
+	备注： 如何在浏览器无法访问的话，请使用telnet 172.17.0.25 6006查看端口号是否打开，以及ping 192.168.15.100 1111 看网络是否通着。
+7. 如果提示ERROR:tensorflow:Tried to connect to port 6006, but address is in use.
+   Tried to connect to port 6006, but address is in use. 请kill 该进程
+
+   [root@inspur example]# lsof -i:6006  
+	COMMAND     PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME  
+	tensorboa 28508 root    4u  IPv4 18373697      0t0  TCP *:6006 (LISTEN)  
+	[root@inspur example]# kill -9 28508  
+	[root@inspur example]# tensorboard --logdir=/tmp/tensorflow_logs  
+	Starting TensorBoard b'23' on port 6006  
+	(You can navigate to http://0.0.0.0:6006) 
+8. kill -9 24830  提示：不允许的操作，原因是权限问题，所有者是root，需要root权限
+9. 修改pip下载源，更改成使用国内镜像
+	临时使用：
+		可以在使用pip的时候加参数-i https://pypi.tuna.tsinghua.edu.cn/simple
+		例如：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple gevent，这样就会从清华这边的镜像去安装gevent库。
+	永久修改，一劳永逸：
+		Linux下，修改 ~/.pip/pip.conf (没有就创建一个)， 修改 index-url至tuna，内容如下：
+		[global]
+		index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+10. FaceBook帆布一篇论文：《Convolutional Sequence to Sequence Learning》，提出了完全使用CNN来构成Seq2Seq模型，用于机器翻译，超越了谷歌创造的基于LSTM机器翻译的效果。
+    https://baijiahao.baidu.com/s?id=1567784916529100&wfr=spider&for=pc   http://www.w-vi.com/348670.htm
+11. 训练的神经网络不工作？一文带你跨过这37个坑：
+   1）数据集问题： 比如巨大的批量大小会降低模型的泛化能力（参阅：https://arxiv.org/abs/1609.04836）、Shuffle 数据集
+   2）数据归一化/增强： 
+		a.归一化特征: 你的输入已经归一化到零均值和单位方差了吗？
+		b.  检查你的预训练模型的预处理过程: 如果你正在使用一个已经预训练过的模型，确保你现在正在使用的归一化和预处理与之前训练模型时的情况相同。		
+	3) 训练问题： 
+		a.改变你的超参数：或许你正在使用一个很糟糕的超参数集。如果可行，尝试一下网格搜索。
+		b. 减少正则化: 太多的正则化可致使网络严重地欠拟合。减少正则化，比如 dropout、批规范、权重／偏差 L2 正则化等。
+						在优秀课程《编程人员的深度学习实战》（http://course.fast.ai）中，Jeremy Howard 建议首先解决欠拟合。
+						这意味着你充分地过拟合数据，并且只有在那时处理过拟合。
+		c. 从训练模式转换为测试模式: 一些框架的层很像批规范、Dropout，而其他的层在训练和测试时表现并不同。转换到适当的模式有助于网络更好地预测。
+		d. 可视化训练:  监督每一层的激活值、权重和更新。确保它们的大小匹配。例如，参数更新的大小（权重和偏差）应该是 1-e3。
+						考虑可视化库，比如 Tensorboard 和 Crayon。紧要时你也可以打印权重／偏差／激活值。寻找平均值远大于 0 的层激活。尝试批规范或者 ELUs。
+						Deeplearning4j 指出了权重和偏差柱状图中的期望值：对于权重，一些时间之后这些柱状图应该有一个近似高斯的（正常）分布。对于偏差，这些柱状图通常会从 0 开始，并经常以近似高斯（这种情况的一个例外是 LSTM）结束。
+						留意那些向 +/- 无限发散的参数。留意那些变得很大的偏差。这有时可能发生在分类的输出层，如果类别的分布不均匀。检查层更新，它们应该有一个高斯分布。
+		e. 梯度爆炸、梯度消失: 检查隐蔽层的最新情况，过大的值可能代表梯度爆炸。这时，梯度截断（Gradient clipping）可能会有所帮助。
+								检查隐蔽层的激活值。Deeplearning4j 中有一个很好的指导方针：「一个好的激活值标准差大约在 0.5 到 2.0 之间。
+								明显超过这一范围可能就代表着激活值消失或爆炸。」
+12. putty多个窗口：
+·	screen -S lg #(lg:名字 随意写)
+	ctrl+A+C 增加窗口
+	ctrl+A+N 切换窗口
+
+	
+2017-06-05:
+1. 修改attention_ocr代码，跑汉字识别（只识别汉字）：
+	attn-num-hidden=128（之前512报错）；
+	target-embedding-size=20 （之前是10）
+	l = c.encode("raw_unicode_escape") （c是一个汉字，l是unicode值，如\u5e82） int(l[2:],16) 取掉\u 16进制转换成10进制来表示这个字的索引；
+	测试时，需要显示汉字，还需hex()将10进制转16进制，先去掉0x，再加上\u，再l.decode("raw_unicode_escape").encode("utf-8")来显示汉字；
+2. CTC: 时序分类算法 （预测序列的标签）https://wenku.baidu.com/view/0a930548bf23482fb4daa58da0116c175f0e1e0f.html
+3. 汉字："\u4e00" ->19968(10进制)  "\u9fa5" ->40869(10进制)   汉字总数=40869-19968=20901 
+   语料库上的汉字=4550-10-26=4414
+4. lst.index(c) #list.index()必须是list中包含的值，不然会抛出异常。 使用if c in lst: 判断c是否在lst中。
+5. http://blog.csdn.net/welber/article/details/6447513   RuntimeError: maximum recursion depth exceeded 递归深度报错 .
+6. import sys #sys是Python内建标准库
+   #print ( os.path.join(os.getcwd(),'src/model') )
+   sys.path.append(os.path.join(os.getcwd(),'src/model')) #通知解释器除了在默认路径下查找模块外，还要从指定的路径下查找。指定完模块路径后，就可以导入自己的模块了。
+   import _trietree as trieTree
+7. 语言模型：import kenlm
+   model = kenlm.Model('/opt/yangzhanku/result/bigram.bin')
+   print(model.score('任命 无党派', bos=False, eos=False))
+   安装： pip install https://github.com/kpu/kenlm/archive/master.zip
+   
+    /home/yangzhanku/software/kenlm/build/bin/build_binary  实现将dict.lm文件转成dict.binary 用于加速。
+    ./build_binary /opt/yangzhanku/result/test/dict.lm /opt/yangzhanku/result/test/lm.binary
+8.  dos2unix class_times.txt  将window的utf文件转unix的 dos2unix: converting file class_times.txt to Unix format ...
+9.  word_to_idx = dict((c, i + 1) for i, c in enumerate(vocab))  # 编码时需要将字符映射成数字index
+    idx_to_word = dict((i + 1, c) for i, c in enumerate(vocab))  # 解码时需要将数字index映射成字符
+10. concat(axis=1，e)  axis=0行，axis=1列 表示按axis来合并
+11. import os
+    os.environ["CUDA_VISIBLE_DEVICES"] ="0"     作用是只占用gpu0的内存，不然它会占多个gpu的内存。
+12. s = path_train + image_path # "/home/maoshaojiang/myProject/simple-syntext/syndata_cn/"  +  "01667_0_王.jpg"
+	img = cv2.imread(s) #会出错
+	但是如果img = cv2.imread("home/maoshaojiang/myProject/simple-syntext/syndata_cn/01667_0_王.jpg")就不会出错。
+	设置默认编码格式：
+	import sys
+	reload(sys)
+	sys.setdefaultencoding("utf-8")
+13. 添加预训练模型，由于类别数改变，需要将最后的参数w、b去除，只加载一样的参数，在tensorflow的代码修改：（不支持修改参数名字的方法）
+		方法： 过滤不一样的参数
+        self.sess.run(tf.initialize_all_variables()) #不一样的参数需要手动初始化
+        variables_to_restore = []
+        for v in tf.global_variables():
+            if not(v.name.startswith("embedding_attention_decoder/attention_decoder/AttnOutputProjection") or (v.name.startswith("embedding_attention_decoder/embedding"))):
+                variables_to_restore.append(v)        
+        self.saver_all = tf.train.Saver(variables_to_restore)
+        #self.saver_all = tf.train.Saver(tf.all_variables()) #所有参数都加载
+		
+	备注：caffe的话，只需要将不一样的参数名字给修改，再次加载模型时就只加载一样的参数，不一样的参数直接初始化。
+14.  监视显存：我们设置为每 10s 显示一次显存的情况：watch -n 10 nvidia-smi
+
+2017-5-22:
+1. 以后训练的attention_ocr不区分大小写，因为区分了类别多，识别率也没上去，一般处理也不区分的；
+   修改 --attn-num-hidden 512  (05-22)
+2. Convolutional Recurrent Neural Network (CRNN) ocr识别方法，结合CNN、RNN、CTC loss。 http://arxiv.org/abs/1507.05717
+   CTC: http://blog.csdn.net/xmdxcsj/article/details/51763868 
+3. markdown  换行：空格+空格+换行 
+4. d = u'\u9519\u4f4d'  显示:d.encode("utf-8")
+   字符串在python内部中是采用unicode的编码方式，所以其他语言先decode转换成unicode编码，再encode转换成utf8编码。
+   编码是一种用二进制数据表示抽象字符的方式，utf8是一种编码方式。注意：Unicode只是一个符号集，它规定了符号的二进制代码，却没有规定二进制代码如何存储。
+   python 内部是ASCII编码方式。
+5. LSTM+CTC: https://wenku.baidu.com/view/3d15aff77e21af45b307a8f7.html
+6. 1KiB=2^10=1024,1MiB=2^20=1048576=1024KiB
+7. matplot：
+   ValueError: could not convert string to float: s 1.686864
+   原因在于文本中的数字间不是一个空格，可能是一个“tab"或多个空格；
+   解决办法：loss = [x for x in re.split(";|,|\||\t",loss_value) if x ]  使用正则表达式re.split()，一次性拆分字符串
+   
+   error:no display name and no $DISPLAY environment variable 
+   解决办法： import matplotlib
+    matplotlib.use('Agg') #后端
+ 8. 05_27:  之前编码模块是lstm,修改成可用gru的
+ 9. 添加自己新建的模块，如何加载失败：
+    解决办法：
+    import sys #sys是Python内建标准库
+    sys.path.append('/opt/zhangjing/ocr/Attention_OCR/Attention-OCR-new-version/src/model') #通知解释器除了在默认路径下查找模块外，还要从指定的路径下查找。指定完模块路径后，就可以导入自己的模块了。
+    import _trietree as trieTree
+ 10. print len(lex)
+			ll = lex.encode("raw_unicode_escape")
+			print ll
+			print ll.decoder("raw_unicode_escape")
+			
+2017-5-15：
+1. 写attention_ocr技术文档；训练attention_ocr模型。
+2. http://www.jianshu.com/p/a299cebd37a7 (CRNN ocr识别) https://github.com/bgshih/crnn 
+   https://github.com/tensorflow/models/tree/master/attention_ocr  goole街景
+3. 因为使用之前的attention_ocr训练都达不到作者的效果，所以开始使用新版本重新训练。
+   1) 修改获得标签代码；
+   2) pip install tqdm  （第三方进度条库）
+   3)  'module' object has no attribute 'multiply' 
+      原因：You'll need to replace tf.mul with tf.multiply. 这个是因为在几个月前tensorflow发布了新的1.0版本，里面的api已经修改了。所以会有这种情况。
+   4) 升级tensorflow 1.0; pip install tensorflow==1.0
+   5) 区分大小写训练新版本，准确率91%;
+   6) nvidia-docker run -d  -v /dataTwo:/opt --name attention_ocr_zj --restart=always -e PASSWORD=a1b2c3 tensorflow/tensorflow:latest-gpu  没有gpu占有率，但是还在内存。
+      docker run -d  -v /dataTwo:/opt --name attention_ocr_cpu_zj --restart=always -e PASSWORD=a1b2c3 gds/keras-th-tf-opencv:latest       
+   7) pip install word2vec  使用向量表示一个词，可获得近似词
+
+4. import tensorflow  如果没有cuda的东西，就是cpu版本；安装pip install tensorflow-gpu==1.0
+   容器内执行nvidia-smi，提示“bash: nvidia-smi: command not found” 表示容器不是gpu版本；
+   >>> import tensorflow as tf   查看tensorflow的版本号
+   >>> tf.__version__
+   '0.12.0'   需要安装1.0
+5. 英文标签：
+   attempt
+   attempted
+   attempting
+   attempts
+
+
+2017-5-8:
+1. 测试：                                                     
+                             48.565704 out of 647 correct    7%    (针对数字、小写训练的translate.ckpt-45000，初始值是translate.ckpt-7000) 
+   svt(不分大小写)           56.745971 out of 647 correct    8%    (针对数字、小写训练的translate.ckpt-47000，初始值是translate.ckpt-7000 model_128) 
+   
+                             96.292951 out of 647 correct    14%   (针对数字、小写训练的translate.ckpt-5000，初始值是随机) 
+                             142.995116 out of 647 correct   22%   (针对数字、小写训练的translate.ckpt-7000，初始值是随机 model_128)
+                             
+                             437.192016 out of 647 correct   67%  （作者给的模型translate.ckpt-47200） （只测试小写、数字）
+                             
+                             137.035942 out of 647 correct   21%   (针对数字、小写训练的translate.ckpt-7500，初始值随机 model_x)
+                             143.932118 out of 647 correct   22%   (针对数字、小写训练的translate.ckpt-9500，初始值随机 model_x)
+                             548.061941 out of 647 correct   84%   (attention_ocr新版本，针对数字、大小写不分训练的translate.ckpt-50000.meta,初始值随机)
+                             435.000000 out of 647 correct   67%(word) (attention_ocr新版本，针对数字、大小写不分训练的translate.ckpt-50000.meta,初始值随机)
+                             
+                            321.000000 out of 647 correct   49%(word)  (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-6000.meta,初始值随机)
+                            430.000000 out of 647 correct   66%(word)  (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-40000.meta,初始值translate.ckpt-6000.meta)
+                            401.000000 out of 647 correct   62%(word)  (attention_ocr新版本，针对数字、大小写不分训练、128 的translate.ckpt-26000.meta,初始值随机)
+                            443.000000 out of 647 correct   67%(word)  (attention_ocr新版本，针对数字、大小写不分训练、128、编码gru 的translate.ckpt-62000.meta,初始值随机)
+                            493.000000 out of 647 correct   76%(word)  (attention_ocr新版本，针对数字、大小写不分训练、128、编码gru、字典矫正的translate.ckpt-62000.meta,初始值随机)
+
+                            
+   annotation_test.txt       1356.814723 out of 1770 correct 76%   （作者给的模型translate.ckpt-47200） （只测试小写、数字）
+                             1371.234198 out of 1770 correct 77%   （作者给的模型translate.ckpt-47200） （测试大小写、数字）
+                             12885.735173 out of 16852 correct 76%  （作者给的模型translate.ckpt-47200） （测试大小写、数字）
+                             16406.430234 out of 21543 correct  76% （作者给的模型translate.ckpt-47200） （只测试小写、数字）
+
+
+    （区分大小写）           146.058812 out of 1770 correct  8%    (针对数字、小写训练的translate.ckpt-47000，初始值是translate.ckpt-7000) 
+                             593.985924 out of 1770 correct  33%   (针对数字、小写训练的translate.ckpt-9500，初始值随机)
+                             863.630878 out of 1770 correct  48%   (针对数字、小写训练的translate.ckpt-7000，初始值是随机 model_128)
+                             
+                             
+                             2017-05-17 01:22:09,089 root  INFO     step_time: 0.085994, loss: 0.000800, step perplexity: 1.000800
+                             910.601306 out of 1000 correct  91%    (attention_ocr新版本，针对数字、小写训练的translate.ckpt-10000.meta,初始值随机 )
+                             836.000000 out of 1000 correct  83%    (attention_ocr新版本，针对数字、大小写不分训练的translate.ckpt-50000.meta,初始值随机)
+                             656.000000 out of 1000 correct  65%    (attention_ocr新版本，针对数字、大小写分开训练的translate.ckpt-10000.meta,初始值随机 5.18)
+                             2901.000000 out of 3689 correct 68%    (attention_ocr新版本，针对数字、大小写分开训练的translate.ckpt-42000.meta,初始值随机 5.18)
+                             
+                            856.000000 out of 1303 correct  65%(word)   (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-6000.meta,初始值随机)
+                            5807.000000 out of 7016 correct 83%(word)   (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-40000.meta,初始值translate.ckpt-6000.meta)
+                            3258.000000 out of 4103 correct 80%(word)   (attention_ocr新版本，针对数字、大小写不分训练、128 的translate.ckpt-26000.meta,初始值随机)
+                            1142.000000 out of 1368 correct 83%(word)   (attention_ocr新版本，针对数字、大小写不分训练、128、编码gru 的translate.ckpt-62000.meta,初始值随机)
+                            1231.000000 out of 1340 correct 92%(word)   (attention_ocr新版本，针对数字、大小写不分训练、128、编码gru、字典矫正 的translate.ckpt-62000.meta,初始值随机)
+
+                            
+   iiit5k(不分大小写)        812.841730 out of 1000 correct  81%       (attention_ocr新版本，针对数字、大小写不分训练的translate.ckpt-50000.meta,初始值随机)
+                             629.000000 out of 1000 correct  63%(word) (attention_ocr新版本，针对数字、大小写不分训练的translate.ckpt-50000.meta,初始值随机)
+                             
+                            1487.000000 out of 2965 correct 50%(word)  (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-6000.meta,初始值随机)
+                            1960.000000 out of 3000 correct  65%(word)  (attention_ocr新版本，针对数字、大小写不分训练、512 的translate.ckpt-40000.meta,初始值translate.ckpt-6000.meta)
+                            1844.000000 out of 3000 correct  61%(word)  (attention_ocr新版本，针对数字、大小写不分训练、128 的translate.ckpt-26000.meta,初始值随机)
+                            1866.000000 out of 2777 correct  67%(word)  (attention_ocr新版本，针对数字、大小写不分训练、128、编码gru 的translate.ckpt-62000.meta,初始值随机)
+    备注：
+    1. （attn-num-hidden）隐藏单元个数增大，loss下降会更快些；
+    
+2017-5-2:
+1. attention-ocr: https://github.com/da03/Attention-OCR  ocr识别 （Attention-OCR: Visual Attention based OCR）
+   https://www.zhihu.com/question/36591394  （attention_ocr解释）
+   http://blog.csdn.net/qq_21190081/article/details/53083516
+   数据集：（ Synth 90k）http://www.robots.ox.ac.uk/%7Evgg/data/text/#sec-synth  （This dataset consists of 9 million images covering 90k English words, and includes the training, validation and test splits used in our work.）
+   本机上跑的：容器需要keras 1.1.1  tensorflow 0.11.0  http://blog.csdn.net/u012436149/article/details/53166664
+   nvidia-docker run -d -p 1006:6001 -p 1883:8888 -v /root/project:/opt --name attention_ocr --restart=always -e PASSWORD=a1b2c3 tensorflow/tensorflow
+   python src/launcher.py --phase=train --data-path=../sample/sample.txt --data-base-dir=../sample --log-path=train_log.txt 
+   python src/launcher.py --phase=test --visualize --data-path=../evaluation_data/svt/test.txt --data-base-dir=../evaluation_data/svt --log-path=test_log.txt --load-model --model-dir=../model --output-dir=../results --old-model-version --gpu-id=1
+   python src/launcher.py --phase=test --visualize --data-path=../evaluation_data/icdar13/test.txt --data-base-dir=../evaluation_data/icdar13 --log-path=test_log.txt --load-model --model-dir=../model --output-dir=../results --old-model-version
+   
+   Target vocabulary size. Default is = 26+10+3 # 0: PADDING, 1: GO, 2: EOS, >2: 0-9, a-z
+   step perplexity = math.exp(step_loss) 
+   logging.info('%f out of %d correct' %(num_correct, num_total))
+   作者提供的模型是47200*64 
+   
+   SVT数据集测试，accuracy是68%，而作者给的80%
+                   188.780794 out of 647 correct  (没有--old-model-version)
+   icdar13数据集测试：75%
+   docker run -d  -v /dataTwo:/opt --name attention_ocr_zj --restart=always -e PASSWORD=a1b2c3  tensorflow/tensorflow:latest-gpu  
+   
+   attention model: https://www.zhihu.com/question/36591394
+                    http://blog.csdn.net/qq_21190081/article/details/53083516
+                    http://blog.csdn.net/u014595019/article/details/52826423 (不错)
+    参考论文：https://arxiv.org/pdf/1603.03915v2.pdf Robust Scene Text Recognition with Automatic Rectification
+              更新的模型与给的有些不同：https://arxiv.org/pdf/1609.04938.pdf  What You Get Is What You See: A Visual Markup Decompiler
+              http://lstm.seas.harvard.edu/latex/#model
+                    
+2. http://blog.csdn.net/tmylzq187/article/details/51500379   Recursive Recurrent Nets with Attention Modeling for OCR in the Wild  
+    http://www.cosmosshadow.com/ml/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/2016/03/08/Attention.html
+3. 安装tensorflow0.11.0   http://blog.csdn.net/u012436149/article/details/53166664
+   sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl   
+   安装Image  
+   pip install keras==1.1.1
+4. tar -zxvf archive_name.tar.gz
+5. docker hub 上重新拉个镜像
+6. ord()函数是chr()函数（对于8位的ASCII字符串）或unichr()函数（对于Unicode对象）的配对函数，它以一个字符（长度为1的字符串）作为参数，返回对应的ASCII数值，或者Unicode数值，如果所给的Unicode字符超出了你的Python定义范围，则会引发一个TypeError的异常。
+    >>> chr(65)
+    'A'
+    >>> ord('a')
+    97
+7. 安装PIL，有错误,img.resize()函数内部出错，但是不会报错，最后重新安装pip install Image,就OK
+8. print (word) #(padding,(3~39),EOS)  48~57(0~9) 97~122(a~z)  ord():get ASCII value 
+   door 对应的[1, 16, 27, 27, 30, 2]
+   不同的图片大小归一化到不同的w*32 
+   
+   self.bucket_specs数据的规格(encoder_input_len，decoder_input_len) 有五对编解码输入长度
+   bucket [(16, 32), (27, 32), (35, 32), (64, 32), (80, 32)]??????
+    
+   正确率是针对字符的
+   
+   一个算法学习了一种递归网络策略，可以将它的注意力集中在图像周围；特别的，它学会了从左到右阅读门牌号码（ Ba等人 ）
+9. 重新训练的attention_ocr模型--attn-num-hidden 256 ，所以在测试时，需要修改--attn-num-hidden 256 ，因为默认该参数是128；
+   测试translate.ckpt-5000的， 没有一个正确识别的结果；??????????? 原因10K的数据集打的标签跟作者提供的sample的标签不一样，所以导致训练的模型不能用；
+   10K数据集： ./2425/1/80_SILTIEST_70955.jpg 70955 
+                文件夹/文件夹/索引_word_词典中对应的索引（lexicon.txt）
+                该数据集中有大写字符，但是代码中设置的是只针对0~9和a~z;  lexicon.txt中只有小写、数字，sample中有大写、小写没数字。
+    解决办法：首先修改代码使图片对应的标签正确
+    1）加判断，只训练小写+数字；  在90k annotation_test.txt(89万，数字大小写)  2044.814422 out of 2680 correct  76%  translate.ckpt-7000 (随机初始值)
+                                                                               204.749062 out of 2680 correct        translate.ckpt-45500 （translate.ckpt-7000作为初始值）
+                                                                               398.133292 out of 2680 correct        translate.ckpt-7000
+
+ 
+    2）改代码，训练大小写+数字；
+    代码只针对小写、数字标签做出来的，对于大写标签会报错；
+10.  test 存在的问题是：预测只会给带有word的图片，没有word，那么decoder_inputs、target_weights的数据就为空，代码会报错。因为这些数据与word有关!!!!!!!!!!!!  
+11. putty error: network error:software caused connection abort
+    解决办法:在putty 的Connection 项目中设定enable TCP keepalives  http://blog.csdn.net/l1028386804/article/details/42430559 
+ 
+  
+2017-4-27：
+1. 输入一条命令的同时，利用tee命令将结果输出到文件。
+   例如ifconfig | tee ifconfig.log
+   
+2017-4-26：
+1. textboxes: 针对文本检测
+   1) 修改example/TextBoxes/test_icdar13.py中相应的路径；
+   2) python example/TextBoxes/test_icdar13.py 
+      Check failed: error == cudaSuccess (2 vs. 0)  out of memory
+     *** Check failure stack trace: ***
+     Aborted (core dumped)
+     原因：GPU都被占着
+     修改：将test_icdar13.py代码#caffe.set_mode_gpu()屏蔽掉，就可以跑cpu版本。
+   3) 检测图片的名字是存放到.list文件中；
+   4) TextBoxes/test_icdar13_multi_scale.py 多尺度检测其实就是同一副图像归一化到不同尺度进行多次检测
+   5) 画网络结构：python ./python/draw_net.py ./examples/TextBoxes/deploy.prototxt TextBoxes_net.png
+   6）识别https://github.com/bgshih/crnn
+   7) train_icdar13.py（需要修改样本路径） 生成jobs、models文件夹，这些是为训练做准备的；
+   8)caffe训练模型： ./build/tools/caffe train \
+    --solver="models/VGGNet/text/longer_conv_300x300/solver.prototxt" \
+    --weights="examples/TextBoxes/TextBoxes_icdar13_zj.caffemodel" \
+    --gpu 0 2>&1 | tee jobs/VGGNet/text/longer_conv_300x300/VGG_text_longer_conv_300x300.log
+   9) Check failed: fd != -1 (-1 vs. -1) File not found: models/VGGNet/text/longer_conv_300x300/solver.prototxt
+      将路径改成绝对路径
+      
+ 2.重新编译caffe:
+   make clean
+   make all -j8
+   make test -j8
+   make runtest 
+   测试：python
+         import caffe
+  备注： make pycaffe （编译python版本的caffe）
+   修改环境变量：
+   vim /etc/profile
+   export PYTHONPATH=/opt/modules/caffe/python:$PYTHONPATH  
+   source /etc/profile
+   
+   export PYTHONPATH=/opt/zhangjing/caffe/caffe-ssd/python  （如果同一个路径显示出现多了，可用这句话替换成一个）
+   echo $PYTHONPATH （显示）
+ 3. ./darknet detect cfg/yolo-fcrn.cfg backup/yolo-fcrn_70000.weights data/dog.jpg -thresh 0.5  
+    训练时，loss来回震荡，减小loss进行训练
+
+   
+2017-4-25:
+1. CUDA Error: out of memory
+  darknet: ./src/cuda.c:36: check_error: Assertion `0' failed.
+  Aborted (core dumped)
+  1)换容器测试过，还报同样的问题；
+  2)错误定位到parser.c 中parse_network_cfg()的cuda_make_array(0, (workspace_size-1)/sizeof(float)+1);
+  3)跟batch大小有关系，将batch改小测试OK；caffe Check failed: error == cudaSuccess (2 vs. 0) out of memory 可能跟batch大小有关。
+  4)使用yolo自带的：./darknet detector train ./cfg/voc.data ./cfg/yolo.cfg 测试，跳过上面问题，说明环境没问题；
+  5)使用./darknet detector train ./cfg/voc-fcrn.data ./cfg/yolo.cfg测试，ok，问题应该是我修改的yolo-fcrn.cfg有问题；
+2. 深度机器学习中的batch的大小对学习效果有何影响？https://www.zhihu.com/question/32673260
+3. 在计算视觉的领域中，Pascal VOC Challenge 就好比是数学中的哥德巴赫猜想一样。Pascal的全称是Pattern Analysis, Statical Modeling and Computational Learning。
+   每年，该组织都会提供一系列类别的、带标签的图片，挑战者通过设计各种精妙的算法，仅根据分析图片内容来将其分类，最终通过准确率、召回率、效率来一决高下。 
+   标签是xml形式给的。
+
+2017-4-24：
+1. make: Nothing to be done for `all'. 这句提示是说明你已经编译好了，而且没有对代码进行任何改动。
+  若想重新编译，可以先删除以前编译产生的目标文件：
+  make clean
+  然后再
+  make
+2. yolo的环境： 
+   1) 下载：https://github.com/pjreddie/darknet 
+   2) make clean ,make -j16 就把darknet环境编辑好了，
+ 备注：cuda gpu安装文档网上很多； 如果不适用gpu、cuda，可修改makefile文件。
+3. 使用FCRN修改yolo v2的网络结构，重新训练：
+   1) yolo-fcrn.cfg: 修改网络结构
+      [region]  classes=2
+   2) 修改voc-fcrn.data : 数据集的路径等
+      data/voc-fcrn.names
+   3) 制作训练数据集：直接使用珊姐制作的数据(images+labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080)：/data/train.txt  /data/test.txt 
+      图片：/notebooks/yushan/darknet-master/textdata/images/kathmandu_147_28.jpg  
+      标签：/notebooks/yushan/darknet-master/textdata/labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080/kathmandu_147_28.txt
+      /notebooks/yushan/darknet-master/textdata/labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080  只需给出.txt文件，代码会在.txt图片路径的上一层找labels_864_1080_ratio_new_ratio_new_ratio_ratio_new_1080。 
+   4) ./darknet detector train ./cfg/voc-fcrn.data ./cfg/yolo-fcrn.cfg
+     error：darknet: ./src/parser.c:271: parse_region: Assertion `l.outputs == params.inputs' failed.
+4. /src/darknet.c  (入口)
+   /src/detector.c  （run_detector():属性(train、valid、valid2、recall、demo))
+   /src/network.c  ()
+   
+  //每100次或者1000次保存一次权重
+  
+  显示：
+   1)detector.c         1: 510.682007, 510.682007 avg, 0.000000 rate, 17.967775 seconds, 1 images
+     printf("%d: %f, %f avg, %f rate, %lf seconds, %d images\n", get_current_batch(net), loss, avg_loss, get_current_rate(net), sec(clock()-time), i*imgs);
+     get_current_batch(net) = *net.seen/imgs  (imgs=net.batch*net.subdivisions, imgs是一次加载到内存的图像数量，/net.seen就是已经经过网络训练（看）的图片数量)
+   2) region_layer.c
+      printf("Region Avg IOU: %f, Class: %f, Obj: %f, No Obj: %f, Avg Recall: %f,  count: %d\n", avg_iou/count, avg_cat/class_count, avg_obj/count, avg_anyobj/(l.w*l.h*l.n*l.batch), recall/count, count);
+   3) 
+   
+   printf  在屏幕上打印
+   subdivisions越大，越等降低提示信息频率 
+5. 待解决问题：
+  1) gpu_index = -1;
+  2) Region Avg IOU: 0.125526, Class: 1.000000, Obj: 0.719640, No Obj: 0.665917, Avg Recall: 0.000000,  count: 37  在哪显示
+  3)//jitter是什么意思呢？可以参考这篇博客：[非均衡数据集处理：利用抖动(jittering)生成额外数据](http://weibo.com/1402400261/EgMr4vCC2?type=comment#_rnd1478833653326)
+  
+
+
+2017-4-21:
+1.  u_index = np.ones((16,16),dtype=np.int) 
+    for j in range(0, 16): 
+        u_index[:,j] = u_index[:,j]*j#*32+16   
+    ku = K.variable(value=u_index, dtype='int8', name=None) #shared(u_index)
+    ku数据如下：
+[[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]]
+    x_index = T.set_subtensor(ku[(ku<2).nonzero()], 0)
+    #print (K.eval(x_index))
+    x_index = T.set_subtensor(x_index[(ku>2).nonzero()], 0) 
+    temp = T.set_subtensor(u_true[(c_discounted>0).nonzero()], 0) 
+    u_true = T.set_subtensor(u_true[(x_index>0).nonzero()], u_true[(x_index>0).nonzero()]*32 + j*32+16)
+    u_true得到的结果就是针对值为2的位置进行处理的。因为ku==2，会报错误，所以只能这样的获得==2的位置。
+    
+2. 最近一个月工作总结：
+   1). FCRN:  Fully-Convolutional Regression Network  http://blog.csdn.net/u010167269/article/details/52389676
+   2). 修改并制作数据集（斜矩形，计算矩形的w、h有问题，cos、sin位置反了等）
+   3). 作者loss是针对正矩形写的，修改成斜矩形按照yolo的方式写
+   4). 输出为7*16*16: 做nms(非极大值抑制)处理结果
+3. 如果提示source命令找不到，就su切换到root目录，
+   source /etc/profile
+ 
+
+
+2017-4-20:
+1. 查看opencv版本： pkg-config --modversion opencv
+2. 测试yolo v1 : ./darknet yolo test cfg/yolo.cfg cfg/yolo.weights data/dog.jpg 
+   提示：Not compiled with OpenCV, saving to predictions.png instead  检测结果中目标没有被框上
+3. c_true = np.array(y_true[i, 6, :,:].reshape((delta, delta))) 将tensor转成np.array, 其实只是将格式转成np.array，数据还是tensor, 
+   K.eval(y_pred)等于np.array， 但是y_pred必须要有值。
+   print (K.int_shape(y_true))  #None,None,None,None  
+   print (K.int_shape(y_pred))  #None,7,16,16   因为是占位符：c_true = y_true[i, 6, :,:].reshape((delta, delta)) 不会报错
+   但是 K.int_shape(y_pred)[0] == None  
+备注：int_shape(x)，以整数Tuple或None的形式返回张量shape  （ from keras import backend as K） x是空的会报错
+   https://github.com/fchollet/keras/blob/master/keras/losses.py  
+   
+4. loss_coord = 5*(K.abs(tl_pred[0]-tl_true[0]) + K.abs(tl_pred[1]-tl_true[1]) +
+                    K.abs(tr_pred[0]-tr_true[0]) + K.abs(tr_pred[1]-tr_true[1]) +
+                    K.abs(br_pred[0]-br_true[0]) + K.abs(br_pred[1]-br_true[1])) 不会报错
+                    
+    loss_coord = 5*(K.abs(tl_pred[0]-tl_true[0]) + K.abs(tl_pred[1]-tl_true[1]) +
+    K.abs(tr_pred[0]-tr_true[0]) + K.abs(tr_pred[1]-tr_true[1]) +
+    K.abs(bl_pred[0]-bl_true[0]) + K.abs(bl_pred[1]-bl_true[1])  会报语法错误
+5. yolo.weights 与 yolo.cfg 版本必须配套，不然不会出结果； 如果没有opencv，检测结果就只会报存在predictions.png,不会弹出来。
+   Yolov1测试:  ./darknet yolo test  cfg/yolo.cfg cfg/yolo.weights data/dog.jpg -thresh 0.5
+   Yolov2测试：./darknet detect cfg/yolo.cfg cfg/yolo.weights data/dog.jpg -thresh 0.5
+6. 将loss_fcrn改成用keras写的，
+   使用loss = loss_coord + loss_c，loss在不断增加；单个loss_c是在下降；单个loss_coord是在增加。
+ 
+备注:计算坐标loss时,只对有目标区域的进行回归；
+    若采用相同的权值，那么不包含物体的格子的confidence值近似为0，变相放大了包含物体的格子的confidence误差在计算网络参数梯度时的影响。
+    对于不包含物体的格子loss = 0.5*fabs(c_pred-c_true); 对于包含物体的格子loss = fabs(c_pred-c_true).
+    
+7. Detecting Text in Natural Image with Connectionist Text Proposal Network[paper][demo][code]  字符检测  (ECCV, 2016)
+    http://textdet.com  可在线测试，对于垂直的字符检测不到
+    http://blog.csdn.net/peaceinmind/article/details/51387367
+    https://github.com/tianzhi0549/CTPN   
+    (python ./tools/demo.py --no-gpu, 需要先进入caffe下面编译下caffe, cp Makefile.config.example Makefile.config； 取消Makefile.config中cuda、gpu的可用标志)
+     在other.py文件中draw_boxes添加cv2.imwrite(caption, im)屏蔽cv2.imshow(caption, im)
+     没有训练的代码。
+8. sudo apt-get install cython  
+9. c_discounted = T.set_subtensor(u_true[(ku==j).nonzero()], 0.1)# u_true[(ku<j).nonzero()]*32 + j*32+16)
+   如果ku==j,会报错误： AttributeError: 'bool' object has no attribute 'nonzero'
+   
+   ku = K.variable(value=u_index, dtype='int8', name=None) https://github.com/Theano/theano/blob/52903f8267cff316fc669e207eac4e2ecae952a6/theano/tensor/var.py#L688-L690
+   print (type(ku)) #<class 'theano.tensor.sharedvar.TensorSharedVariable'>
+   
+   ku = K.variable(value=u_index, dtype='int8', name=None) 与shared(u_index)是相同的
+   print (K.eval(ku)) #显示ku的值
+   
+
+2017-4-19:
+1. 将作者给的斜矩形改成正矩形，重新跑数据集： python build_dataset_ys_square.py /notebooks/datasets/data/str/SynthText ../h5
+2. 如果没GPU就安装不上CUDA
+3. 跑训练：THEANO_FLAGS=device=gpu1,floatX=float32 python train_model_predict_zj_0417.py   (./h5 )
+4. 修改fcrn_loss_new()报的错，THEANO_FLAGS=device=gpu1,floatX=float32 python train_model_predict_zj.py
+   1) return loss #不会报错
+   loss = K.square(y_pred - y_true)
+   print (type(loss)) #theano.tensor.var.TensorVariable
+   2) 如果没有return语句：
+   return x.ndim
+   AttributeError: 'NoneType' object has no attribute 'ndim'
+   备注：K.variable(value=1, dtype='float32', name=None) #<class 'theano.sandbox.cuda.var.CudaNdarraySharedVariable'>
+   3) return np.array(u_true) #TypeError: argument of type 'numpy.dtype' is not iterable
+      
+
+2017-4-18：
+1. bounding box：中心点坐标没有恢复到原图上
+2. 在训练图片上测试fcrn模型，效果不佳，loss=0.03
+3. 修改loss, 将已知中心点、w、h，求出斜矩形的四个点坐标，仿照yolo loss的求法来修改loss,
+   重新训练模型：THEANO_FLAGS=device=gpu1,floatX=float32 python train_model_predict_zj_0418.py
+   报错，问题目前还没解决
+
+   
+2017-4-17:
+1. THEANO_FLAGS=device=gpu1,floatX=float32 python train_model_predict_zj_0417.py
+2. overlap 重叠
+3. https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/mcg/   MCG: Multiscale Combinatorial Grouping 图像分割
+4. 问题：使用1000个小数据集训练，第一个epoch还没完，loss就变成nan,对该模型预测的结果是啥都检测不到；
+   原因：使用caffe训练时Loss变为nan的原因 :http://blog.csdn.net/huangynn/article/details/52947894
+   解决办法：
+   1)调参数：学习率一般是往低了调整，但是调高调低都不能解决问题。
+   min_batch调大，会报内存不足。
+   2)检查代码：发现打标签的h5数据中cos、sin位置写反了；16*16*7中没有目标的标签为0； 
+   重新训练：python build_dataset_ys.py /notebooks/datasets/data/str/SynthText ../h5
+   
+   对重新训练的数据进行测试，效果不行；
+   修改loss,即对final_c放大5倍，重新训练： 
+5. 用 teamviewer 远程连接 192.168.200.120  一个带桌面环境和GPU的Ubantu机器  ID：989508814 密码：5793 
+6. nvidia-smi
+7. 虚拟机默认是2核，可以变成多核
+8. 练习写代码 https://www.codewars.com/
+9. 登录ubuntu界面：192.168.200.102:4  
+
+2017-4-14：
+1. 跑数据集： python build_dataset_ys.py /notebooks/datasets/data/str/SynthText ../h5_data
+2. error： only length-1 arrays can be converted to Python scalars  要求输入是个数值
+3. 可能由于训练模型的问题导致输出的R = sqrt(cos^2 + sin^2)不等于1；
+4. x1 = x0*cos + y0*sin   
+   y1 = -x0*sin + y0*cos
+   (x0,y0)旋转a角度到(x1,y1)
+   备注：旋转前后w、h不变，中心点位置发生变化，需要根据旋转前后中心点的变化，将旋转后的点平移
+   斜矩形的中心点：
+    x_min = min(tl[0],tr[0],bl[0],br[0])
+    x_max = max(tl[0],tr[0],bl[0],br[0])
+    y_min = min(tl[1],tr[1],bl[1],br[1])
+    y_max = max(tl[1],tr[1],bl[1],br[1])
+    
+    # find midpoint
+    (x,y) = (float((x_min + x_max)) / 2.0, float((y_min + y_max) / 2.0))
+5. 判断点是否在一个矩形内：只需要判断该点是否在上下两条边和左右两条边之间就行，判断一个点是否在两条线段之间夹着，就转化成，判断一个点是否在某条线段的一边上，
+   就可以利用叉乘的方向性，来判断夹角是否超过了180度。http://blog.csdn.net/liangzhaoyang1/article/details/51090625
+6. 非极大值抑制算法（Non-maximum suppression, NMS）: 主要目的是为了消除多余的框，找到最佳的物体检测的位置。
+   原则：如果2个区域的IOU大于某个阈值，则保留confidence最大的那个区域；如果2个区域的IOU小于某个阈值，则两个区域都保留；
+   IOU:是指两个矩形区域的交集 / 并集，编写代码时
+   物体检测中应用NMS算法的主要目的是消除多余（交叉重复）的窗口，找到最佳物体检测位置。主要判断点是否被排除
+7. arr = np.array([2,1,4,13,7,5,40,8,3,20])
+   print (arr)
+   print (np.where(arr>5,100,-100))
+   备注：np.where(cond) 返回满足条件的下标；np.where(cond,max,min)返回所有元素，只是满足条件的用max代替，反之用min代替； 必须是np.array类型
+  
+
+2017-4-13：
+1.制作数据集时，之前求宽度、高度的方法有问题(因为是斜矩形)，导致w/h取负数；
+  修改求w、h方法后，出现0的情况，原因182/turtles_44_14.jpg图片中有的标签打错，矩形打成一条直线。
+2.预测模型的结果是7*16*16的数值，需要将重合的区域排除;7个数值：（centerX，centerY，w,h，cos,sin,confidence）
+
+2017-4-12:
+1. 运行数据生成代码：python build_dataset.py /notebooks/datasets/data/str/SynthText ./h5_data
+   标签是在gt.mat文件里面，使用h5py打开会报错，最后改为scipy来打开。
+2. http://blog.csdn.net/liangzhaoyang1/article/details/51090625  判断点是否在斜矩形内，可以判断点是否在2条线之间，使用向量知识，目前还没弄清楚
+3. 在给数据打标签时，因为是斜矩形求w、h有问题；
+ 
+2017-4-11:
+1. Deeper Depth Prediction with Fully Convolutional Residual Networks (FCRN)完全卷积剩余网络预测图像深度  https://github.com/iro-cp/FCRN-DepthPrediction  
+2. 0.01*1.05^|iter/100| A geometric / exponential increase with a multiplier of 1.05, an initial value of 0.01 and updates after every 100 iterations (with a batch size of 16) is what I used.
+3. jaderberg's approach 第二作者最后用的这个人的算法，其实就是read text   
+4. 预测模型检测结果，需要加载模型以及每层的权重参数；
+5. from scipy.misc import imread,imresize 
+   ImportError: cannot import name imread
+   解决办法：需要pip install PIL or Pillow
+6. loss function:论文作者跟代码作者之间交流，说discount_step=0.01*1.05^|iter/100|,但是keras代码将迭代次数封装在里面，没法获得iter值，所以就设置为1/(nb_epoch*num_samples_per_epoch)
+
+2017-4-10:
+1.容器：nvidia-docker run -d  -v /dataTwo:/notebooks --name textspot_standalone --restart=always -e PASSWORD=a1b2c3 gds/keras-th-tf-opencv
+2.跑https://gitlab.com/vggdemo/textspot_standalone的代码
+1）安装matlab2016a runtime，安装在本机/usr/local/MATLAB,目前还不知道如何安装到容器里面？？？
+   ubunti14.04 matlab runtime安装方法：http://www.linuxidc.com/Linux/2016-08/134258.htm
+2）sh-4.3$ sudo ./run.sh /usr/local/MATLAB/MATLAB_Runtime/v901 --input /examples/frames.txt --output out.xml --mode opt --verbose --gpuID 0
+[sudo] password for yangmiao:
+no talloc stackframe at ../source3/param/loadparm.c:4864, leaking memory
+yangmiao 不在 sudoers 文件中。此事将被报告。
+原因：权限问题
+解决办法：
+$:su root
+密码：airoot 
+切换到root权限
+3）sudo ./run.sh /usr/local/MATLAB/MATLAB_Runtime/v901 --input /examples/frames.txt --output out.xml
+文件标识符无效。使用 fopen 生成有效的文件标识符。
+问题出现在run.sh中：eval "\"${exe_dir}/readpic\"" $args
+readpic是个压缩文件，运行example_no_gpu.sh会生成.mcrCache9.0.1文件夹
+4)$：./examples/example_no_gpu.sh
+结果输出：out.xml
+
+再次$：./examples/example_no_gpu.sh
+有时会出现错误：RecReg round 1...
+        running model...
+需要的 第 2 个输入, PADSIZE, 应为以下类型之一:
+double
+但其类型是 single。
+可以不用考虑该错误，再次执行./examples/example_no_gpu.sh
+注意：同一个数据，每次的检测结果都不相同。
+5）.mcrCache9.0.1文件夹中的.m文件打开是乱码(显示V1MCC4000MEC1000MCR1000x这串代码，并且后缀乱码)，可能是该文件被加密了或编码过了，如果只是中文乱码，可通过修改字体来解决。
+ 不是真的.m文件而是运行mcc的编译文件，可能是一个a matlab .ctf (Component Technology File) or .p (p-code)
+file.http://cn.mathworks.com/matlabcentral/newsreader/view_thread/167857
+http://blog.csdn.net/anymake_ren/article/details/38367293 ( 将Matlab的M文件转为P文件和exe可执行文件达到加密效果 ) 
+生成p文件的方法很简单，在command wondow里面用 mcc -B pcode file.m命令转化为pcode文件，据说是不会被反编译的。他的缺点是不能够脱离Matlab单独运行，
+必须还在command window里面调用，可移植性不强。http://blog.sina.com.cn/s/blog_6d963b350102uw82.html (P文件为了保护知识产权设计的一种加密文件，P文件是对应M文件的一种预解析版本)p文件是由AES算法加密的，AES的密钥又被RSA算法加密
+
+知识点补充：
+1.eval 就是将命令执行两次
+第一次，执行变量替换
+第二次，执行替换后的命令串
+2.$:ll (LL的小写) 显示所有文件的权限
+-rw-r--r-- 1 root root 6148  9月 21  2016 .DS_Store
+-rw-r--r-- 1 root root  802  9月 21  2016 example_gpu.sh
+-rwxrwxrwx 1 root root  679  9月 21  2016 example_no_gpu.sh*
+drwxr-xr-x 2 root root 4096  4月 10 09:46 frames/
+R-读(4)，W-写(2)，X-执行(1)
+RW-R-R，第一部分RW代表当前用户具有读写的权限。第二部分的R代表当前用户所在的用户组中其他成员只有读得权限，最后一个R表示额外的其他用户只有读得权限。
+chmod 755 filename  修改文件权限
+chmod -R 755 文件夹名 (更改权限，递归方式)
+为了站点安全一般的权限:
+目录权限755
+文件权限644
+3.find . -name "*.jpg" >train.txt   //". "代表当前目录   http://www.jb51.net/os/RedHat/1307.html
+train.txt结果：
+./frames/2.jpg
+./4.jpg
+
+3. 跑THEANO_FLAGS=device=gpu1,floatX=float32 python train_model.py  (使用GPU)  
+   Synthetic Data for Text Localisation in Natural Images:  http://blog.csdn.net/u010167269/article/details/52389676
+1）修改axis=0, K.mean(K.concatenate(images).reshape((mini_batch_size, 7, delta, delta)), axis = 0)
+运行报错：
+ CudaNdarray_CopyFromCudaNdarray: need same dimensions for dim 1, destination=7, source=10
+Apply node that caused the error: GpuAlloc(GpuElemwise{Composite{((i0 * i1 * i2) / i3)},no_inplace}.0, TensorConstant{10}, TensorConstant{7}, TensorConstant{16}, TensorConstant{16})
+2）修改过学习率、loss function等，训练的loss、accuracy都在不断下降，并且accuracy小于10%，loss=100左右。
+
+4.深度神经网络训练的技巧 http://m.blog.csdn.net/article/details?id=52015175
+1)为什么要零均值化（Mean Subtraction）？
+数据有过大的均值可能导致参数的梯度过大，如果有后续的处理，可能要求数据零均值，比如PCA。零均值化并没有消除像素之间的相对差异，人们对图像信息的摄取通常来自于像素之间的相对色差，而不是像素值的高低。
+2)为什么归一化(Normalization)？
+归一化是为了让不同维度的数据具有相同的分布。
+3)从学习率观察。太高的学习率，loss曲线会很奇怪，很容易会出现参数爆炸现象；低学习率，loss下降很慢；高学习率，一开始loss会下降很快，但很容易跌入局部最小值；
+好的学习率应该平滑下降。
+4)放大loss曲线观察。横坐标是epoch（网络在整个训练集上完整的跑一遍的时间，所以每个epoch中会有多个mini batches），纵坐标是每个训练batch的分类loss。
+如果loss曲线表现出线性（下降缓慢）表明学习率太低；如果loss不再下降，表明学习率太高陷入局部最小值；曲线的宽度和batch size有关，如果宽度太宽，
+说明相邻batch间的变化太大，应该减小batch size。
+5)从精确率曲线观察。红色线是训练集上的精确率，绿色验证集上的精确率。当验证集上精确度收敛时，红线和绿线间隔过大很明显训练集上出现了过拟合。
+当两线间隔很小且准确率都很低时，说明模型学习能力太低，需要增加模型的capacity。
+
+5.FCN、UCM分割算法，基于深度的
+
