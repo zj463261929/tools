@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <folder>VOC2007</folder>
+  <filename>180521070125.jpg</filename>
+  <source>
+    <database>The GDS Database</database>
+    <annotation>PASCAL VOC2007</annotation>
+    <image>flickr</image>
+    <flickrid>12345678</flickrid>
+  </source>
+  <owner>
+    <flickrid>12345678</flickrid>
+    <name>GDS</name>
+  </owner>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <segmented/>
+  <object>
+    <name>digger</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>178</xmin>
+      <ymin>408</ymin>
+      <xmax>346</xmax>
+      <ymax>488</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>autotruck</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>977</xmin>
+      <ymin>202</ymin>
+      <xmax>1077</xmax>
+      <ymax>250</ymax>
+    </bndbox>
+  </object>
+</annotation>
