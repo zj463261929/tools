@@ -1,0 +1,157 @@
+1.更新ubutu版本
+sudo apt-get update
+sudo apt update -y
+sudo apt dist-upgrade -y
+sudo do-release-upgrade
+
+【apt-get update中GPG错误： 下列签名无法验证】
+在添加一个PPA时，可能会导致以下错误GPG错误： 下列签名无法验证，这通常发生在终端中运行更新时：
+W: GPG error: http://repo.mate-desktop.org saucy InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 68980A0EA10B4DE8
+我们所要做的，就是获取系统中的这个公钥，从信息中获取密钥号。在上述信息中，密钥号为68980A0EA10B4DE8。
+
+该密钥可通过以下方式下载并导入key：
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8     #此处68980A0EA10B4DE8需要是错误提示的key 
+如果错误码为F76221572C52609D，那么添加秘钥的命令如下：
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D
+
+在添加密钥后，再次运行更新就没有问题了。
+
+此时继续更新发现没有公钥错误提示，但是还是效验存在问题，此时需要打开软件源的界面，将其他软件选项中的Canpnical合作伙伴/独立等四个选项取消勾选，再执行sudo apt-get update
+
+
+
+2.安装docker
+添加docker源的下载路径：（将“”中的内容添加到docker.list中）
+echo “deb http://apt.dockerproject.org/repo ubuntu-xenial main”| sudo tee /etc/apt/sources.list.d/docker.list
+
+或者：
+echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+
+sudo apt-get install docker-engine
+如果此步骤失败
+sudo apt-get install docker-engine
+这个需要网速比较好的时候，否则会容易出错，提示安装包太大，速度太慢
+sudo apt-get install docker.io
+
+3. 安装nvidia驱动
+（1）拷贝驱动安装程序：
+sudo scp yushan@192.168.200.213:/data/Packages/NVIDIA-Linux-x86_64-375.66.run ./
+
+（2）给驱动run文件赋予执行权限：
+sudo chmod +x NVIDIA-Linux-x86_64-375.66.run
+
+（3）安装驱动
+sudo sh NVIDIA-Linux-x86_64-375.66.run 
+
+中间提示没有gcc，make
+使用下面命令安装：
+apt-get install gcc
+apt-get install make
+
+
+4.安装cuda8.0
+（1）拷贝cuda安装程序：
+sudo scp yushan@192.168.200.213:/data/Packages/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb ./
+
+（2）安装
+sudo dpkg -i cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda
+
+(3)设置设置环境变量
+打开系统文件vim ./bashrc，在最后加入以下两句
+export PATH=/usr/local/cuda-8.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+
+执行source .bashrc
+
+
+5.安装cudnn5.1
+（1）拷贝cudnn安装包：
+sudo scp yushan@192.168.200.213:/data/Packages/cudnn-8.0-linux-x64-v5.1.tgz ./
+
+（2）解压缩并复制到路径下
+sudo tar xvf cudnn-8.0-linux-x64-v5.1-tgz
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+
+（3）建立新的软连接
+cd /usr/local/cuda/lib64
+删除原来的cudnn5的软连接：
+sudo rm -rf libcudnn.so.5 libcudnn.so
+
+建立新的cudnn5的软连接：
+sudo ln -s libcudnn.so.5.1.10 libcudnn.so.5.1
+sudo ln -s libcudnn.so.5.1 libcudnn.so
+
+
+6. 安装nvidia-docker
+（1）拷贝nvidia-docker安装包：
+sudo scp yushan@192.168.200.213:/data/Packages/nvidia-docker_1.0.1_amd64.tar ./
+
+（2）解压并拷贝：
+tar -xvf nvidia-docker_1.0.1_amd64.tar
+cp  nvidia-docker/*  /usr/bin  (将解压在 nvidia-docker中的nvidia-docker和nvidia-docker-plugin复制到 /usr/bin下面)
+
+（3）安装：
+sudo -b nohup nvidia-docker-plugin > /tmp/nvidia-docker.log
+
+（4）测试：
+sudo nvidia-docker run --rm nvidia/cuda nvidia-smi
+
+测试成功的结果如下： 
+docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nvidia/cuda         latest              22bde803e760        2 weeks ago         1.226 GB
+ 
+如果报如下错误：
+docker: Error response from daemon: create nvidia_driver_352.79: create nvidia_driver_352.79: Error looking up volume plugin nvidia-docker: plugin not found.
+See 'docker run --help'.
+解决办法：
+nvidia-docker volume setup
+docker volume ls
+DRIVER              VOLUME NAME
+local               nvidia_driver_352.79
+ 
+再次运行nvidia-docker run --rm nvidia/cuda nvidia-smi
+
+
+7.挂载磁盘
+（1）查看硬盘分区：
+fdisk -l
+
+（2）新建磁盘分区：
+比如/dev/sda有3.7T的空间
+fdisk  /dev/sda
+然后根据索引建立分区，基本都是选默认值。其中n表示新建分区，w表示保存结果
+最后新建一个/dev/sda1的分区
+
+（3）格式化分区：
+mkfs.ext4 /dev/sda1
+
+ (4) 新建挂载点并挂载
+ mkdir /data
+ mount /dev/sda1 /data
+ 
+ 然后使用 df -k 查看挂载的磁盘信息，确认是否挂载成功
+ 
+ （5）设置开机自动挂载
+ vim /etc/fstab
+ 在最后一行添加：
+ /dev/sda1      /data            ext4  defaults 0 2
+(分区)           （挂载点） 
+
+（6）reboot
+
+
+
+
+查看CUDA cudnn版本：	cat /usr/local/cuda/version.txt	 #CUDA Version 8.0.44
+查看ubuntu版本号：	cat /etc/issue
+查看cudnn版本号：	cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #CuDNN版本为 5.1.5
+
+
+
+
+
+

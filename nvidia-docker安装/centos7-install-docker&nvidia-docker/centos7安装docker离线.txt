@@ -1,0 +1,79 @@
+
+
+
+centos 7 安装docker
+
+1、下载安装包
+Go to https://download.docker.com/linux/centos/7/x86_64/stable/Packages/ and download the .rpm file for the Docker version you want to install.
+
+下载：
+docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+docker-ce-17.03.0.ce-1.el7.centos.x86_64.rpm
+
+
+2、安装
+安装命令：yum install /path/to/package.rpm
+
+首先先安装docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+yum install /path/to/docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+
+然后安装docker-ce-17.03.0.ce-1.el7.centos.x86_64.rpm
+yum install /path/to/docker-ce-17.03.0.ce-1.el7.centos.x86_64.rpm
+
+
+3、启动
+systemctl start docker
+
+4、测试
+docker run hello-world
+（会出错，提示不能下载容器）
+
+5、开机启动
+systemctl enable docker
+
+
+安装 nvidia-docker
+1、下载安装包
+https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker-1.0.1-1.x86_64.rpm
+
+2、安装
+rpm -i /path/to/nvidia-docker*.rpm
+
+3、启动
+systemctl start nvidia-docker
+
+4、测试
+nvidia-docker run --rm nvidia/cuda nvidia-smi
+（提示，无法访问地址）
+
+5、开机启动
+systemctl enable docker
+
+***
+安装完docker和nvidia-docker后，重启电脑
+reboot
+
+
+############################################
+卸载 nvidia-docker
+docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
+sudo yum remove nvidia-docker
+
+############################################ 
+problem：
+1. docker start 容器有问题，重启后，docker ps报下面错误。
+
+error:Cannot connect to the Docker daemon at unix:///var/run/docker.sock. 
+        Is the docker daemon running?
+解决办法：systemctl start docker
+彻底解决：增加服务开机启动：  systemctl enable docker
+
+
+2. nvidia-docker run -idt -p 9529:8080 -v /home:/opt --name detecron_gpu1 detecron_gpu
+
+error:docker: Error response from daemon: create nvidia_driver_387.26: create nvidia_driver_387.26: 
+    Error looking up volume plugin nvidia-docker: legacy plugin: plugin not found.
+解决办法：systemctl start nvidia-docker 
+彻底解决：增加服务开机启动：  systemctl enable nvidia-docker
+
+
