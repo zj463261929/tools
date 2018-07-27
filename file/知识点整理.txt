@@ -222,6 +222,16 @@ python: #coding=utf-8
 		import sys #sys是Python内建标准库
 		sys.path.append('/opt/zhangjing/model') #通知解释器除了在默认路径下查找模块外，还要从指定的路径下查找。指定完模块路径后，就可以导入自己的模块了。
 		import _trietree as trieTree
+        
+    #python导出自定义的函数
+        from utils.io import cache_url
+        cache_url(args.weights, cfg.DOWNLOAD_CACHE)
+        备注：utils文件夹名称，io是io.py, cache_url是io.py中的函数。
+    #网页地址的判断
+        is_url = re.match(r'^(?:http)s?://', url_or_file, re.IGNORECASE) is not None
+        if not is_url:
+            return url_or_file
+        
 	#退出程序的方式：
 		sys.exit() #默认为0，表示正常退出，也可以为1，表示异常退出.也不需要考虑平台等因素的影响，一般是退出Python程序的首选方法.
 	#读写到txt中：
@@ -280,6 +290,8 @@ python: #coding=utf-8
 							('目录x'，[目录x下的目录list]，目录x下面的文件)
 				例子：	i
 									内容
+    #python argparse 模块
+        
 	xml读写：
 		读：http://www.cnblogs.com/kaituorensheng/p/4493306.html 
 			import  xml.dom.minidom
@@ -471,6 +483,10 @@ liunx:
 		export PYTHONPATH=/opt/modules/caffe/python:$PYTHONPATH	 
 		source /etc/profile
 	退出终端： ctrl+c、quit(或q)、exit
+    #查看自己的硬盘有哪些: sudo fdisk -l  如/dev/sda、/dev/sdb，  fdisk -l |grep Disk
+    #查看硬盘信息：sudo hdparm -I /dev/sda   
+    #查看硬盘设备信息: lsblk
+    #查看ip: ifconfig -a
 	查看pip版本号：	pip --version
 	# sudo shutdown -h now 立刻关机
 		reboot 				重启
@@ -651,6 +667,8 @@ other:
 	 召回率:	是针对我们原来的样本而言的，它表示的是样本中的正例有多少被预测正确了。
 				那也有两种可能，一种是把原来的正类预测成正类(TP)，
 				另一种就是把原来的正类预测为负类(FN)。R = TP/(TP+FN)
+      例子：一张图片，xml中有一个面包车，检测结果为面包车被检测成面包车、小汽车、大卡车等，面包车那区域除外还有被误检成别的类别，总共检测出来8个bbox.
+        召回率= 1/(1+0)=1, 准确率=1/8
 	
 	#卷积神经网络
 		在视觉神经系统中，一个神经元的感受野是指视网膜上的特定区域，只有这个区域内的刺激才能够激活该神经元。
